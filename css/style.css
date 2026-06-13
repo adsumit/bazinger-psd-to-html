@@ -1,0 +1,904 @@
+/*============================================================FONTS*/
+@font-face {
+    font-family: DroidSansBold;
+    src: url(../font/DroidSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: DroidSans;
+    src: url(../font/DroidSans.ttf);
+}
+@font-face {
+    font-family: Lato-Light;
+    src: url(../font/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../font/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: Lato-Black;
+    src: url(../font/Lato-Black.ttf);
+}
+
+@font-face {
+    font-family: Lato-Regular;
+    src: url(../font/Lato-Regular.ttf);
+}
+/*=====================================================COMMON RAW CSS*/
+*{
+    margin:0px;
+    padding:0px;
+}
+a{
+    text-decoration: none;
+}
+.fullwidth{
+    width: 100%;
+}
+.center{
+    height: inherit;
+    width:1170px;
+    margin: 0 auto;
+}
+/*===============================================================NAVBAR*/
+.header{
+    position: fixed;
+    top: 0px;
+    height: 100px;
+    background-color:rgba(19, 30, 41, 0.73);
+    z-index: 1;
+}
+.header .logo{
+    float: left;
+    padding-top: 16px;
+    display: inline-block;
+}
+.header .logoimg{
+    height: 52px;
+}
+.header .menu{
+    float: right;
+    display: inline-block;
+}
+.header .menu  li{
+    padding-left:17.9px ;
+    padding-right:17.9px ;    
+    float: left;
+    list-style: none;
+}
+.header .menu li a{   
+    font-family: DroidSans;
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 90px;
+    clear: both;
+    display: inline-block;
+    border-top: 1px solid rgba(0, 255, 255, 0);
+    transition: 0.25s;
+}
+.header .menu li a:hover{   
+    color: #4bcaff;
+    border-top: 1px solid #4bcaff;
+}
+.header .menu li:last-child{
+    padding-right: 0px;
+}
+.header .menu li:nth-last-child(8) {
+    padding-left: 0px;
+}
+.header .menu .active{
+    font-family: DroidSansBold;
+    color: #4bcaff;
+    border-top: 1px solid #4bcaff;
+}
+/*==============================================================BANNER*/
+.banner{
+    height: 800px;
+    width: 100%;
+    background-image: url(../img/banner.jpg);
+    background-size: cover;
+}
+.banner_content{
+    float:right;
+    width:670px;
+    height:800px ;
+}
+.banner_content h1{
+    font-size: 48px;
+    margin-top: 350px;
+    color: white; 
+}
+.banner_content .ll{
+    font-family: Lato-Light;
+}
+
+.banner_content .lb{
+    font-family: Lato-bold;
+}
+.banner_content .p{
+    width: 700px;
+    padding-top: 25px;
+    color: white;
+    font-family:  Lato-Light;
+    font-size:  18px;
+}
+.banner_content .button_one{
+    margin-top: 40px;
+    display: inline-block;
+    padding:20px 40px;;
+    color: white;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    border-radius: 7.6px;
+    background-color: none;
+    font-family: Lato-Bold;
+    transition: 0.5s;
+}
+.banner_content .button_one:hover{
+    color: #cbcbcb;
+    border-color: #4bcaff;
+    background-color: rgba(0, 0, 0, 0.44);
+}
+.banner_content .button_two{
+    margin-top: 40px;
+    margin-left: 40px;
+    display: inline-block;
+    padding:20px 40px;;
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #277697;
+    border-bottom-width: 4.8px;
+    border-radius: 7.6px;
+    background-color: #4bcaff;
+    font-family: Lato-Bold;
+    transition: 0.5s;
+}
+.banner_content .button_two:hover{
+    color: white;
+    background-color: rgba(36, 36, 36, 0.58);
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+.banner_content .iconcontainer{
+    width:500px;
+    height: 180px;
+}
+.banner_content .iconcontainer .ptwo{
+    float: left;
+    width: 110px;
+    padding-top: 69px;
+    color: white;
+    font-family: Lato-Light;
+    font-size: 18px;
+}
+.banner_content .iconcontainer .iconcontainerchild{
+    padding-top: 54.9px;
+    float: right;
+    width:360px;
+    height: 50px;
+}
+.banner_content .iconcontainer .iconcontainerchild .appleicon{
+    color: #4bcaff;
+    background-color:black;
+    font-size:25.9px;
+    text-align:center;
+    line-height: 50px;
+    float: left;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.banner_content .iconcontainer .iconcontainerchild .appleicon:hover{
+    background-color:#ffffff;
+    color: #000000;
+}
+.banner_content .iconcontainer .iconcontainerchild .androidicon{
+    color: #4bcaff;
+    background-color:black;
+    font-size:22px;
+    text-align:center;
+    line-height: 50px;
+    margin-left: 12px;
+    float: left;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.banner_content .iconcontainer .iconcontainerchild .androidicon:hover{
+    background-color:#ffffff;
+    color: #000000;
+}
+/*=============================================================FEATURES*/
+.features{
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 555px;
+    padding-top: 45px;
+}
+.features .mainheading{
+    font-family: Lato-Black;
+    font-size: 36px;
+    color: #414042;
+}
+.features .top_para{
+    padding-bottom: 70px;
+    font-family: Lato-Light;
+    color: #414042;
+}
+.features .feat-box{
+    width: 205px;
+    height: 115;
+    float: left;
+    padding: 0 3.74%;
+    cursor: pointer;
+}
+.features .feat-box:hover .icons{
+    background-color: #414042;
+}
+.features .feat-box:hover .feat-info h2{
+    color: #4bcaff;
+}
+.features .feat-box .icons{
+    height: 155px;
+    width: 155px;
+    border-radius: 50%;
+    float: left;
+    margin: 0 10%;
+    text-align: center;
+    background-color: #4bcaff;
+    border: 5px solid #efefef;
+    transition: 0.25s;
+}
+.features .feat-box .icons i{
+    font-size: 70px;
+    padding-top: 42px;
+    color: #fff;
+}
+.features .feat-box .feat-info{
+    float: left;
+    font-family: Lato-Light;
+}
+.features .feat-box .feat-info h2{
+    font-family: Lato-Bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 30px 0;
+    color: #414042;
+}
+.features .feat-box .feat-info p{
+    font-family: Lato-Regular;
+    font-size: 12.34px;
+    line-height: 20.88px;
+    color: #838383;
+}
+/*===========================================================GALLERY*/
+.gallery{
+    text-align: center;
+    height: 545px;
+    background-color: #fff;
+}
+.gallery .mainheading{
+    font-family: Lato-Black;
+    font-size: 36px;
+    padding-top: 45px;
+}
+.gallery .top-para{
+    font-size: 13px;
+    font-family: Lato-Light;
+    padding-bottom: 60px;
+}
+.gallery .gallery-box{
+    width:255px;
+    float: left;
+    padding: 0 1.6%;
+}
+.gallery .gallery-box .photo-box{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 190px;
+    width: 255px;    
+    border-radius: 10px;
+}
+.gallery .gallery-box .photo-box img{
+    transform: scale(1.7);
+    height: 100%;
+    width: 100%;
+}
+.gallery .gallery-box .photo-box .blue-overlay{
+    cursor:pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(75, 202, 255, 0.43);
+    opacity: 0;
+    transition: 0.2s;
+}
+.gallery .gallery-box .photo-box:hover .blue-overlay{
+    opacity: 1;
+}
+.gallery .gallery-box .photo-box .blue-overlay i{
+    transition: 0.5s;
+    font-size: 30px;
+    color: #c7c7c7;
+    text-shadow:5px 5px 10px black;
+    margin-top: 26%;
+    cursor: pointer;
+}
+.gallery .gallery-box .photo-box .blue-overlay i:hover{
+    color: white;
+    text-shadow:5px 5px 10px #d6d6d6;
+}
+.gallery .gallery-box .photo-box .photo-name{
+    position: absolute;
+    bottom: 0;
+    font-size: 14.23px;
+    color: #4bcaff;
+    font-family: Lato-Bold;
+    padding: 4% 0;
+    background-color: rgba(83, 83, 83, 0.61);
+    width: 100%;
+}
+.gallery .gallery-box p{
+    padding: 20px 10%;
+    font-size: 12.34px;
+    line-height: 20.88px;
+    font-family: Lato-Light;
+    padding-bottom: 100px;
+}
+/*==================================================WATCH*/
+.watch {
+    overflow: hidden;
+    height: 520px;
+    position: relative;
+    transition: 0.8s;
+    background-color: rgba(75, 202, 255, 0.61);
+    height: 520px;
+    width: 100%;
+}
+.watch img{
+    position: absolute;
+    left: 0;
+    top: -10%;
+    z-index: -1;
+    width: 100%;
+}
+.watch:hover{
+    background-color: rgba(75, 202, 255, 0.24);
+}
+.watch .center{
+
+}
+.watch .center .play{
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    height: 80px;
+    line-height: 100px;
+    width: 120px;
+    margin: 100px auto;
+    color: #fff;
+    transition: 0.25s;
+    margin-bottom: 50px;
+}
+.watch .center .play:hover{
+    text-shadow: 1px 1px 20px white;
+}
+.watch .center .play i{
+    margin-left: 3px;
+    font-size: 35px;   
+}
+.watch h1{
+    text-align: center;
+    font-family: Lato-light;
+    font-size: 45.55px;
+    color: #fff;
+    font-weight: 100;
+}
+.watch h1 span{
+    font-family: Lato-bold;
+}
+.watch p{
+    font-family: Lato-light;
+    color: white;
+    text-align: center;
+    padding: 4% 22%;
+    font-size: 17.08px;
+}
+/*==================================================PRICE*/
+.price{
+    text-align: center;
+    height: 600px;
+}
+.price h1{
+    margin-top: 50px;
+    font-family: Lato-Black;
+    font-size: 34.17px;
+}
+.price .p{
+    font-family: Lato-Light;
+    font-size: 18.98px:;
+    margin-bottom: 75px;
+}
+.price .packone{
+    height: 395px;
+    width: 285px;
+    float: left;
+    background-color: #f9f9f9;
+    border: 1px solid #e3e0e0;
+    border-radius: 5px;
+    margin: 0 51px;
+    transition: 0.5s;
+}
+.price .packone:hover{
+    transform: scale(1.2);
+}
+.price .packone .packname h4{
+    height: 70px;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 16.13px;
+    font-family: Lato-Bold;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packone:hover h4{
+    color: #91c46b; 
+}
+.price .packone .packprice{
+    height: 110px;
+    line-height: 110px;
+    font-size: 88.66px;
+    font-family: DroidSansBold;
+    color: white;
+    background-color: #91c46b;
+    text-shadow: 1px 1px 1px #afafaf;
+}
+.price .packone .packinfo p{
+    height: 155px;
+    line-height: 37.96px;
+    font-family:Lato-Bold ;
+    font-size: 17.8px;
+    padding: 0 50px;
+    padding-top: 12px;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packone:hover p{
+    color: #91c46b; 
+}
+.price .packone .button{
+    text-transform: uppercase;
+}
+.price .packone .button a{
+    font-family: Lato-Bold;
+    font-size: 14.23px;
+    color: white;
+    background-color: #91c46b;
+    padding: 15px 30px;
+    transition: 0.5s;
+}
+.price .packone .button a:hover{
+    color: white;
+    background-color: #6d9151;
+    text-shadow: 0.1px 0.1px 1px white;
+}
+.price .packtwo{
+    height: 395px;
+    width: 285px;
+    float: left;
+    background-color: #f9f9f9;
+    border: 1px solid #e3e0e0;
+    border-radius: 5px;
+    margin: 0 51px;
+    transition: 0.5s;
+}
+.price .packtwo:hover{
+    transform: scale(1.2);
+}
+.price .packtwo .packname h4{
+    height: 70px;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 16.13px;
+    font-family: Lato-Bold;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packtwo:hover h4{
+    color: #4bcaff; 
+}
+.price .packtwo .packprice{
+    height: 110px;
+    line-height: 110px;
+    font-size: 88.66px;
+    font-family: DroidSansBold;
+    color: white;
+    background-color: #4bcaff;
+    text-shadow: 1px 1px 1px #afafaf;
+}
+.price .packtwo .packinfo p{
+    height: 155px;
+    line-height: 37.96px;
+    font-family:Lato-Bold ;
+    font-size: 17.8px;
+    padding: 0 50px;
+    padding-top: 12px;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packtwo:hover p{
+    color: #4bcaff; 
+}
+.price .packtwo .button{
+    text-transform: uppercase;
+}
+.price .packtwo .button a{
+    font-family: Lato-Bold;
+    font-size: 14.23px;
+    color: white;
+    background-color: #4bcaff;
+    padding: 15px 30px;
+    transition: 0.5s;
+}
+.price .packtwo .button a:hover{
+    color: white;
+    background-color: #3a98bf;
+    text-shadow: 0.1px 0.1px 1px white;
+}
+.price .packthree{
+    height: 395px;
+    width: 285px;
+    float: left;
+    background-color: #f9f9f9;
+    border: 1px solid #e3e0e0;
+    border-radius: 5px;
+    margin: 0 51px;
+    transition: 0.5s;
+}
+.price .packthree:hover{
+    transform: scale(1.2);
+}
+.price .packthree .packname h4{
+    height: 70px;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 16.13px;
+    font-family: Lato-Bold;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packthree:hover h4{
+    color: #fd7c00; 
+}
+.price .packthree .packprice{
+    height: 110px;
+    line-height: 110px;
+    font-size: 88.66px;
+    font-family: DroidSansBold;
+    color: white;
+    background-color: #fd7c00;
+    text-shadow: 1px 1px 1px #afafaf;
+}
+.price .packthree .packinfo p{
+    height: 155px;
+    line-height: 37.96px;
+    font-family:Lato-Bold ;
+    font-size: 17.8px;
+    padding: 0 50px;
+    padding-top: 12px;
+    color: #d7d7d7;
+    transition: 0.5s;
+}
+.price .packthree:hover p{
+    color: #fd7c00; 
+}
+.price .packthree .button{
+    text-transform: uppercase;
+}
+.price .packthree .button a{
+    font-family: Lato-Bold;
+    font-size: 14.23px;
+    color: white;
+    background-color: #fd7c00;
+    padding: 15px 30px;
+    transition: 0.5s;
+}
+.price .packthree .button a:hover{
+    color: white;
+    background-color: #bf5e00;
+    text-shadow: 0.1px 0.1px 1px white;
+}
+/*=======================================testimonial*/
+.testimonial-bg{
+    height: 360px;
+    background-color: #f9f9f9;
+}
+.testimonial{
+    width: 100%;
+}
+.testimonial h1{
+    padding-top: 28px;
+    font-size: 34.16px;
+    text-align: center;
+    color: #414042;
+    font-family: Lato-Black;
+}
+.testimonial .cominfo{
+    margin: 1% 29%;
+    padding: 2% 0;
+}
+.testimonial .cominfo .avatar{
+    position: relative;
+    height: 150px;
+    width: 145px;
+    float: left;
+}
+.testimonial .cominfo .avatar .hex-prnt{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.testimonial .cominfo .avatar .photo-prnt{
+    height: 150px;
+    width: 145px;
+}
+.testimonial .cominfo .avatar .hex-prnt .hexagon{
+    height: 100%;
+    width: 100%;
+    font-size: 150px;
+    line-height: 150px;  
+}
+.testimonial .cominfo .avatar .fam.fa-circle-man-avatar{
+    position: absolute;
+    font-size: 60px;
+    top: 45px;
+    left: 45px;
+}
+/*
+.testimonial .cominfo .avatar .fam.fa-circle-man-avatar:after{
+    text-align: center;
+    color: #ffffff;
+}
+*/
+.testimonial .cominfo .avatar .fam.fa-circle-man-avatar:before{
+    text-align: center;
+    color: #ffffff;
+}
+.testimonial .cominfo .avatar .hex-prnt .hexagon .fad.fa-hexagon:before{
+    text-align: center;
+    color: #4bcaff;
+    z-index: 1;
+/*    text-shadow: 0px 1px 9px black;*/
+/*    -webkit-text-stroke: 10px white; */
+/*    -ms-text-stroke: 10px white;*/
+}
+.testimonial .cominfo .avatar .hex-prnt .hexagon .fad.fa-hexagon:after{
+    text-align: center;
+    text-shadow: 0px 0px 3px #414042;
+    color: #ffffff;
+/*    -webkit-text-stroke: 10px white;   */
+/*    -ms-text-stroke: 10px white;*/
+}
+.testimonial .cominfo .comment{
+    margin-top: 35px;
+    margin-left: 160px;
+    font-size: 13.29px;
+    font-family: Lato-Bold;
+    color: #4bcaff;
+    line-height: 17.08px;
+}
+.testimonial .cominfo .commenter{
+    float: right;
+    font-family: Lato-Bold;
+    font-size: 13.29px;
+    color: #4bcaff;
+}
+.testimonial .cominfo .commenter-info{
+    float: right;
+    clear:left;
+    margin-top: -35px;
+    font-family: Lato-Bold;
+    font-size: 13.29px;
+    color: #4bcaff;
+}
+.testimonial .indicator-prnt{
+    clear: both;
+    height: 5px;
+    width: 100%;
+    margin-top: 80px;
+}
+.testimonial .indicator-prnt .indicator{
+    width: 15.5%;
+    height: 100%;
+    margin: 0 auto;
+}
+.testimonial .indicator ul{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.testimonial .indicator ul .indi{
+    height: 100%;
+    margin: 0;
+    padding: 0 5px;
+    float: left;
+}
+.testimonial .indicator ul .indi .fam.fa-horizontal-rule{
+    color: #4bcaff;
+    font-size: 50px;
+    cursor: pointer;
+    line-height: 5px;
+}
+/*===================================================download*/
+.download-bg{
+    background-color: #414042;
+}
+.download{
+    height: 220px;
+}
+.download h1{
+    text-align: center;
+    font-family: Lato-Bold;
+    color: white;
+    padding-top:50px;
+    padding-bottom:50px;
+    letter-spacing: -1px;
+}
+.download .a{
+    color: #414042;
+    background-color: #4bcaff;
+    font-size: 14.23px;
+    font-family: Lato-Bold;
+    border-bottom: 5px solid #277697;
+    border-radius: 8px;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    margin: 0 41%;
+    transition: 0.2s;
+}
+.download a:hover{
+    color: #fff;
+    background-color: #676767;
+    border-bottom: 5px solid #4b4b4b;
+}
+/*==============================================contactmap*/
+.cntmprnt {
+    height: 645px;
+}
+.cntmprnt .contact-map{
+    position: relative;
+}
+.cntmprnt .contact-map .map{
+    position: absolute;
+    top: 1;
+    left: 1;
+    height: 645px;
+    width: 100%;
+    overflow: hidden;
+}
+.cntmprnt .contact-map .map iframe{
+    width: 100%;
+    height: inherit;
+}
+.cntmprnt .contact-map .contact{
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    text-align: center;
+    height: 440px;
+    width: 310px;
+    margin-left: -190px;
+    padding: 10px 30px 50px 30px;
+    background-color: rgba(75, 202, 255, 0.69);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #a8a8a8;
+    transition: 0.5s;
+}
+.cntmprnt .contact-map .contact:hover{
+    background-color: rgb(75, 202, 255);
+}
+.cntmprnt .contact-map .contact h6{
+    text-align: center;
+    padding: 20px;
+    font-size: 34.16px;
+    font-family: Lato-Bold;
+    color: white;
+    cursor: default;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+    color: #d3d3d3;
+}
+
+:-moz-placeholder {
+    text-align: center;
+    color: #d3d3d3;
+}
+
+::-moz-placeholder {
+    text-align: center;
+    color: #d3d3d3;
+}
+
+:-ms-input-placeholder {  
+    text-align: center;
+    color: #d3d3d3;
+}
+.cntmprnt .contact-map .contact .textbox{
+    border:0;
+    border-radius:4px;
+    margin: 10px auto;
+    padding: 10px 0;
+    width: 100%;    
+}
+.cntmprnt .contact-map .contact .message{    
+    margin: 20px auto 40px auto;
+    border:0;
+    border-radius:4px;
+    width: 100%;
+    padding-bottom: 100px;
+    padding-top: 10px;
+}
+.cntmprnt .contact-map .contact .send-button{
+    padding: 3% 8%;
+    background-color: #414042;
+    color: #4bcaff;
+    border: none;
+    border-bottom: 2px solid #313032;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.cntmprnt .contact-map .contact .send-button:hover{
+    background-color: #ffffff;
+    color: #3e3e3e;
+    border-color: #c1c1c1;
+}
+/*------------------------------------------------footer*/
+.footer{
+    background-color: #414042;
+    height: 105px;
+    display: inline-block;
+}
+.footer .terms-privacy{
+    float: right;
+    font-family: Lato-Regular;
+    font-size: 11.39px;
+    line-height: 105px;
+}
+.footer a{
+    color: #808081;    
+    font-family: Lato-Regular;
+    font-size: 11.39px;
+    line-height: 105px;
+    transition: 0.25s;
+    display: inline-block;
+}
+.footer a:hover{
+    color: #d1d1d1;    
+    font-family: Lato-Regular;
+    font-size: 11.39px;
+    line-height: 105px;
+}
+.footer .terms-privacy{
+    float: right;
+}
+.footer .terms-privacy span{
+    font-size: 11.39px;
+    color: #d1d1d1;    
+}

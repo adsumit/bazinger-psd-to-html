@@ -1,0 +1,372 @@
+{
+  "_README": "Expected values are PSD truth (from psd-spec.json) — DO NOT change them. Selectors are mapped to the real elements in raw-responsive/index.html. '_psd_font' = the @font-face the element must use. page=the build being audited.",
+  "page": "raw-responsive/index.html",
+  "viewport_width": 1280,
+  "checks": [
+    {
+      "label": "Header — Aavailable on :",
+      "selector": ".banner_content .avail",
+      "expect": {
+        "font-size": "18.0px",
+        "font-weight": "300",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Header — DOWNLOAD",
+      "selector": ".btn-download",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Header — HOME Features Gallery Video",
+      "selector": ".nav-menu .active",
+      "expect": {
+        "font-size": "13.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF"
+      },
+      "_psd_font": "DroidSans-Bold"
+    },
+    {
+      "label": "Header — LEARN MORE",
+      "selector": ".btn-learn",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#FEFEFE"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Header — Simple, Beautiful and Amazing",
+      "selector": ".banner_content h1",
+      "expect": {
+        "font-size": "48.0px",
+        "font-weight": "300",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Header — bazinger",
+      "selector": ".logo .ba",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "DroidSans-Bold"
+    },
+    {
+      "label": "Features — Easy to customize",
+      "selector": ".feat-box:nth-of-type(4) .feat-title",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Features — Nunc cursus libero purus ac congue arcu cursus ut sed vitae pul copy 3",
+      "selector": ".feat-box p",
+      "expect": {
+        "font-size": "13.0px",
+        "font-weight": "400",
+        "color": "#838383",
+        "text-align": "center"
+      },
+      "_psd_font": "Lato-Regular"
+    },
+    {
+      "label": "Features — multipurpose",
+      "selector": ".feat-box:nth-of-type(3) .feat-title",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Features — summarise the features",
+      "selector": ".features .section-title",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "900",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Black"
+    },
+    {
+      "label": "Features — summarise what your product is all about",
+      "selector": ".features .section-sub",
+      "expect": {
+        "font-size": "20.0px",
+        "font-weight": "300",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Gallery — Nunc cursus libero purus ac congue arcu cursus ut sed vitae pul copy 4",
+      "selector": ".gallery-box p",
+      "expect": {
+        "font-size": "13.0px",
+        "font-weight": "400",
+        "color": "#838383",
+        "text-align": "center"
+      },
+      "_psd_font": "Lato-Regular"
+    },
+    {
+      "label": "Gallery — SCREEN SHOT 4",
+      "selector": ".photo-label",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Gallery — show the gallery",
+      "selector": ".gallery .section-title",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "900",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Black"
+    },
+    {
+      "label": "Gallery — summarise what your product is all about copy",
+      "selector": ".gallery .section-sub",
+      "expect": {
+        "font-size": "20.0px",
+        "font-weight": "300",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Gallery — plus glyph",
+      "selector": ".blue-overlay i",
+      "expect": {
+        "font-size": "24.0px",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "FontAwesome"
+    },
+    {
+      "label": "Video — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc e",
+      "selector": ".video-text",
+      "expect": {
+        "font-size": "18.0px",
+        "font-weight": "300",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Video — Watch the best Technology in Action",
+      "selector": ".video-title",
+      "expect": {
+        "font-size": "48.0px",
+        "font-weight": "300",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Prices — 30",
+      "selector": ".pack-price",
+      "expect": {
+        "font-size": "85.0px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "DroidSans-Bold"
+    },
+    {
+      "label": "Prices — Advanced package",
+      "selector": ".basic .pack-label, .advanced .pack-label",
+      "expect": {
+        "font-size": "17.0px",
+        "font-weight": "700",
+        "color": "#D7D7D7"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Prices — Nullam suscipit vitae Etiam faucibus Vivamus viverra Praesent p",
+      "selector": ".featured .pack-list",
+      "expect": {
+        "font-size": "18.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Prices — Nullam suscipit vitae Etiam faucibus Vivamus viverra copy",
+      "selector": ".basic .pack-list",
+      "expect": {
+        "font-size": "18.0px",
+        "font-weight": "700",
+        "color": "#D7D7D7"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Prices — PURCHASE",
+      "selector": ".btn-purchase",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#FEFEFE"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Prices — choose your price",
+      "selector": ".prices .section-title",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "900",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Black"
+    },
+    {
+      "label": "Prices — professional package",
+      "selector": ".featured .pack-label",
+      "expect": {
+        "font-size": "22.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Prices — summarise what your product is all about",
+      "selector": ".prices .section-sub",
+      "expect": {
+        "font-size": "20.0px",
+        "font-weight": "300",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Testimonials — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praes",
+      "selector": ".t-quote .quote",
+      "expect": {
+        "font-size": "14.0px",
+        "font-weight": "700",
+        "color": "#4BCAFF",
+        "text-align": "left"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Testimonials — author (John Doe)",
+      "selector": ".t-quote .author",
+      "expect": {
+        "font-size": "14.0px",
+        "font-weight": "700",
+        "font-style": "italic",
+        "color": "#4BCAFF",
+        "text-align": "right"
+      },
+      "_psd_font": "Lato-BoldItalic"
+    },
+    {
+      "label": "Testimonials — section title",
+      "selector": ".testimonials .section-title",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "900",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Black"
+    },
+    {
+      "label": "Contact — Contact",
+      "selector": ".contact-panel .contact-title",
+      "expect": {
+        "font-size": "36.0px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Contact — Message",
+      "selector": ".contact-panel input",
+      "expect": {
+        "font-size": "14.0px",
+        "font-weight": "400",
+        "color": "#D3D3D3"
+      },
+      "_psd_font": "ArialMT",
+      "pseudo": "::placeholder"
+    },
+    {
+      "label": "Contact — Send",
+      "selector": ".send-button",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#72B3CC"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Footer — Copyright © 2013 | bazinger | All Rights Reserved",
+      "selector": ".site-footer .copyright",
+      "expect": {
+        "font-size": "12.0px",
+        "font-weight": "400",
+        "color": "#FEFEFE"
+      },
+      "_psd_font": "Lato-Regular"
+    },
+    {
+      "label": "Footer — Terms of Service | Privacy Policy",
+      "selector": ".footer-links a",
+      "expect": {
+        "font-size": "12.0px",
+        "font-weight": "400",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Regular"
+    },
+    {
+      "label": "Download — DOWNLOAD NOW",
+      "selector": ".btn-download-now",
+      "expect": {
+        "font-size": "15.0px",
+        "font-weight": "700",
+        "color": "#414042"
+      },
+      "_psd_font": "Lato-Bold"
+    },
+    {
+      "label": "Download — Do you Like this app?",
+      "selector": ".download-title",
+      "expect": {
+        "font-size": "55.0px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Bold"
+    }
+  ]
+}

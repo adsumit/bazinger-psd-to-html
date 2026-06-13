@@ -1,0 +1,15 @@
+{
+  "name": "bazinger-psd-to-html",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PSD-fidelity verification toolkit shared across the Bazinger builds.",
+  "scripts": {
+    "audit": "node style-audit.mjs checks.json",
+    "diff": "node visual-diff.mjs index.html bazinger.png"
+  },
+  "devDependencies": {
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.60.0",
+    "pngjs": "^7.0.0"
+  }
+}

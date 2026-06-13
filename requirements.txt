@@ -1,0 +1,4 @@
+# Python dependencies for extract_psd_spec.py (PSD -> psd-spec.json)
+# Install: pip install -r requirements.txt
+psd-tools==1.17.2
+Pillow==12.2.0

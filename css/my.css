@@ -1,0 +1,60 @@
+/*!
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ */
+@font-face {
+  font-family: 'Font Awesome 5 My';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-my-900.eot");
+  src: url("../webfonts/fa-my-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-my-900.woff2") format("woff2"), url("../webfonts/fa-my-900.woff") format("woff"), url("../webfonts/fa-my-900.ttf") format("truetype"), url("../webfonts/fa-my-900.svg#fontawesome") format("svg"); }
+
+.fam {
+  position: relative;
+  font-family: 'Font Awesome 5 My';
+  font-weight: 900; }
+
+.fam:before {
+  position: absolute;
+  color: var(--fa-primary-color, inherit);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1); }
+
+.fam:after {
+  color: var(--fa-secondary-color, inherit);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4); }
+
+.fa-swap-opacity .fam:before,
+.fam.fa-swap-opacity:before {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4); }
+
+.fa-swap-opacity .fam:after,
+.fam.fa-swap-opacity:after {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1); }
+
+.fam.fa-inverse {
+  color: #fff; }
+
+.fam.fa-stack-1x, .fam.fa-stack-2x {
+  position: absolute; }
+
+.fam.fa-stack-1x:before,
+.fam.fa-stack-2x:before,
+.fam.fa-fw:before {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
+
+.fam.fa-circle-man-avatar:before {
+  content: "\f312"; }
+
+.fam.fa-horizontal-rule:after {
+  content: "\f86c"; }
+
+.fam.fa-comments-alt:after {
+  content: "\f4b6";
+  opacity: 1;}
