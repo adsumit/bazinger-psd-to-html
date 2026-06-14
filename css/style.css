@@ -47,52 +47,68 @@ a{
     position: fixed;
     top: 0px;
     height: 100px;
-    background-color:rgba(19, 30, 41, 0.73);
+    background: rgba(7, 7, 7, 0.30);               /* was rgba(19,30,41,0.73); PSD Header/Menu/Base #070707 @30% */
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.20); /* navbar bottom hairline (was missing) */
     z-index: 1;
 }
 .header .logo{
     float: left;
-    padding-top: 16px;
+    padding-top: 16px;        /* centres the WORDMARK, not the box: wordmark mid ~49 vs navbar mid 50 */
     display: inline-block;
 }
 .header .logoimg{
-    height: 52px;
+    height: 52px;             /* logo.png is 137x52 -> renders 1:1, pixel-exact */
 }
 .header .menu{
     float: right;
     display: inline-block;
 }
-.header .menu  li{
-    padding-left:17.9px ;
-    padding-right:17.9px ;    
+.header .menu li{
+    padding-left: 17.9px;
+    padding-right: 17.9px;
     float: left;
     list-style: none;
 }
-.header .menu li a{   
+.header .menu li a{
     font-family: DroidSans;
     font-size: 13px;
     color: #ffffff;
-    text-transform: uppercase;
-    line-height: 90px;
-    clear: both;
-    display: inline-block;
-    border-top: 1px solid rgba(0, 255, 255, 0);
-    transition: 0.25s;
+    text-transform: uppercase;      /* PSD nav renders all-caps (verified on PNG) */
+    display: block;                 /* each <a> fills the navbar height */
+    height: 100px;
+    line-height: 100px;
+    position: relative;             /* anchor for the active/hover bar */
+    transition: color 300ms ease;   /* paired with the bar's opacity transition */
 }
-.header .menu li a:hover{   
-    color: #4bcaff;
-    border-top: 1px solid #4bcaff;
+.header .menu li a::after{          /* 2px active/hover bar at the navbar's top edge */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;                       /* width = the link's own box */
+    height: 2px;                    /* 40x5 PSD layer straddles the edge -> renders 2px */
+    background: #4bcaff;
+    opacity: 0;                     /* hidden in base state */
+    transition: opacity 300ms ease;
+}
+.header .menu li a:hover{
+    color: #4bcaff;                 /* hover = colour only, no bold */
+}
+.header .menu li a:hover::after{
+    opacity: 1;
 }
 .header .menu li:last-child{
     padding-right: 0px;
 }
-.header .menu li:nth-last-child(8) {
+.header .menu li:nth-last-child(8){
     padding-left: 0px;
 }
 .header .menu .active{
-    font-family: DroidSansBold;
+    font-family: DroidSansBold;     /* active = bold */
     color: #4bcaff;
-    border-top: 1px solid #4bcaff;
+}
+.header .menu .active::after{
+    opacity: 1;                     /* active bar shown */
 }
 /*==============================================================BANNER*/
 .banner{
