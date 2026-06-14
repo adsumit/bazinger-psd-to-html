@@ -13,11 +13,11 @@ Usage:
 import sys, json, statistics
 from psd_tools import PSDImage
 
-# --- This PSD is a 0.9489x export of a 1480px design (1404 = 1480 x 0.9489). ---
-# Every text layer carried scale 0.9489, so the stored FontSize values ARE the
-# true design sizes, and geometry is converted to true px by dividing by it.
-SCALE = 0.9489
-TRUE = 1.0 / SCALE                       # ~1.0539  (psd px -> true design px)
+# --- The PSD renders at 0.9489x its stored values (the doc is a 0.9489 scale of a
+# 1480px master). We output RENDERED psd px (the 1404 canvas, matching the PNG):
+# geometry is already psd px; stored FontSize is the PRE-scale master size, so it
+# is multiplied by SCALE to get the rendered px.
+SCALE = 0.9489                           # stored/master px -> rendered psd px
 
 def _default(o):
     """Coerce psd-tools Integer/Decimal wrappers to native JSON numbers."""
@@ -41,9 +41,6 @@ def hexcolor(d):
     except Exception:
         return None
 
-def true_box(b):
-    return [round(v * TRUE) for v in b]
-
 def text_info(layer):
     try:
         raw = layer.text
@@ -58,7 +55,7 @@ def text_info(layer):
             fi = sd.get('Font', 0)
             font = str(fonts[fi]) if fi < len(fonts) else f"idx{fi}"
             size = sd.get('FontSize')
-            size_px = round(float(size), 1) if size is not None else None
+            size_px = round(float(size) * SCALE, 1) if size is not None else None
             color = hexcolor(sd['FillColor']['Values']) if 'FillColor' in sd and isinstance(sd['FillColor'].get('Values'), dict) else None
             # FillColor.Values is actually a list [a,r,g,b] of 0..1 floats here:
             if color is None and 'FillColor' in sd:
@@ -135,8 +132,6 @@ def walk(layer, path, out):
         "blend_mode": str(getattr(layer, "blend_mode", "")).replace("BlendMode.", "").lower(),
         "bbox_psd": b,
         "size_psd": [b[2]-b[0], b[3]-b[1]] if b else None,
-        "bbox_true": true_box(b) if b else None,
-        "size_true": [round((b[2]-b[0])*TRUE), round((b[3]-b[1])*TRUE)] if b else None,
     }
     if layer.kind == 'type':
         rec["text"] = text_info(layer)
@@ -161,9 +156,7 @@ def main():
         "meta": {
             "source": src,
             "canvas_psd": [psd.width, psd.height],
-            "design_width_true": round(psd.width * TRUE),   # ~1480
-            "scale_factor_psd_to_true": round(TRUE, 5),
-            "note": "Font size_px values are the TRUE design sizes. Geometry given in both psd and true px. Container content width ~1170 true px.",
+            "note": "All values are RENDERED psd px (the 1404-wide canvas, matching the PNG). Geometry is raw psd-space; FontSize is multiplied by the 0.9489 doc scale to give rendered px. Container content width ~1110 psd px.",
             "layer_count": len(layers),
         },
         "layers": layers,
