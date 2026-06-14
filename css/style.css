@@ -181,11 +181,13 @@ a{
     height: 50px;
 }
 .banner_content .iconcontainer .iconcontainerchild .appleicon{
-    color: #4bcaff;
+    color: #4bcaff;          /* SVG inherits this via fill="currentColor" */
     background-color:black;
-    font-size:25.9px;
-    text-align:center;
-    line-height: 50px;
+    /* flex centers the inline SVG in the 50px circle (replaces the old
+       text-align + line-height trick that only centered a font glyph) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     float: left;
     width:50px;
     height: 50px;
@@ -198,11 +200,11 @@ a{
     color: #000000;
 }
 .banner_content .iconcontainer .iconcontainerchild .androidicon{
-    color: #4bcaff;
+    color: #fff;             /* Android glyph is white in the PSD (Apple is blue) */
     background-color:black;
-    font-size:22px;
-    text-align:center;
-    line-height: 50px;
+    display: flex;           /* same centering approach as .appleicon */
+    align-items: center;
+    justify-content: center;
     margin-left: 12px;
     float: left;
     width:50px;
@@ -214,6 +216,16 @@ a{
 .banner_content .iconcontainer .iconcontainerchild .androidicon:hover{
     background-color:#ffffff;
     color: #000000;
+}
+/* Store-badge icon sizes (measured from PSD). currentColor comes from the
+   parent circle, so :hover recoloring the circle recolors the glyph too. */
+.icon-apple{
+    width: 24px;
+    height: 28px;
+}
+.icon-android{
+    width: 24px;
+    height: 27px;
 }
 /*=============================================================FEATURES*/
 .features{
@@ -251,16 +263,25 @@ a{
     border-radius: 50%;
     float: left;
     margin: 0 10%;
-    text-align: center;
+    /* flex centers each icon in the circle regardless of the icon's own
+       width/height — the four feature icons are different sizes, so a fixed
+       padding-top (the old approach) would misalign them vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #4bcaff;
     border: 5px solid #efefef;
     transition: 0.25s;
 }
-.features .feat-box .icons i{
-    font-size: 70px;
-    padding-top: 42px;
+/* Feature glyphs are white; :hover only darkens the circle, not the glyph.
+   Each size is measured from the PSD (widths differ — the phone is narrow). */
+.features .feat-box .icons .icon{
     color: #fff;
 }
+.icon-layers{ width: 74px; height: 74px; }
+.icon-mobile{ width: 50px; height: 73px; }
+.icon-chat{   width: 74px; height: 74px; }
+.icon-screen{ width: 74px; height: 70px; }
 .features .feat-box .feat-info{
     float: left;
     font-family: Lato-Light;
@@ -327,17 +348,18 @@ a{
 .gallery .gallery-box .photo-box:hover .blue-overlay{
     opacity: 1;
 }
-.gallery .gallery-box .photo-box .blue-overlay i{
-    transition: 0.5s;
-    font-size: 30px;
-    color: #c7c7c7;
-    text-shadow:5px 5px 10px black;
-    margin-top: 26%;
+.gallery .gallery-box .photo-box .blue-overlay .icon{
+    /* 19x19 white plus (measured from PSD). The overlay is position:absolute,
+       so it's the containing block: center the plus in it, then shift ~11px up
+       so it keeps its PSD spot slightly above the box center. */
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% - 11px));
     cursor: pointer;
-}
-.gallery .gallery-box .photo-box .blue-overlay i:hover{
-    color: white;
-    text-shadow:5px 5px 10px #d6d6d6;
 }
 .gallery .gallery-box .photo-box .photo-name{
     position: absolute;
@@ -381,11 +403,14 @@ a{
 }
 .watch .center .play{
     cursor: pointer;
-    text-align: center;
+    /* flex centers the play triangle inside the 120x80 button (replaces the
+       old line-height hack used to vertically center the font glyph) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px solid #fff;
     border-radius: 10px;
     height: 80px;
-    line-height: 100px;
     width: 120px;
     margin: 100px auto;
     color: #fff;
@@ -395,9 +420,13 @@ a{
 .watch .center .play:hover{
     text-shadow: 1px 1px 20px white;
 }
-.watch .center .play i{
+.watch .center .play .icon{
+    /* 34x38 white triangle; nudge right 3px so the triangle looks optically
+       centered (a right-pointing shape reads as off-center when geometrically
+       centered) */
+    width: 34px;
+    height: 38px;
     margin-left: 3px;
-    font-size: 35px;   
 }
 .watch h1{
     text-align: center;
