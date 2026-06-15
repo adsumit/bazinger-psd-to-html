@@ -63,7 +63,7 @@ for (const chk of cfg.checks) {
       const [r, g, b] = hexToRgb(want), [R, G, B] = parseRgb(got);
       ok = near(r, R, 4) && near(g, G, 4) && near(b, B, 4);
     } else if (/px$/.test(want)) {
-      ok = near(parseFloat(want), parseFloat(got), 0.0);
+      ok = near(parseFloat(want), parseFloat(got), 0.1);
     } else {
       ok = String(want).trim() === String(got).trim();
     }

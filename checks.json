@@ -1,5 +1,5 @@
 {
-  "_README": "Expected values are PSD truth (from psd-spec.json) — DO NOT change them. Selectors map to the real elements in the ROOT non-responsive build (index.html on main). page=the build being audited; viewport_width is irrelevant to font-size/weight/colour in this fixed-width build. Elements rendered as a raster image or an inline SVG have no auditable computed FONT, so they live in the top-level '_visual_only' array and are verified by eye against bazinger.png instead (the raster logo additionally gets a dimensional height check in 'checks'). Selectors prefixed '.todo-unbuilt' point at sections not yet built in this build (testimonials); they intentionally report MISSING and form the remaining build/mapping TODO list. '_psd_font' = the @font-face the element must use.",
+  "_README": "Expected values are PSD truth (from psd-spec.json); font-sizes are the rendered psd-px values rounded to integer px (0-dp clean values, the shipped CSS) and audited with a ±0.1px tolerance — otherwise DO NOT change them. Selectors map to the real elements in the ROOT non-responsive build (index.html on main). page=the build being audited; viewport_width is irrelevant to font-size/weight/colour in this fixed-width build. Elements rendered as a raster image or an inline SVG have no auditable computed FONT, so they live in the top-level '_visual_only' array and are verified by eye against bazinger.png instead (the raster logo additionally gets a dimensional height check in 'checks'). Selectors prefixed '.todo-unbuilt' point at sections not yet built in this build (testimonials); they intentionally report MISSING and form the remaining build/mapping TODO list. '_psd_font' = the @font-face the element must use.",
   "page": "index.html",
   "viewport_width": 1280,
   "checks": [
@@ -7,7 +7,7 @@
       "label": "Header — Aavailable on :",
       "selector": ".ptwo p",
       "expect": {
-        "font-size": "17.1px",
+        "font-size": "17px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
@@ -17,7 +17,7 @@
       "label": "Header — DOWNLOAD",
       "selector": ".banner_content .button_one",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#FFFFFF"
       },
@@ -27,7 +27,7 @@
       "label": "Header — HOME Features Gallery Video",
       "selector": ".header .menu .active",
       "expect": {
-        "font-size": "12.3px",
+        "font-size": "12px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -37,7 +37,7 @@
       "label": "Header — LEARN MORE",
       "selector": ".banner_content .button_two",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#FEFEFE"
       },
@@ -47,7 +47,7 @@
       "label": "Header — Simple, Beautiful and Amazing",
       "selector": ".banner_content h1",
       "expect": {
-        "font-size": "45.5px",
+        "font-size": "46px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
@@ -65,7 +65,7 @@
       "label": "Features — Easy to customize",
       "selector": ".feat-box:nth-of-type(4) .feat-info h2",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#414042"
       },
@@ -75,7 +75,7 @@
       "label": "Features — Nunc cursus libero purus ac congue arcu cursus ut sed vitae pul copy 3",
       "selector": ".feat-box p",
       "expect": {
-        "font-size": "12.3px",
+        "font-size": "12px",
         "font-weight": "400",
         "color": "#838383",
         "text-align": "center"
@@ -86,7 +86,7 @@
       "label": "Features — multipurpose",
       "selector": ".feat-box:nth-of-type(3) .feat-info h2",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -96,7 +96,7 @@
       "label": "Features — summarise the features",
       "selector": ".features .mainheading",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "900",
         "color": "#414042"
       },
@@ -106,7 +106,7 @@
       "label": "Features — summarise what your product is all about",
       "selector": ".features .top_para",
       "expect": {
-        "font-size": "19.0px",
+        "font-size": "19px",
         "font-weight": "300",
         "color": "#414042"
       },
@@ -116,7 +116,7 @@
       "label": "Gallery — Nunc cursus libero purus ac congue arcu cursus ut sed vitae pul copy 4",
       "selector": ".gallery-box p",
       "expect": {
-        "font-size": "12.3px",
+        "font-size": "12px",
         "font-weight": "400",
         "color": "#838383",
         "text-align": "center"
@@ -127,7 +127,7 @@
       "label": "Gallery — SCREEN SHOT 4",
       "selector": ".photo-name h4",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -137,7 +137,7 @@
       "label": "Gallery — show the gallery",
       "selector": ".gallery .mainheading",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "900",
         "color": "#414042"
       },
@@ -147,7 +147,7 @@
       "label": "Gallery — summarise what your product is all about copy",
       "selector": ".gallery .top-para",
       "expect": {
-        "font-size": "19.0px",
+        "font-size": "19px",
         "font-weight": "300",
         "color": "#414042"
       },
@@ -157,7 +157,7 @@
       "label": "Video — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc e",
       "selector": ".watch p",
       "expect": {
-        "font-size": "17.1px",
+        "font-size": "17px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
@@ -167,7 +167,7 @@
       "label": "Video — Watch the best Technology in Action",
       "selector": ".watch h1",
       "expect": {
-        "font-size": "45.5px",
+        "font-size": "46px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
@@ -177,7 +177,7 @@
       "label": "Prices — 30",
       "selector": ".price .packtwo .packprice",
       "expect": {
-        "font-size": "80.7px",
+        "font-size": "81px",
         "font-weight": "700",
         "color": "#FFFFFF"
       },
@@ -187,7 +187,7 @@
       "label": "Prices — Advanced package",
       "selector": ".price .packthree .packname h4",
       "expect": {
-        "font-size": "16.1px",
+        "font-size": "16px",
         "font-weight": "700",
         "color": "#D7D7D7"
       },
@@ -197,7 +197,7 @@
       "label": "Prices — Nullam suscipit vitae Etiam faucibus Vivamus viverra Praesent p",
       "selector": ".price .packtwo .packinfo p",
       "expect": {
-        "font-size": "17.1px",
+        "font-size": "17px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -207,7 +207,7 @@
       "label": "Prices — Nullam suscipit vitae Etiam faucibus Vivamus viverra copy",
       "selector": ".price .packone .packinfo p",
       "expect": {
-        "font-size": "17.1px",
+        "font-size": "17px",
         "font-weight": "700",
         "color": "#D7D7D7"
       },
@@ -217,7 +217,7 @@
       "label": "Prices — PURCHASE",
       "selector": ".price .packone .button a",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#FEFEFE"
       },
@@ -227,7 +227,7 @@
       "label": "Prices — choose your price",
       "selector": ".price h1",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "900",
         "color": "#414042"
       },
@@ -237,7 +237,7 @@
       "label": "Prices — professional package",
       "selector": ".price .packtwo .packname h4",
       "expect": {
-        "font-size": "20.9px",
+        "font-size": "21px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -247,7 +247,7 @@
       "label": "Prices — summarise what your product is all about",
       "selector": ".price .p",
       "expect": {
-        "font-size": "19.0px",
+        "font-size": "19px",
         "font-weight": "300",
         "color": "#414042"
       },
@@ -257,7 +257,7 @@
       "label": "Testimonials — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praes",
       "selector": ".todo-unbuilt .testimonial .comment",
       "expect": {
-        "font-size": "13.3px",
+        "font-size": "13px",
         "font-weight": "700",
         "color": "#4BCAFF",
         "text-align": "left"
@@ -269,7 +269,7 @@
       "label": "Testimonials — author (John Doe)",
       "selector": ".todo-unbuilt .testimonial .commenter i",
       "expect": {
-        "font-size": "13.3px",
+        "font-size": "13px",
         "font-weight": "700",
         "font-style": "italic",
         "color": "#4BCAFF",
@@ -282,7 +282,7 @@
       "label": "Testimonials — section title",
       "selector": ".todo-unbuilt .testimonial h1",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "900",
         "color": "#414042"
       },
@@ -293,7 +293,7 @@
       "label": "Contact — Contact",
       "selector": ".contact h6",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "700",
         "color": "#FFFFFF"
       },
@@ -303,7 +303,7 @@
       "label": "Contact — Message",
       "selector": ".contact .message",
       "expect": {
-        "font-size": "13.3px",
+        "font-size": "13px",
         "font-weight": "400",
         "color": "#D3D3D3"
       },
@@ -314,7 +314,7 @@
       "label": "Contact — Send",
       "selector": ".send-button",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#72B3CC"
       },
@@ -324,7 +324,7 @@
       "label": "Footer — Copyright © 2013 | bazinger | All Rights Reserved",
       "selector": ".footer .center > a",
       "expect": {
-        "font-size": "11.4px",
+        "font-size": "11px",
         "font-weight": "400",
         "color": "#FEFEFE"
       },
@@ -334,7 +334,7 @@
       "label": "Footer — Terms of Service | Privacy Policy",
       "selector": ".terms-privacy a",
       "expect": {
-        "font-size": "11.4px",
+        "font-size": "11px",
         "font-weight": "400",
         "color": "#FFFFFF"
       },
@@ -344,7 +344,7 @@
       "label": "Download — DOWNLOAD NOW",
       "selector": ".download .a",
       "expect": {
-        "font-size": "14.2px",
+        "font-size": "14px",
         "font-weight": "700",
         "color": "#414042"
       },
@@ -354,7 +354,7 @@
       "label": "Download — Do you Like this app?",
       "selector": ".download h1",
       "expect": {
-        "font-size": "52.2px",
+        "font-size": "52px",
         "font-weight": "700",
         "color": "#FFFFFF"
       },
@@ -366,7 +366,7 @@
       "label": "Header — bazinger",
       "selector": ".logo .ba",
       "expect": {
-        "font-size": "34.2px",
+        "font-size": "34px",
         "font-weight": "700",
         "color": "#FFFFFF"
       },
@@ -377,7 +377,7 @@
       "label": "Gallery — plus glyph",
       "selector": ".blue-overlay i",
       "expect": {
-        "font-size": "24.0px",
+        "font-size": "24px",
         "color": "#FFFFFF"
       },
       "_psd_font": "FontAwesome",

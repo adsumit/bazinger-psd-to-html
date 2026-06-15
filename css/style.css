@@ -73,7 +73,7 @@ a{
 }
 .header .menu li a{
     font-family: DroidSans;
-    font-size: 12.3px;
+    font-size: 12px;
     color: #ffffff;
     text-transform: uppercase;      /* PSD nav renders all-caps (verified on PNG) */
     display: block;                 /* each <a> fills the navbar dark-fill height */
@@ -314,7 +314,7 @@ a{
 }
 .features .feat-box .feat-info p{
     font-family: Lato-Regular;
-    font-size: 12.34px;
+    font-size: 12px;
     line-height: 20.88px;
     color: #838383;
 }
@@ -383,7 +383,7 @@ a{
 .gallery .gallery-box .photo-box .photo-name{
     position: absolute;
     bottom: 0;
-    font-size: 14.23px;
+    font-size: 14px;
     color: #4bcaff;
     font-family: Lato-Bold;
     padding: 4% 0;
@@ -392,7 +392,7 @@ a{
 }
 .gallery .gallery-box p{
     padding: 20px 10%;
-    font-size: 12.34px;
+    font-size: 12px;
     line-height: 20.88px;
     font-family: Lato-Light;
     padding-bottom: 100px;
@@ -450,7 +450,7 @@ a{
 .watch h1{
     text-align: center;
     font-family: Lato-light;
-    font-size: 45.55px;
+    font-size: 46px;
     color: #fff;
     font-weight: 100;
 }
@@ -462,7 +462,7 @@ a{
     color: white;
     text-align: center;
     padding: 4% 22%;
-    font-size: 17.08px;
+    font-size: 17px;
 }
 /*==================================================PRICE*/
 .price{
@@ -472,11 +472,11 @@ a{
 .price h1{
     margin-top: 50px;
     font-family: Lato-Black;
-    font-size: 34.17px;
+    font-size: 34px;
 }
 .price .p{
     font-family: Lato-Light;
-    font-size: 18.98px;
+    font-size: 19px;
     margin-bottom: 75px;
 }
 .price .packone{
@@ -496,7 +496,7 @@ a{
     height: 70px;
     line-height: 70px;
     text-transform: uppercase;
-    font-size: 16.13px;
+    font-size: 16px;
     font-family: Lato-Bold;
     color: #d7d7d7;
     transition: 0.5s;
@@ -507,7 +507,7 @@ a{
 .price .packone .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 88.66px;
+    font-size: 89px;
     font-family: DroidSansBold;
     color: white;
     background-color: #91c46b;
@@ -517,7 +517,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 17.8px;
+    font-size: 18px;
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -531,7 +531,7 @@ a{
 }
 .price .packone .button a{
     font-family: Lato-Bold;
-    font-size: 14.23px;
+    font-size: 14px;
     color: white;
     background-color: #91c46b;
     padding: 15px 30px;
@@ -559,7 +559,7 @@ a{
     height: 70px;
     line-height: 70px;
     text-transform: uppercase;
-    font-size: 16.13px;
+    font-size: 16px;
     font-family: Lato-Bold;
     color: #d7d7d7;
     transition: 0.5s;
@@ -570,7 +570,7 @@ a{
 .price .packtwo .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 88.66px;
+    font-size: 89px;
     font-family: DroidSansBold;
     color: white;
     background-color: #4bcaff;
@@ -580,7 +580,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 17.8px;
+    font-size: 18px;
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -594,7 +594,7 @@ a{
 }
 .price .packtwo .button a{
     font-family: Lato-Bold;
-    font-size: 14.23px;
+    font-size: 14px;
     color: white;
     background-color: #4bcaff;
     padding: 15px 30px;
@@ -622,7 +622,7 @@ a{
     height: 70px;
     line-height: 70px;
     text-transform: uppercase;
-    font-size: 16.13px;
+    font-size: 16px;
     font-family: Lato-Bold;
     color: #d7d7d7;
     transition: 0.5s;
@@ -633,7 +633,7 @@ a{
 .price .packthree .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 88.66px;
+    font-size: 89px;
     font-family: DroidSansBold;
     color: white;
     background-color: #fd7c00;
@@ -643,7 +643,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 17.8px;
+    font-size: 18px;
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -657,7 +657,7 @@ a{
 }
 .price .packthree .button a{
     font-family: Lato-Bold;
-    font-size: 14.23px;
+    font-size: 14px;
     color: white;
     background-color: #fd7c00;
     padding: 15px 30px;
@@ -678,7 +678,7 @@ a{
 }
 .testimonial h1{
     padding-top: 28px;
-    font-size: 34.16px;
+    font-size: 34px;
     text-align: center;
     color: #414042;
     font-family: Lato-Black;
@@ -742,7 +742,7 @@ a{
 .testimonial .cominfo .comment{
     margin-top: 35px;
     margin-left: 160px;
-    font-size: 13.29px;
+    font-size: 13px;
     font-family: Lato-Bold;
     color: #4bcaff;
     line-height: 17.08px;
@@ -750,7 +750,7 @@ a{
 .testimonial .cominfo .commenter{
     float: right;
     font-family: Lato-Bold;
-    font-size: 13.29px;
+    font-size: 13px;
     color: #4bcaff;
 }
 .testimonial .cominfo .commenter-info{
@@ -758,7 +758,7 @@ a{
     clear:left;
     margin-top: -35px;
     font-family: Lato-Bold;
-    font-size: 13.29px;
+    font-size: 13px;
     color: #4bcaff;
 }
 .testimonial .indicator-prnt{
@@ -809,7 +809,7 @@ a{
 .download .a{
     color: #414042;
     background-color: #4bcaff;
-    font-size: 14.23px;
+    font-size: 14px;
     font-family: Lato-Bold;
     border-bottom: 5px solid #277697;
     border-radius: 8px;
@@ -862,7 +862,7 @@ a{
 .cntmprnt .contact-map .contact h6{
     text-align: center;
     padding: 20px;
-    font-size: 34.16px;
+    font-size: 34px;
     font-family: Lato-Bold;
     color: white;
     cursor: default;
@@ -926,13 +926,13 @@ a{
 .footer .terms-privacy{
     float: right;
     font-family: Lato-Regular;
-    font-size: 11.39px;
+    font-size: 11px;
     line-height: 105px;
 }
 .footer a{
     color: #808081;    
     font-family: Lato-Regular;
-    font-size: 11.39px;
+    font-size: 11px;
     line-height: 105px;
     transition: 0.25s;
     display: inline-block;
@@ -940,13 +940,13 @@ a{
 .footer a:hover{
     color: #d1d1d1;    
     font-family: Lato-Regular;
-    font-size: 11.39px;
+    font-size: 11px;
     line-height: 105px;
 }
 .footer .terms-privacy{
     float: right;
 }
 .footer .terms-privacy span{
-    font-size: 11.39px;
+    font-size: 11px;
     color: #d1d1d1;    
 }
