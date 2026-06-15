@@ -126,7 +126,7 @@ a{
     height:800px ;
 }
 .banner_content h1{
-    font-size: 48px;
+    font-size: 46px;          /* hero heading: Lato 48 true -> 46 psd-px (BUILD-SPEC §8) */
     margin-top: 350px;
     color: white; 
 }
@@ -142,7 +142,7 @@ a{
     padding-top: 25px;
     color: white;
     font-family:  Lato-Light;
-    font-size:  18px;
+    font-size:  17px;         /* hero paragraph: Lato-Light 18 true -> 17 psd-px (BUILD-SPEC §8) */
 }
 .banner_content .button_one{
     margin-top: 40px;
@@ -155,6 +155,7 @@ a{
     border-radius: 7.6px;
     background-color: none;
     font-family: Lato-Bold;
+    font-size: 14px;         /* DOWNLOAD: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
     transition: 0.5s;
 }
 .banner_content .button_one:hover{
@@ -174,6 +175,7 @@ a{
     border-radius: 7.6px;
     background-color: #4bcaff;
     font-family: Lato-Bold;
+    font-size: 14px;         /* LEARN MORE: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
     transition: 0.5s;
 }
 .banner_content .button_two:hover{
@@ -191,7 +193,7 @@ a{
     padding-top: 69px;
     color: white;
     font-family: Lato-Light;
-    font-size: 18px;
+    font-size: 17px;          /* "Aavailable on :" Lato-Light 18 true -> 17 psd-px (BUILD-SPEC §8) */
 }
 .banner_content .iconcontainer .iconcontainerchild{
     padding-top: 54.9px;
@@ -255,7 +257,7 @@ a{
 }
 .features .mainheading{
     font-family: Lato-Black;
-    font-size: 36px;
+    font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
     color: #414042;
 }
 .features .top_para{
@@ -307,7 +309,7 @@ a{
 }
 .features .feat-box .feat-info h2{
     font-family: Lato-Bold;
-    font-size: 15px;
+    font-size: 14px;          /* feature card title: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §9) */
     text-transform: uppercase;
     padding: 30px 0;
     color: #414042;
@@ -326,7 +328,7 @@ a{
 }
 .gallery .mainheading{
     font-family: Lato-Black;
-    font-size: 36px;
+    font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
     padding-top: 45px;
 }
 .gallery .top-para{
