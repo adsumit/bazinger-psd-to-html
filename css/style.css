@@ -50,7 +50,7 @@ a{
     top: 0px;
     height: 94px;                                  /* dark fill 94px; box-shadow paints the 95th px (white line) -> 95px total visual */
     background: rgba(7, 7, 7, 0.30);               /* was rgba(19,30,41,0.73); PSD Header/Menu/Base #070707 @30% */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.20); /* navbar bottom hairline (outset, adds no layout height) */
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1); /* navbar bottom hairline (outset, adds no layout height) */
     z-index: 1;
 }
 .header .logo{
@@ -88,7 +88,7 @@ a{
     top: 0;
     left: 0;
     right: 0;                       /* width = the link's own box */
-    height: 2px;                    /* 40x5 PSD layer straddles the edge -> renders 2px */
+    height: 1px;                    /* active/hover bar — 1px on the PNG */
     background: #4bcaff;
     opacity: 0;                     /* hidden in base state */
     transition: opacity 300ms ease;

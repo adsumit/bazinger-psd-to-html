@@ -30,7 +30,7 @@ The pipeline:
 
 This spec mixes **machine-extracted layer data** with **human-verified rendered values** — and in this project the two repeatedly disagreed. Raw layer values that were wrong as CSS until corrected against the PNG:
 
-- **Nav active bar:** layer box is 40×5, but it straddles the navbar's top edge → renders ~2px, not 5px.
+- **Nav active bar:** layer box is 40×5, but it straddles the navbar's top edge → renders ~1px, not 5px (eyeballed from the PNG).
 - **Hexagon shadow:** Photoshop's distance-3 / size-8 does **not** translate to a CSS blur — any blur halos the shape. Final value is zero-blur, and the measured color is light grey (`#EAEAEA` on `#F9F9F9`), not black. Four wrong attempts before measuring.
 - **Section titles:** positionally centered in the PSD while their text justification reads "left" — `text-align` checks only apply to multi-line paragraphs.
 - **Opacity is stored in layers, not in the obvious field:** contact panel fill-opacity 80% and footer text 25% live in tagged blocks / layer opacity, separate from the fill color.
@@ -96,12 +96,12 @@ Do **not** use `#FCB733` (old gold nav hover — removed; hover is brand blue).
 
 ## 7. Section 1 — Header / nav
 
-- Bar: `background: rgba(7,7,7,0.30); box-shadow: 0 1px 0 rgba(255,255,255,0.20);` over the hero.
+- Bar: `background: rgba(7,7,7,0.30); box-shadow: 0 1px 0 rgba(255,255,255,0.1);` over the hero (hairline opacity eyeballed from the PNG).
 - **Logo:** one wordmark, two spans — "ba" `#FFFFFF` + "zinger" `#4BCAFF`, DroidSans-Bold 36px, ls −1.44px; wifi arc (SVG) above. **Vertically center the WORDMARK** in the navbar, not the whole logo box (the arc drags the box center down).
 - **Nav links:** DroidSans 13px `#FFFFFF`, each `<a>` fills the navbar height.
   - Hover: color → `#4BCAFF` **only** (no bold).
   - Active (clicked): `#4BCAFF` + DroidSans-**Bold**.
-  - **Bar:** 2px `#4BCAFF` at the navbar's top edge, width = the link (`left:0; right:0`), lives in the base state at `opacity:0`, revealed on hover/active — `transition: opacity 300ms ease` matching the link's `color 300ms ease` so they animate together.
+  - **Bar:** 1px `#4BCAFF` at the navbar's top edge (eyeballed from the PNG), width = the link (`left:0; right:0`), lives in the base state at `opacity:0`, revealed on hover/active — `transition: opacity 300ms ease` matching the link's `color 300ms ease` so they animate together.
 
 ## 8. Section 2 — Hero / banner slider (3 slides, vanilla JS)
 
