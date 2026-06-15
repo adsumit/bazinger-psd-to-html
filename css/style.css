@@ -270,7 +270,7 @@ a{
     width: 205px;
     height: 115;
     float: left;
-    padding: 0 3.74%;
+    padding: 0px 36px;        /* 4 boxes: 205 + 2×36 = 277, ×4 ≈ 1108 fits the 1110 container */
     cursor: pointer;
 }
 .features .feat-box:hover .icons{
@@ -340,7 +340,7 @@ a{
 .gallery .gallery-box{
     width:255px;
     float: left;
-    padding: 0 1.6%;
+    padding: 0px 11px;        /* 4 boxes: 255 + 2×11 = 277, ×4 ≈ 1108 fits the 1110 container */
 }
 .gallery .gallery-box .photo-box{
     text-align: center;
@@ -489,7 +489,7 @@ a{
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0 51px;
+    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
     transition: 0.5s;
 }
 .price .packone:hover{
@@ -552,7 +552,7 @@ a{
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0 51px;
+    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
     transition: 0.5s;
 }
 .price .packtwo:hover{
@@ -615,7 +615,7 @@ a{
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0 51px;
+    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
     transition: 0.5s;
 }
 .price .packthree:hover{
@@ -759,7 +759,7 @@ a{
 .testimonial .cominfo .commenter-info{
     float: right;
     clear:left;
-    margin-top: -35px;
+    margin-top: -12px;
     font-family: Lato-Bold;
     font-size: 13px;
     color: #4bcaff;
@@ -819,7 +819,7 @@ a{
     border-radius: 8px;
     text-transform: uppercase;
     padding: 20px 40px;
-    margin: 0 41%;
+    margin: 0px 453px;        /* centers the button in the 1110 container (was 41%) */
     transition: 0.2s;
 }
 .download a:hover{
