@@ -44,10 +44,13 @@ Items **not** listed in this spec (e.g. download-band height/background, exact i
 
 ## 3. Canvas, container & units
 
-- Design canvas **1480px** full-bleed; content container **1170px centered** (design x 155–1325, center x 740). Hero background ~1480×800.
-- Full-bleed sections: banner, video, download band, contact/map, footer (plus the features/testimonials background tints). Inner content always capped at 1170.
-- **Section heights (desktop):** banner **800px** (from absolute top), video **550px**.
-- **Units policy:** **px** for the PSD-exact desktop layer (≥1170px) — most faithful to a fixed-px design. Fluid units (`max-width` + `%`, flex/grid, media queries; `rem` only if user-scalable type is wanted) strictly **below** 1170px.
+- Design canvas **1404px** full-bleed; content container **1110px centered** (psd x 147–1257, center x 702). Hero background ~1404×760.
+- Full-bleed sections: banner, video, download band, contact/map, footer (plus the features/testimonials background tints). Inner content always capped at 1110.
+- **Section heights (desktop):** banner **760px** (from absolute top), video **524px**.
+- **Units policy:** **px** for the PSD-exact desktop layer (≥1110px) — most faithful to a fixed-px design. Fluid units (`max-width` + `%`, flex/grid, media queries; `rem` only if user-scalable type is wanted) strictly **below** 1110px.
+- **Coordinate space:** all px above are the PSD's **rendered** pixels — the 1404 canvas you see in `bazinger.png`. The PSD is a 0.9489 scale of a 1480px master; we build to the rendered sizes so 1px CSS = 1px PNG, no scale factor anywhere.
+
+The per-section px values further down (§6 shadows, §7 header, §8 hero, etc.) are still master-space — rescale **font-sizes, dimensions and positions** by 0.9489 as you rework each section; **leave non-spatial / sub-pixel values as-is** (hairlines, small borders, shadow offsets, opacities, transitions, colors). The PNG outranks the spec anyway, so treat the rescaled numbers as guidance and the pixels as truth.
 
 ## 4. Color palette (exact)
 
