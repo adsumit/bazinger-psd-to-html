@@ -28,12 +28,12 @@
 - The PSD/PNG is the design. The original `style.css` and earlier hand-tweaks are NOT
   fidelity references. (`DESIGN-SPEC.md` is retired — superseded by `BUILD-SPEC.md`.)
 
-## Fidelity (desktop = content width ≥ 1170px)
-- At ≥1170px every build matches the PSD exactly: font family + weight, font-size,
+## Fidelity (desktop = content width ≥ 1110px)
+- At ≥1110px every build matches the PSD exactly: font family + weight, font-size,
   line-height, letter-spacing, color, margin/padding, element dimensions, radius,
   shadow, and per-state (hover/active) styles — MEASURED, not re-derived.
 - **Non-responsive build:** desktop-only, NO media queries. Other builds: you may
-  change the layout MECHANISM (float → flex/grid) and add breakpoints BELOW 1170px;
+  change the layout MECHANISM (float → flex/grid) and add breakpoints BELOW 1110px;
   never restyle, resize, recolor, or respace at desktop.
 - Fonts: original `.ttf` from `/font` via `@font-face` — never Google/system.
 - Icons: **PSD-extracted inline SVGs** (`img/icons/`, `fill="currentColor"`). Font
