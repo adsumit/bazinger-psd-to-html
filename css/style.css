@@ -263,6 +263,7 @@ a{
 .features .top_para{
     padding-bottom: 70px;
     font-family: Lato-Light;
+    font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was unset, inheriting 16) (BUILD-SPEC §9) */
     color: #414042;
 }
 .features .feat-box{
@@ -332,7 +333,7 @@ a{
     padding-top: 45px;
 }
 .gallery .top-para{
-    font-size: 13px;
+    font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was wrongly 13) (BUILD-SPEC §10) */
     font-family: Lato-Light;
     padding-bottom: 60px;
 }
@@ -509,7 +510,7 @@ a{
 .price .packone .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 89px;
+    font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
     color: white;
     background-color: #91c46b;
@@ -519,7 +520,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 18px;
+    font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -561,7 +562,7 @@ a{
     height: 70px;
     line-height: 70px;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 21px;          /* PRO label is larger: Lato-Bold 22 true -> 21 psd-px (BUILD-SPEC §12) */
     font-family: Lato-Bold;
     color: #d7d7d7;
     transition: 0.5s;
@@ -572,7 +573,7 @@ a{
 .price .packtwo .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 89px;
+    font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
     color: white;
     background-color: #4bcaff;
@@ -582,7 +583,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 18px;
+    font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -635,7 +636,7 @@ a{
 .price .packthree .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 89px;
+    font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
     color: white;
     background-color: #fd7c00;
@@ -645,7 +646,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
-    font-size: 18px;
+    font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
     color: #d7d7d7;
@@ -803,6 +804,7 @@ a{
 .download h1{
     text-align: center;
     font-family: Lato-Bold;
+    font-size: 52px;          /* "Do you Like this app?": Lato-Bold 55 true -> 52 psd-px (was unset, h1 default 32) (BUILD-SPEC §14) */
     color: white;
     padding-top:50px;
     padding-bottom:50px;
@@ -896,7 +898,8 @@ a{
     padding: 10px 0;
     width: 100%;    
 }
-.cntmprnt .contact-map .contact .message{    
+.cntmprnt .contact-map .contact .message{
+    font-size: 13px;          /* placeholder: Arial 14 true -> 13 psd-px (was unset, textarea default 13.3333) (BUILD-SPEC §15) */
     margin: 20px auto 40px auto;
     border:0;
     border-radius:4px;
@@ -905,6 +908,7 @@ a{
     padding-top: 10px;
 }
 .cntmprnt .contact-map .contact .send-button{
+    font-size: 14px;          /* Send: Lato-Bold 15 true -> 14 psd-px (was unset, button default 13.3333) (BUILD-SPEC §15) */
     padding: 3% 8%;
     background-color: #414042;
     color: #4bcaff;
