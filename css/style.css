@@ -2,6 +2,8 @@
 @font-face {
     font-family: DroidSansBold;
     src: url(../font/DroidSans-Bold.ttf);
+    font-weight: 700;            /* register this face AS weight 700 so requesting 700 finds an exact
+                                    match and uses the real bold file — prevents faux/synthetic bold */
 }
 
 @font-face {
@@ -39,44 +41,44 @@ a{
 }
 .center{
     height: inherit;
-    width:1170px;
+    width:1110px;                                 /* rendered psd-px container (1170 true ÷ 1.054) */
     margin: 0 auto;
 }
 /*===============================================================NAVBAR*/
 .header{
     position: fixed;
     top: 0px;
-    height: 100px;
+    height: 94px;                                  /* dark fill 94px; box-shadow paints the 95th px (white line) -> 95px total visual */
     background: rgba(7, 7, 7, 0.30);               /* was rgba(19,30,41,0.73); PSD Header/Menu/Base #070707 @30% */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.20); /* navbar bottom hairline (was missing) */
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.20); /* navbar bottom hairline (outset, adds no layout height) */
     z-index: 1;
 }
 .header .logo{
     float: left;
-    padding-top: 16px;        /* centres the WORDMARK, not the box: wordmark mid ~49 vs navbar mid 50 */
+    padding-top: 14px;        /* PSD Logo group top y=14; puts wordmark mid ~46.5 vs navbar mid 47 (centred) */
     display: inline-block;
 }
 .header .logoimg{
-    height: 52px;             /* logo.png is 137x52 -> renders 1:1, pixel-exact */
+    height: 50px;             /* PSD Logo group is 130x50 in rendered psd-px (was 137x52 true-px) */
 }
 .header .menu{
     float: right;
     display: inline-block;
 }
 .header .menu li{
-    padding-left: 17.9px;
-    padding-right: 17.9px;
+    padding-left: 17px;       /* 34px gap between links ÷ 2 (rendered psd-px) */
+    padding-right: 17px;
     float: left;
     list-style: none;
 }
 .header .menu li a{
     font-family: DroidSans;
-    font-size: 13px;
+    font-size: 12.3px;
     color: #ffffff;
     text-transform: uppercase;      /* PSD nav renders all-caps (verified on PNG) */
-    display: block;                 /* each <a> fills the navbar height */
-    height: 100px;
-    line-height: 100px;
+    display: block;                 /* each <a> fills the navbar dark-fill height */
+    height: 94px;
+    line-height: 94px;              /* = dark-fill height; centres the single line (PSD 41/45 split is font-metric, within tolerance) */
     position: relative;             /* anchor for the active/hover bar */
     transition: color 300ms ease;   /* paired with the bar's opacity transition */
 }
@@ -105,6 +107,7 @@ a{
 }
 .header .menu .active{
     font-family: DroidSansBold;     /* active = bold */
+    font-weight: 700;               /* computed weight must read 700 (the bold file alone leaves it at the inherited 400) */
     color: #4bcaff;
 }
 .header .menu .active::after{
@@ -473,7 +476,7 @@ a{
 }
 .price .p{
     font-family: Lato-Light;
-    font-size: 18.98px:;
+    font-size: 18.98px;
     margin-bottom: 75px;
 }
 .price .packone{
