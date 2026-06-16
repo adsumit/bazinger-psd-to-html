@@ -108,7 +108,7 @@ Do **not** use `#FCB733` (old gold nav hover — removed; hover is brand blue).
 
 ## 8. Section 2 — Hero / banner slider (3 slides, vanilla JS)
 
-- Height **800px**; `background: url() center 45% / cover no-repeat` (cover = max zoom-out with no gaps; position frames the horizon glow).
+- Height **800px**. Background lives on a **`.banner_bg` child div** (absolute, fills the banner; separated so the image can be `transform`ed independently of the content), NOT on `.banner` itself. Image **`hero_bg.png`** (natively 1404 wide = the canvas width), `background: center top / cover no-repeat` (cover fills the full width with no contain-letterbox; top-aligned shows the hero's top slice). `.banner { position:relative; overflow:hidden }` and `.banner .center { position:relative; z-index:1 }` keep the text above the image.
 - **Heading: ONE LINE** — one `<h1>`, two inline spans: "Simple, Beautiful " Lato-Light + "and Amazing" Lato-Bold, both 48px `#FFFFFF`, shadow per §6. Paragraph Lato-Light 18px `#FFFFFF`, no shadow. Blue underline accent 4px `#4BCAFF`. "Aavailable on :" Lato-Light 18px — **the typo is in the PSD; keep it**. Store circles at 35% opacity.
 - Buttons ~198×67: DOWNLOAD = transparent + 2px `#FFFFFF` border, Lato-Bold 15 `#FFFFFF`; LEARN MORE = `#4BCAFF`, Lato-Bold 15 `#FEFEFE`, drop shadow `#277697` (params: eyeball vs PNG).
 - **Dots (slide indicators):** circles, flex row `align-items:center; justify-content:center; gap:9px`. Active = 17px solid `#4BCAFF` (1px border same); inactive ×2 = 13px transparent + 1px `#FFFFFF` border.

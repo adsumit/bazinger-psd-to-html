@@ -122,8 +122,25 @@ a{
 .banner{
     height: 800px;
     width: 100%;
-    background-image: url(../img/banner.jpg);
-    background-size: cover;
+    position: relative;             /* anchor for the absolutely-positioned .banner_bg child */
+    overflow: hidden;               /* crop the (possibly transformed) hero image to the banner box */
+}
+.banner_bg{                         /* hero image as a TRANSFORMABLE child: separated from .banner so the transform moves only the image, never the text/buttons */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;                    /* fill the full 1404 banner width */
+    height: 100%;
+    background-image: url(../img/hero_bg.png);
+    background-size: cover;         /* hero_bg.png is natively 1404 wide (= PSD width); cover fills the full width (no contain letterbox = no side red), showing the top slice */
+    background-position: center top;
+    background-repeat: no-repeat;
+    transform: translateY(0px);     /* fine-align knob — nudge the image vertically to kill the red below DOWNLOAD (tune via the navbar heatmap) */
+    z-index: 0;                     /* sits behind the banner content */
+}
+.banner .center{                    /* lift the banner content above the absolute .banner_bg so the text/buttons stay visible */
+    position: relative;
+    z-index: 1;
 }
 .banner_content{
     float:right;
