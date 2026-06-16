@@ -8,7 +8,7 @@ is the machine-readable source of truth the style-audit harness diffs against.
 
 Usage:
     pip install psd-tools pillow --break-system-packages
-    python extract_psd_spec.py bazinger_UPDATED.psd psd-spec.json
+    python tools/extract_psd_spec.py bazinger_UPDATED.psd psd-spec.json
 """
 import sys, json, statistics
 from psd_tools import PSDImage

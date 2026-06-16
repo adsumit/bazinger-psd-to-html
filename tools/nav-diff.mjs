@@ -6,8 +6,8 @@
  * overlap, red = divergence), but it crops to the TOP STRIP — the navbar — and
  * writes to a caller-named file so it never overwrites diff.png / _nav_diff.png.
  *
- *   node nav-diff.mjs <page.html> <psd.png> [outFile] [navHeight]
- *   node nav-diff.mjs index.html bazinger.png _nav_2026-06-16_diff.png 95
+ *   node tools/nav-diff.mjs <page.html> <psd.png> [outFile] [navHeight]
+ *   node tools/nav-diff.mjs index.html bazinger.png _nav_2026-06-16_diff.png 95
  *
  * Defaults: page=index.html, psd=bazinger.png, out=_nav_diff.png, navHeight=95
  * (95 = 94px dark fill + 1px shadow = the navbar's visual height; no banner bleed).

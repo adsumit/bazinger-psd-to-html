@@ -4,8 +4,8 @@
   "private": true,
   "description": "PSD-fidelity verification toolkit shared across the Bazinger builds.",
   "scripts": {
-    "audit": "node style-audit.mjs checks.json",
-    "diff": "node visual-diff.mjs index.html bazinger.png"
+    "audit": "node tools/style-audit.mjs checks.json",
+    "diff": "node tools/visual-diff.mjs index.html bazinger.png"
   },
   "devDependencies": {
     "pixelmatch": "^7.2.0",

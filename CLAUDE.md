@@ -53,9 +53,9 @@ After ANY fidelity edit to the build's HTML/CSS, before reporting done:
    root `index.html`) and its selectors match that markup (map any that report MISSING).
 2. Run the computed-style audit; fix every FAIL with the exact value from
    `psd-spec.json` / the PNG; re-run until it prints `0 failed`:
-   - non-responsive / raw-responsive (no build step):  `node style-audit.mjs`
+   - non-responsive / raw-responsive (no build step):  `node tools/style-audit.mjs`
    - tailwind (builds then audits):  `npm run verify`  (from the `tailwind/` folder)
-3. Run the visual net: `node visual-diff.mjs index.html bazinger.png`; open `diff.png`;
+3. Run the visual net: `node tools/visual-diff.mjs index.html bazinger.png`; open `diff.png`;
    inspect any flagged region; add a `checks.json` entry for anything new it surfaces.
 - "It matches" / "consistent" / "done" is a CLAIM that is ONLY valid after the audit
   prints `0 failed`. Never assert it from a glance or a screenshot. Report the audit
@@ -64,8 +64,8 @@ After ANY fidelity edit to the build's HTML/CSS, before reporting done:
   equivalent SVG — are verified by eye-check against the PNG + no console errors, since
   the computed-style values are unchanged.)
 
-## Toolkit (repo root)
-- `extract_psd_spec.py` → regenerates `psd-spec.json` if the PSD changes (Python; deps
+## Toolkit (in `tools/`)
+- `tools/extract_psd_spec.py` → regenerates `psd-spec.json` if the PSD changes (Python; deps
   in `requirements.txt`).
-- `style-audit.mjs` + `checks.json` → exact computed-style check (the gate).
-- `visual-diff.mjs` → pixel-diff heatmap vs `bazinger.png` (the net).
+- `tools/style-audit.mjs` + `checks.json` → exact computed-style check (the gate).
+- `tools/visual-diff.mjs` → pixel-diff heatmap vs `bazinger.png` (the net).

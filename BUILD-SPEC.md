@@ -12,9 +12,9 @@ Generated 2026-06-10 · Maintainer: adsumit
 
 The pipeline:
 
-1. **`bazinger_UPDATED.psd`** (canvas 1404 × 4364) was parsed with **psd-tools** via `extract_psd_spec.py`, producing **`psd-spec.json`** — all 223 layers machine-extracted: geometry (psd + true px), fills, layer effects (color / opacity / distance / size / blend mode), text runs (font / size / color / tracking), and fill-opacity tagged blocks.
+1. **`bazinger_UPDATED.psd`** (canvas 1404 × 4364) was parsed with **psd-tools** via `tools/extract_psd_spec.py`, producing **`psd-spec.json`** — all 223 layers machine-extracted: geometry (psd + true px), fills, layer effects (color / opacity / distance / size / blend mode), text runs (font / size / color / tracking), and fill-opacity tagged blocks.
 2. **`bazinger.png`** — the flattened export of the same canvas, 1:1 with PSD pixels — was sampled pixel-by-pixel with **Pillow** to capture *rendered* values: effective colors under blend modes and tints, real shadow extents, true element positions and insets.
-3. Values were cross-checked by eye against cropped PNG regions, and on the build side are verified with the **Playwright** style audit (`style-audit.mjs` + `checks.json`, 112 computed-style checks) and `visual-diff.mjs` (pixel-diff heatmap vs the PNG).
+3. Values were cross-checked by eye against cropped PNG regions, and on the build side are verified with the **Playwright** style audit (`tools/style-audit.mjs` + `checks.json`, 112 computed-style checks) and `tools/visual-diff.mjs` (pixel-diff heatmap vs the PNG).
 
 | Tool | What it is | Official |
 |---|---|---|
@@ -50,7 +50,7 @@ Items **not** listed in this spec (e.g. download-band height/background, exact i
 - Full-bleed sections: banner, video, download band, contact/map, footer (plus the features/testimonials background tints). Inner content always capped at 1110.
 - **Section heights (desktop):** banner **760px** (from absolute top), video **524px**.
 - **Units policy:** **px** for the PSD-exact desktop layer (≥1110px) — most faithful to a fixed-px design. Fluid units (`max-width` + `%`, flex/grid, media queries; `rem` only if user-scalable type is wanted) strictly **below** 1110px.
-- **Decimal precision (font-sizes):** values may carry **up to 2 decimal places** (e.g. `12.4px`); plain integers stay valid (`34` ≡ `34.00`). This **relaxes** the earlier 0-dp standardization (commit `29ad428`). Audit px tolerance stays **0.1** (`style-audit.mjs:66`), so a 2nd-decimal value is *permitted but not strictly enforced* — when you tune a font-size, update the matching `checks.json` `expect` so the two stay within 0.1.
+- **Decimal precision (font-sizes):** values may carry **up to 2 decimal places** (e.g. `12.4px`); plain integers stay valid (`34` ≡ `34.00`). This **relaxes** the earlier 0-dp standardization (commit `29ad428`). Audit px tolerance stays **0.1** (`tools/style-audit.mjs:66`), so a 2nd-decimal value is *permitted but not strictly enforced* — when you tune a font-size, update the matching `checks.json` `expect` so the two stay within 0.1.
 - **Coordinate space:** all px above are the PSD's **rendered** pixels — the 1404 canvas you see in `bazinger.png`. The PSD is a 0.9489 scale of a 1480px master; we build to the rendered sizes so 1px CSS = 1px PNG, no scale factor anywhere.
 
 The per-section px values further down (§6 shadows, §7 header, §8 hero, etc.) are still master-space — rescale **font-sizes, dimensions and positions** by 0.9489 as you rework each section; **leave non-spatial / sub-pixel values as-is** (hairlines, small borders, shadow offsets, opacities, transitions, colors). The PNG outranks the spec anyway, so treat the rescaled numbers as guidance and the pixels as truth.
@@ -170,6 +170,6 @@ Base `#414042`. Text Lato-Regular 12px, color `rgba(254,254,254,0.25)` (white @ 
 
 ## 18. Verification workflow (every section, before every commit)
 
-1. Build the section from this spec → 2. `node style-audit.mjs checks.json` — all checks pass → 3. eye-check the section against the cropped PNG → 4. (full page) `visual-diff.mjs` heatmap → 5. one commit per section.
+1. Build the section from this spec → 2. `node tools/style-audit.mjs checks.json` — all checks pass → 3. eye-check the section against the cropped PNG → 4. (full page) `tools/visual-diff.mjs` heatmap → 5. one commit per section.
 
 Claude Code reports **measured changes** and never claims "matches the PSD" — the human verifies against the PNG. That gate is the project.

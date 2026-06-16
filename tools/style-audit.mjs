@@ -7,8 +7,8 @@
  * (e.g. a 30px grey "+" where the PSD says 24px white).
  *
  *   npm i -D playwright && npx playwright install chromium
- *   node style-audit.mjs            # uses checks.json
- *   node style-audit.mjs my.json    # custom checks file
+ *   node tools/style-audit.mjs            # uses checks.json
+ *   node tools/style-audit.mjs my.json    # custom checks file
  */
 import { chromium } from "playwright";
 import { readFileSync } from "node:fs";

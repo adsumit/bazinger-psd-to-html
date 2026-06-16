@@ -5,7 +5,7 @@
  * This is the catch-all for things not in checks.json (radii, shadows, bar tints).
  *
  *   npm i -D playwright pixelmatch pngjs && npx playwright install chromium
- *   node visual-diff.mjs raw-responsive/index.html bazinger.png
+ *   node tools/visual-diff.mjs raw-responsive/index.html bazinger.png
  *
  * NOTE on alignment: the PSD PNG (1404px wide) and a live full-page render never
  * line up perfectly — full-bleed sections scale with viewport width and total

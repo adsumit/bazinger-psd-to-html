@@ -1,8 +1,8 @@
 # ARCHITECTURE — Bazinger PSD → HTML
 
-How this project is wired: every file in the root, what it does, who/what writes
-it, when to edit it, and how the build-and-verify workflow runs. Written for a
-developer new to the repo.
+How this project is wired: every file in the root (the verification/extraction
+scripts live in `tools/`), what it does, who/what writes it, when to edit it, and
+how the build-and-verify workflow runs. Written for a developer new to the repo.
 
 ## What this project is
 
@@ -50,12 +50,12 @@ psd-spec as a hint, treat BUILD-SPEC as guidance.**
 
 ### Extracted data
 
-- **`extract_psd_spec.py`** — Python (uses `psd-tools`). Opens the PSD, walks
+- **`tools/extract_psd_spec.py`** — Python (uses `psd-tools`). Opens the PSD, walks
   every layer, pulls name/position/size/text/font/color/opacity/effects, and
   writes it all to `psd-spec.json`. Lets you read the design automatically instead
   of clicking through layers in Photoshop. Edit only to change extraction logic
   (e.g. the 0.9489 fix); then re-run:
-  `python extract_psd_spec.py <psd> psd-spec.json`. Dependencies in
+  `python tools/extract_psd_spec.py <psd> psd-spec.json`. Dependencies in
   `requirements.txt`.
 - **`psd-spec.json`** — the machine-readable dump of every layer. **Output —
   never hand-edit.** Regenerate by re-running the script.
@@ -87,7 +87,7 @@ psd-spec as a hint, treat BUILD-SPEC as guidance.**
   SVG icon) and `.todo-unbuilt` placeholders (so an audit "MISSING" doubles as
   your to-do list). Hand-edit often: when selectors change, when expected values
   change, when you add a section.
-- **`style-audit.mjs`** — Node grader. Uses Playwright (an invisible automated
+- **`tools/style-audit.mjs`** — Node grader. Uses Playwright (an invisible automated
   Chrome) to open `index.html`, read each selector's _actual_ computed style, and
   compare it to `checks.json` — printing PASS/FAIL and a count. Catches typos like
   "13px should be 12px" automatically. **Limit: it only checks text properties**
@@ -96,7 +96,7 @@ psd-spec as a hint, treat BUILD-SPEC as guidance.**
 
 ### Quality control 2 — visual heatmap
 
-- **`visual-diff.mjs`** — the other Node grader. Renders the full page with
+- **`tools/visual-diff.mjs`** — the other Node grader. Renders the full page with
   Playwright, compares it pixel-by-pixel against `bazinger.png`, and writes
   `diff.png`. Catches everything the text audit can't: positions, spacing, sizes,
   colors, missing elements. It renders at the PNG's width, so the build's
@@ -128,9 +128,9 @@ psd-spec as a hint, treat BUILD-SPEC as guidance.**
 2. **Get the values** — read BUILD-SPEC §8, cross-check `psd-spec.json`, and
    measure `bazinger.png` directly. On any conflict, the PNG wins.
 3. **Build it** — write the HTML/CSS.
-4. **Verify with both nets** — run `style-audit.mjs` and fix every
+4. **Verify with both nets** — run `tools/style-audit.mjs` and fix every
    font/weight/color FAIL to zero (update that section's `checks.json` entries
-   first); run `visual-diff.mjs`, open `diff.png`, and fix the positions/
+   first); run `tools/visual-diff.mjs`, open `diff.png`, and fix the positions/
    spacing/sizes the red points at, plus your own eyeball against the PNG.
 5. **Update BUILD-SPEC** if you learned a correction.
 6. **Commit** (you write the message) and **push**.
@@ -143,10 +143,10 @@ psd-spec as a hint, treat BUILD-SPEC as guidance.**
 | `checks.json`                        | selectors/values change, new section | hand-edit                       |
 | `BUILD-SPEC.md`                      | a design value is learned/corrected  | hand-edit                       |
 | `CLAUDE.md`                          | a project rule changes (rare)        | hand-edit                       |
-| `extract_psd_spec.py`                | extraction logic changes             | then re-run it                  |
+| `tools/extract_psd_spec.py`                | extraction logic changes             | then re-run it                  |
 | `psd-spec.json`                      | never by hand                        | regenerate via the script       |
 | `bazinger.png`                       | the design changes                   | re-export from the PSD          |
-| `style-audit.mjs`, `visual-diff.mjs` | tool behavior changes (rare)         | hand-edit                       |
+| `tools/style-audit.mjs`, `tools/visual-diff.mjs` | tool behavior changes (rare)         | hand-edit                       |
 | `diff.png`                           | never                                | generated heatmap; just view it |
 | `package.json`, `requirements.txt`   | adding a dependency                  | hand-edit                       |
 
