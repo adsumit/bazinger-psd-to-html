@@ -35,6 +35,8 @@ This spec mixes **machine-extracted layer data** with **human-verified rendered 
 - **Section titles:** positionally centered in the PSD while their text justification reads "left" — `text-align` checks only apply to multi-line paragraphs.
 - **Opacity is stored in layers, not in the obvious field:** contact panel fill-opacity 80% and footer text 25% live in tagged blocks / layer opacity, separate from the fill color.
 - **Hex drift between extraction passes:** e.g. `#91C46B` vs `#92C46B`, `#FD7C00` vs `#FD7B00` — ±1 channel step. Confirm on screen.
+- **Nav link size (eyeballed 2026-06-16):** psd-spec is 12px (≈ true 13×0.9489=12.34), but **12.4px** + `transform: scaleY(0.9)` reads truest against the PNG — menu-band heatmap red dropped 3130→1560. (`checks.json` `.header .menu .active` updated 12→12.4.)
+- **Logo image height (eyeballed 2026-06-16):** psd-spec is 50px (130×50 psd-px), but the raster `logo.png` matches best at **48.5px** + `transform: scale(1.01)` — logo-band heatmap red 667→117. (`checks.json` `.header .logoimg` updated 50→48.5; `scale(1.01)` is visual-only, doesn't change computed height.)
 
 **Authority order: (1) `bazinger.png` rendered pixels → (2) `psd-spec.json` layer data → (3) this document.** Any value here may still mismatch the rendered website against the pixel-accurate PSD/PNG — **every applied value must be eye-verified on screen against the PNG.** The automated audit reads computed styles only; it cannot see positioning, clipping, shadows, or transitions — those remain visual checks.
 
@@ -48,6 +50,7 @@ Items **not** listed in this spec (e.g. download-band height/background, exact i
 - Full-bleed sections: banner, video, download band, contact/map, footer (plus the features/testimonials background tints). Inner content always capped at 1110.
 - **Section heights (desktop):** banner **760px** (from absolute top), video **524px**.
 - **Units policy:** **px** for the PSD-exact desktop layer (≥1110px) — most faithful to a fixed-px design. Fluid units (`max-width` + `%`, flex/grid, media queries; `rem` only if user-scalable type is wanted) strictly **below** 1110px.
+- **Decimal precision (font-sizes):** values may carry **up to 2 decimal places** (e.g. `12.4px`); plain integers stay valid (`34` ≡ `34.00`). This **relaxes** the earlier 0-dp standardization (commit `29ad428`). Audit px tolerance stays **0.1** (`style-audit.mjs:66`), so a 2nd-decimal value is *permitted but not strictly enforced* — when you tune a font-size, update the matching `checks.json` `expect` so the two stay within 0.1.
 - **Coordinate space:** all px above are the PSD's **rendered** pixels — the 1404 canvas you see in `bazinger.png`. The PSD is a 0.9489 scale of a 1480px master; we build to the rendered sizes so 1px CSS = 1px PNG, no scale factor anywhere.
 
 The per-section px values further down (§6 shadows, §7 header, §8 hero, etc.) are still master-space — rescale **font-sizes, dimensions and positions** by 0.9489 as you rework each section; **leave non-spatial / sub-pixel values as-is** (hairlines, small borders, shadow offsets, opacities, transitions, colors). The PNG outranks the spec anyway, so treat the rescaled numbers as guidance and the pixels as truth.
@@ -69,7 +72,7 @@ The per-section px values further down (§6 shadows, §7 header, §8 hero, etc.)
 | Label bars (effective) | `#5F6B70` / featured `#597886` | gallery label bars (sampled) |
 | Video overlay (effective) | `#5E8DA0` | flat overlay approximation — sampled range `#48788D`–`#74A6BB` (eyeball) |
 | Navbar bg | `rgba(7,7,7,0.30)` | header bar over hero |
-| Navbar bottom line | `box-shadow: 0 1px 0 rgba(255,255,255,0.20)` | |
+| Navbar bottom line | `box-shadow: 0 1px 0 rgba(255,255,255,0.06)` | hairline alpha eyeballed 0.20 → 0.1 → 0.06 |
 | Contact panel fill | `rgba(75,202,255,0.8)` | measured fill-opacity 204/255 = 80% |
 | Footer text | `rgba(254,254,254,0.25)` | white @ 25% layer opacity — NOT solid grey |
 
@@ -96,12 +99,12 @@ Do **not** use `#FCB733` (old gold nav hover — removed; hover is brand blue).
 
 ## 7. Section 1 — Header / nav
 
-- Bar: `background: rgba(7,7,7,0.30); box-shadow: 0 1px 0 rgba(255,255,255,0.1);` over the hero (hairline opacity eyeballed from the PNG).
-- **Logo:** one wordmark, two spans — "ba" `#FFFFFF` + "zinger" `#4BCAFF`, DroidSans-Bold 36px, ls −1.44px; wifi arc (SVG) above. **Vertically center the WORDMARK** in the navbar, not the whole logo box (the arc drags the box center down).
-- **Nav links:** DroidSans 13px `#FFFFFF`, each `<a>` fills the navbar height.
+- Bar: `background: rgba(7,7,7,0.30); box-shadow: 0 1px 0 rgba(255,255,255,0.06);` over the hero (hairline opacity eyeballed from the PNG: 0.20 → 0.1 → 0.06). Fixed nav `z-index:2` to sit above the banner's `.banner_bg`/content layers.
+- **Logo:** one wordmark, two spans — "ba" `#FFFFFF` + "zinger" `#4BCAFF`, DroidSans-Bold 36px, ls −1.44px; wifi arc (SVG) above. **Vertically center the WORDMARK** in the navbar, not the whole logo box (the arc drags the box center down). In the non-responsive build the wordmark is a **raster `logo.png`**, rendered at height **48.5px psd-px** (eyeball-corrected from 50; + `transform: scale(1.01)`, visual-only — see §2).
+- **Nav links:** DroidSans 13px true `#FFFFFF` → rendered **12.4px psd-px** (eyeball-corrected, + `transform: scaleY(0.9) translateY(-2px)` squash — see §2), each `<a>` fills the navbar height.
   - Hover: color → `#4BCAFF` **only** (no bold).
   - Active (clicked): `#4BCAFF` + DroidSans-**Bold**.
-  - **Bar:** 1px `#4BCAFF` at the navbar's top edge (eyeballed from the PNG), width = the link (`left:0; right:0`), lives in the base state at `opacity:0`, revealed on hover/active — `transition: opacity 300ms ease` matching the link's `color 300ms ease` so they animate together.
+  - **Bar:** 1px `#4BCAFF` lifted to **`top:-3px`** above the navbar's top edge (eyeballed from the PNG), width = the link (`left:0; right:0`), lives in the base state at `opacity:0`, revealed on hover/active — `transition: opacity 300ms ease` matching the link's `color 300ms ease` so they animate together.
 
 ## 8. Section 2 — Hero / banner slider (3 slides, vanilla JS)
 

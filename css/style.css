@@ -50,8 +50,8 @@ a{
     top: 0px;
     height: 94px;                                  /* dark fill 94px; box-shadow paints the 95th px (white line) -> 95px total visual */
     background: rgba(7, 7, 7, 0.30);               /* was rgba(19,30,41,0.73); PSD Header/Menu/Base #070707 @30% */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1); /* navbar bottom hairline (outset, adds no layout height) */
-    z-index: 1;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); /* navbar bottom hairline (outset, adds no layout height); alpha eyeballed 0.20 -> 0.1 -> 0.06 */
+    z-index: 2;                                    /* keep the fixed navbar above the banner stacking contexts (.banner .center is z-index 1) */
 }
 .header .logo{
     float: left;
@@ -59,7 +59,8 @@ a{
     display: inline-block;
 }
 .header .logoimg{
-    height: 50px;             /* PSD Logo group is 130x50 in rendered psd-px (was 137x52 true-px) */
+    height: 48.5px;           /* hand-tuned; measured spec is 50px — PSD Logo group 130x50 rendered psd-px (was 137x52 true-px) */
+    transform: scale(1.01);   /* hand-tuned, off-spec: enlarge logo 1% on both axes (scaled from its centre) */
 }
 .header .menu{
     float: right;
@@ -72,8 +73,12 @@ a{
     list-style: none;
 }
 .header .menu li a{
+    /* Nav-link hand-tune (deliberate, OFF the measured spec):
+       - scaleY(0.9): vertically squash each link to 90% of its height for a condensed look.
+       - translateY(-2px): lift it 2px to re-centre vertically after the squash. */
+    transform: scaleY(0.9) translateY(-2px);
     font-family: DroidSans;
-    font-size: 12px;
+    font-size: 12.4px;              /* hand-tuned; measured spec is 12px */
     color: #ffffff;
     text-transform: uppercase;      /* PSD nav renders all-caps (verified on PNG) */
     display: block;                 /* each <a> fills the navbar dark-fill height */
@@ -85,7 +90,7 @@ a{
 .header .menu li a::after{          /* 2px active/hover bar at the navbar's top edge */
     content: "";
     position: absolute;
-    top: 0;
+    top: -3px;                     /* hand-tuned: lift active/hover bar 3px above the navbar top edge (was 0) */
     left: 0;
     right: 0;                       /* width = the link's own box */
     height: 1px;                    /* active/hover bar — 1px on the PNG */
