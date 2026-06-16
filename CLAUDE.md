@@ -55,7 +55,7 @@ After ANY fidelity edit to the build's HTML/CSS, before reporting done:
    `psd-spec.json` / the PNG; re-run until it prints `0 failed`:
    - non-responsive / raw-responsive (no build step):  `node tools/style-audit.mjs`
    - tailwind (builds then audits):  `npm run verify`  (from the `tailwind/` folder)
-3. Run the visual net: `node tools/visual-diff.mjs index.html bazinger.png`; open `diff.png`;
+3. Run the visual net: `node tools/visual-diff.mjs index.html bazinger.png`; open `diff/diff.png`;
    inspect any flagged region; add a `checks.json` entry for anything new it surfaces.
 - "It matches" / "consistent" / "done" is a CLAIM that is ONLY valid after the audit
   prints `0 failed`. Never assert it from a glance or a screenshot. Report the audit
