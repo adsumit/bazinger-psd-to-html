@@ -7,7 +7,7 @@ crop*.mjs
 *.log
 .DS_Store
 Thumbs.db
-
+obsidian/
 # Obsidian exports — local session log + copied auto-memory notes (not part of the build)
 Bazinger Session*.md
 pending-per-section-audit-fails.md
