@@ -16,7 +16,7 @@
 import { chromium } from "playwright";
 import { PNG } from "pngjs";
 import pixelmatch from "pixelmatch";
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
 
@@ -57,8 +57,9 @@ const changed = pixelmatch(a.data, b.data, diff.data, W, H, {
   threshold: 0.12,            // tolerance for AA/sub-pixel noise; raise to ignore more
   includeAA: false,
 });
-writeFileSync("diff.png", PNG.sync.write(diff));
+mkdirSync("diff", { recursive: true });   // outputs live in diff/ (gitignored)
+writeFileSync("diff/diff.png", PNG.sync.write(diff));
 
 const pct = ((changed / (W * H)) * 100).toFixed(2);
-console.log(`Compared ${W}x${H}. ${changed} differing px (${pct}%). Heatmap -> diff.png`);
-console.log("Red = divergence. Open diff.png and inspect the flagged regions.");
+console.log(`Compared ${W}x${H}. ${changed} differing px (${pct}%). Heatmap -> diff/diff.png`);
+console.log("Red = divergence. Open diff/diff.png and inspect the flagged regions.");
