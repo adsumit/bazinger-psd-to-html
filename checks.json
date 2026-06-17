@@ -55,6 +55,17 @@
       "_psd_font": "Lato-Light"
     },
     {
+      "label": "Header — and Amazing (bold emphasis span)",
+      "selector": ".banner_content .lb",
+      "expect": {
+        "font-size": "46px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Bold",
+      "_note": "The hero heading's 2nd run ('and Amazing') is bold (psd-spec). Size/color inherit from .banner_content h1; only the weight/face differ. Added to lock the bold emphasis the audit previously didn't cover."
+    },
+    {
       "label": "Header — bazinger (logo image height)",
       "selector": ".header .logoimg",
       "expect": {
@@ -173,6 +184,17 @@
         "color": "#FFFFFF"
       },
       "_psd_font": "Lato-Light"
+    },
+    {
+      "label": "Video — Action (bold emphasis span)",
+      "selector": ".watch h1 span",
+      "expect": {
+        "font-size": "46px",
+        "font-weight": "700",
+        "color": "#FFFFFF"
+      },
+      "_psd_font": "Lato-Bold",
+      "_note": "The Watch heading's 2nd run ('Action') is bold (psd-spec). Size/color inherit from .watch h1; only the weight/face differ. Added to lock the bold emphasis the audit previously didn't cover."
     },
     {
       "label": "Prices — 30",
@@ -327,9 +349,10 @@
       "expect": {
         "font-size": "11px",
         "font-weight": "400",
-        "color": "#FEFEFE"
+        "color": "#707071"
       },
-      "_psd_font": "Lato-Regular"
+      "_psd_font": "Lato-Regular",
+      "_note": "PSD fill is #FEFEFE but the layer is 25% opacity; rendered = white@25% over #414042 = rgb(112,112,113) = #707071 (PNG-sampled, outranks the raw fill). Eyeball/blend-corrected truth-update — the 'fill opacity hides in tagged blocks' caveat."
     },
     {
       "label": "Footer — Terms of Service | Privacy Policy",
@@ -337,9 +360,10 @@
       "expect": {
         "font-size": "11px",
         "font-weight": "400",
-        "color": "#FFFFFF"
+        "color": "#707071"
       },
-      "_psd_font": "Lato-Regular"
+      "_psd_font": "Lato-Regular",
+      "_note": "PSD fill is #FFFFFF but the layer is 25% opacity; rendered = white@25% over #414042 = rgb(112,112,113) = #707071 (PNG-sampled, outranks the raw fill). Same opacity-blend correction as the copyright row."
     },
     {
       "label": "Download — DOWNLOAD NOW",

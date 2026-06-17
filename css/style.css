@@ -13,15 +13,22 @@
 @font-face {
     font-family: Lato-Light;
     src: url(../font/Lato-Light.ttf);
+    font-weight: 300;            /* tag the real light file AS weight 300 so an element asking for 300 matches it
+                                    exactly. (The element still needs its OWN font-weight:300 to COMPUTE 300 — the
+                                    descriptor only governs which file is picked, not the computed weight.) */
 }
 
 @font-face {
     font-family: Lato-Bold;
     src: url(../font/Lato-Bold.ttf);
+    font-weight: 700;            /* tag the real bold file AS 700 — without this the browser assumes the face is 400
+                                    and faux-bolds an already-bold file (double-heavy/smeared). Kills synthetic bold. */
 }
 @font-face {
     font-family: Lato-Black;
     src: url(../font/Lato-Black.ttf);
+    font-weight: 900;            /* tag the real black file AS 900; requesting 900 loads it directly instead of
+                                    faux-bolding the 400-assumed face */
 }
 
 @font-face {
@@ -148,16 +155,19 @@ a{
     height:800px ;
 }
 .banner_content h1{
+    font-family: Lato-Light;  /* hero root text is light; the "and Amazing" .lb span overrides to bold below */
+    font-weight: 300;         /* PSD hero is Lato-Light 300 — UA gives <h1> 700 by default, so set it explicitly */
     font-size: 46px;          /* hero heading: Lato 48 true -> 46 psd-px (BUILD-SPEC §8) */
     margin-top: 350px;
-    color: white; 
+    color: white;
 }
 .banner_content .ll{
     font-family: Lato-Light;
 }
 
 .banner_content .lb{
-    font-family: Lato-bold;
+    font-family: Lato-Bold;   /* "and Amazing" is bold in the PSD */
+    font-weight: 700;         /* compute 700 + select the real bold face (no faux) */
 }
 .banner_content .p{
     width: 700px;
@@ -177,6 +187,7 @@ a{
     border-radius: 7.6px;
     background-color: none;
     font-family: Lato-Bold;
+    font-weight: 700;        /* DOWNLOAD is bold (Lato-Bold 700) */
     font-size: 14px;         /* DOWNLOAD: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
     transition: 0.5s;
 }
@@ -197,6 +208,7 @@ a{
     border-radius: 7.6px;
     background-color: #4bcaff;
     font-family: Lato-Bold;
+    font-weight: 700;        /* LEARN MORE is bold (Lato-Bold 700) */
     font-size: 14px;         /* LEARN MORE: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
     transition: 0.5s;
 }
@@ -215,6 +227,7 @@ a{
     padding-top: 69px;
     color: white;
     font-family: Lato-Light;
+    font-weight: 300;         /* "Aavailable on :" is Lato-Light 300 */
     font-size: 17px;          /* "Aavailable on :" Lato-Light 18 true -> 17 psd-px (BUILD-SPEC §8) */
 }
 .banner_content .iconcontainer .iconcontainerchild{
@@ -279,12 +292,14 @@ a{
 }
 .features .mainheading{
     font-family: Lato-Black;
+    font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
     font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
     color: #414042;
 }
 .features .top_para{
     padding-bottom: 70px;
     font-family: Lato-Light;
+    font-weight: 300;         /* subtitle is Lato-Light 300 */
     font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was unset, inheriting 16) (BUILD-SPEC §9) */
     color: #414042;
 }
@@ -337,6 +352,16 @@ a{
     padding: 30px 0;
     color: #414042;
 }
+/* The 3rd feature ("multipurpose") is captured in its ACTIVE/hover state in the PSD:
+   a dark circle + a blue title (both sampled from bazinger.png — the dark = the same
+   #414042 the :hover rule uses, the title = #4bcaff). Apply that look statically to
+   box 3 only, so the static render matches the design's frozen hover. */
+.features .feat-box:nth-of-type(3) .icons{
+    background-color: #414042;
+}
+.features .feat-box:nth-of-type(3) .feat-info h2{
+    color: #4bcaff;
+}
 .features .feat-box .feat-info p{
     font-family: Lato-Regular;
     font-size: 12px;
@@ -351,12 +376,16 @@ a{
 }
 .gallery .mainheading{
     font-family: Lato-Black;
+    font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
     font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
+    color: #414042;           /* was unset -> defaulted to black; PSD title is #414042 */
     padding-top: 45px;
 }
 .gallery .top-para{
     font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was wrongly 13) (BUILD-SPEC §10) */
     font-family: Lato-Light;
+    font-weight: 300;         /* subtitle is Lato-Light 300 */
+    color: #414042;           /* was unset -> defaulted to black; PSD subtitle is #414042 */
     padding-bottom: 60px;
 }
 .gallery .gallery-box{
@@ -420,6 +449,7 @@ a{
     font-size: 12px;
     line-height: 20.88px;
     font-family: Lato-Light;
+    color: #838383;           /* was unset -> defaulted to black; PSD body copy is #838383 (matches features) */
     padding-bottom: 100px;
 }
 /*==================================================WATCH*/
@@ -474,16 +504,18 @@ a{
 }
 .watch h1{
     text-align: center;
-    font-family: Lato-light;
+    font-family: Lato-Light;
     font-size: 46px;
     color: #fff;
-    font-weight: 100;
+    font-weight: 300;         /* was 100 (too light, wrong file) — PSD "Watch the best..." is Lato-Light 300 */
 }
-.watch h1 span{
-    font-family: Lato-bold;
+.watch h1 span{              /* the emphasised word "Action" */
+    font-family: Lato-Bold;
+    font-weight: 700;         /* "Action" is bold (Lato-Bold 700) — mirrors the hero .lb span; was inheriting 300 */
 }
 .watch p{
-    font-family: Lato-light;
+    font-family: Lato-Light;
+    font-weight: 300;         /* body copy is Lato-Light 300 */
     color: white;
     text-align: center;
     padding: 4% 22%;
@@ -497,11 +529,15 @@ a{
 .price h1{
     margin-top: 50px;
     font-family: Lato-Black;
+    font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
     font-size: 34px;
+    color: #414042;           /* was unset -> defaulted to black; PSD title is #414042 */
 }
 .price .p{
     font-family: Lato-Light;
+    font-weight: 300;         /* subtitle is Lato-Light 300 */
     font-size: 19px;
+    color: #414042;           /* was unset -> defaulted to black; PSD subtitle is #414042 */
     margin-bottom: 75px;
 }
 .price .packone{
@@ -534,6 +570,7 @@ a{
     line-height: 110px;
     font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
+    font-weight: 700;         /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
     color: white;
     background-color: #91c46b;
     text-shadow: 1px 1px 1px #afafaf;
@@ -542,6 +579,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
+    font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
@@ -556,6 +594,7 @@ a{
 }
 .price .packone .button a{
     font-family: Lato-Bold;
+    font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #91c46b;
@@ -586,7 +625,7 @@ a{
     text-transform: uppercase;
     font-size: 21px;          /* PRO label is larger: Lato-Bold 22 true -> 21 psd-px (BUILD-SPEC §12) */
     font-family: Lato-Bold;
-    color: #d7d7d7;
+    color: #4bcaff;           /* PRO (middle) card label is blue in the PSD (sampled #4bcaff) — others stay #d7d7d7 */
     transition: 0.5s;
 }
 .price .packtwo:hover h4{
@@ -597,6 +636,7 @@ a{
     line-height: 110px;
     font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
+    font-weight: 700;         /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
     color: white;
     background-color: #4bcaff;
     text-shadow: 1px 1px 1px #afafaf;
@@ -605,10 +645,11 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
+    font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
-    color: #d7d7d7;
+    color: #4bcaff;           /* PRO (middle) card list is blue in the PSD (sampled #4bcaff) — the other cards stay #d7d7d7 */
     transition: 0.5s;
 }
 .price .packtwo:hover p{
@@ -619,6 +660,7 @@ a{
 }
 .price .packtwo .button a{
     font-family: Lato-Bold;
+    font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #4bcaff;
@@ -660,6 +702,7 @@ a{
     line-height: 110px;
     font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
     font-family: DroidSansBold;
+    font-weight: 700;         /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
     color: white;
     background-color: #fd7c00;
     text-shadow: 1px 1px 1px #afafaf;
@@ -668,6 +711,7 @@ a{
     height: 155px;
     line-height: 37.96px;
     font-family:Lato-Bold ;
+    font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
     padding-top: 12px;
@@ -682,6 +726,7 @@ a{
 }
 .price .packthree .button a{
     font-family: Lato-Bold;
+    font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #fd7c00;
@@ -837,6 +882,7 @@ a{
     background-color: #4bcaff;
     font-size: 14px;
     font-family: Lato-Bold;
+    font-weight: 700;         /* DOWNLOAD NOW is bold (Lato-Bold 700) */
     border-bottom: 5px solid #277697;
     border-radius: 8px;
     text-transform: uppercase;
@@ -931,9 +977,11 @@ a{
 }
 .cntmprnt .contact-map .contact .send-button{
     font-size: 14px;          /* Send: Lato-Bold 15 true -> 14 psd-px (was unset, button default 13.3333) (BUILD-SPEC §15) */
+    font-family: Lato-Bold;   /* was unset (UA <input> default) — PSD Send is Lato-Bold */
+    font-weight: 700;         /* Send is bold (Lato-Bold 700) */
     padding: 3% 8%;
     background-color: #414042;
-    color: #4bcaff;
+    color: #72b3cc;           /* PSD Send text is a MUTED blue #72b3cc (sampled), not the vivid #4bcaff */
     border: none;
     border-bottom: 2px solid #313032;
     border-radius: 5px;
@@ -958,7 +1006,11 @@ a{
     line-height: 105px;
 }
 .footer a{
-    color: #808081;    
+    /* PSD footer text is white (#FEFEFE/#FFFFFF) BUT on a layer at 25% opacity, so it
+       RENDERS as white@25% over the #414042 footer = rgb(112,112,113) = #707071. The PNG
+       (authority) shows that grey, not white — so we paint the pre-blended #707071 opaque
+       (was #808081, a too-bright earlier guess). See BUILD-SPEC footer note. */
+    color: #707071;
     font-family: Lato-Regular;
     font-size: 11px;
     line-height: 105px;

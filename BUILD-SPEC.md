@@ -158,6 +158,8 @@ Height **550px**, full-bleed background + flat overlay `#5E8DA0` (eyeball — sa
 
 Base `#414042`. Text Lato-Regular 12px, color `rgba(254,254,254,0.25)` (white @ 25% — not solid grey). Copyright positioned left; terms/links positioned right.
 
+> **Build value (opaque):** the build paints the text **`#707071`** = white@25% pre-blended over the `#414042` base (`254·0.25 + 65·0.75 ≈ 112` ⇒ `rgb(112,112,113)`), PNG-confirmed (peak luminance ~112). `checks.json` originally recorded the raw fill `#FEFEFE`/`#FFFFFF` and was corrected to `#707071` (2026-06-17) — the "fill opacity hides in tagged blocks" caveat (§6, line above). Don't paint the literal white fill; that ignores the 25% layer opacity.
+
 ---
 
 ## 17. Responsive requirements (below 1170px)
