@@ -46,7 +46,7 @@ Each branch holds that build at the repo root. The shared source of truth — `B
 |---|---|
 | `tools/extract_psd_spec.py` → `psd-spec.json` | Dumps every PSD layer's properties (geometry, type, fill, effects) to JSON — the machine-readable source of truth. |
 | `tools/style-audit.mjs` + `checks.json` | Renders the page and compares each element's **computed CSS** to the spec. Exact, no image alignment — the workhorse. |
-| `tools/visual-diff.mjs` | Pixel-diffs a screenshot against `bazinger.png` → a red heatmap (`diff/diff.png`). The catch-all net. |
+| `tools/visual-diff.mjs` | Pixel-diffs a screenshot against `bazinger.png` → a red heatmap (`tools/diff/diff.png`). The catch-all net. |
 
 **Install / run**
 ```
@@ -54,7 +54,7 @@ npm install
 npx playwright install chromium
 pip install psd-tools pillow            # only needed to regenerate the spec
 node tools/style-audit.mjs                     # computed-style audit -> PASS/FAIL per property
-node tools/visual-diff.mjs index.html bazinger.png   # pixel-diff -> diff/diff.png
+node tools/visual-diff.mjs index.html bazinger.png   # pixel-diff -> tools/diff/diff.png
 ```
 
 > `checks.json` selectors are per-build (class names differ); the **expected values are correct** (straight from `psd-spec.json`). Point the selectors at the current branch's markup. Each entry accepts any property `getComputedStyle` returns, and `"state":"hover"` hovers first for hover-state colors.
