@@ -587,7 +587,7 @@ a{
 /*==================================================PRICE*/
 .price{
     text-align: center;
-    height: 600px;
+    height: 615px;            /* was 600 — the taller PRO card (centred, +19px below) needs the extra room */
 }
 .price h1{
     margin-top: 50px;
@@ -604,13 +604,15 @@ a{
     margin-bottom: 75px;
 }
 .price .packone{
-    height: 395px;
-    width: 285px;
+    height: 395px;            /* + 2px border = 397 = PSD Item1 card height */
+    width: 285px;            /* + 2px border = 287 = PSD Item1 card width */
     float: left;
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
+    /* PSD price row, centred in the 1110 .center: 66 | 287 | 25 | 354(PRO) | 25 | 287 | 66.
+       First card sits 66px from the left; the PRO card and last card follow on 25px gaps. */
+    margin: 0 0 0 66px;
     transition: 0.5s;
 }
 .price .packone:hover{
@@ -639,13 +641,13 @@ a{
     text-shadow: 1px 1px 1px #afafaf;
 }
 .price .packone .packinfo p{
-    height: 155px;
+    height: 114px;            /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
     line-height: 37.96px;
     font-family:Lato-Bold ;
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 12px;
+    padding-top: 34px;        /* list top at PSD y2787 = 34px below the price block (was 12 — sat the list too high) */
     color: #d7d7d7;
     transition: 0.5s;
 }
@@ -656,12 +658,14 @@ a{
     text-transform: uppercase;
 }
 .price .packone .button a{
+    display: inline-block;    /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
     font-family: Lato-Bold;
     font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #91c46b;
-    padding: 15px 30px;
+    padding: 16px 46px;       /* PSD button box 166×50: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
+    border-radius: 3px;       /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
     transition: 0.5s;
 }
 .price .packone .button a:hover{
@@ -670,13 +674,18 @@ a{
     text-shadow: 0.1px 0.1px 1px white;
 }
 .price .packtwo{
-    height: 395px;
-    width: 285px;
+    /* PRO = the highlighted middle card: WIDER + TALLER than its siblings and vertically
+       CENTRED on them (PSD Item2 bbox 354×435 vs the siblings' 287×397).
+       width 352 + 2px border = 354;  height 433 + 2px border = 435.
+       margin-top:-19 lifts it 19px so it juts out 19px above the siblings, and the extra
+       height makes it jut 19px below too — the classic "recommended plan" emphasis. */
+    height: 433px;
+    width: 352px;
     float: left;
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
+    margin: -19px 0 0 25px;   /* -19 top = centre it on the siblings; 25 left = PSD inter-card gap */
     transition: 0.5s;
 }
 .price .packtwo:hover{
@@ -705,13 +714,13 @@ a{
     text-shadow: 1px 1px 1px #afafaf;
 }
 .price .packtwo .packinfo p{
-    height: 155px;
+    height: 157px;            /* 4 lines (PRO has the extra "Praesent pharetra"): box ends at the PSD button top y2917 */
     line-height: 37.96px;
     font-family:Lato-Bold ;
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 12px;
+    padding-top: 26px;        /* list top at PSD y2760 = 26px below the price block (PRO list starts a touch higher than the others') */
     color: #4bcaff;           /* PRO (middle) card list is blue in the PSD (sampled #4bcaff) — the other cards stay #d7d7d7 */
     transition: 0.5s;
 }
@@ -722,12 +731,14 @@ a{
     text-transform: uppercase;
 }
 .price .packtwo .button a{
+    display: inline-block;    /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
     font-family: Lato-Bold;
     font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #4bcaff;
-    padding: 15px 30px;
+    padding: 16px 46px;       /* PSD button box 165×49: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
+    border-radius: 3px;       /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
     transition: 0.5s;
 }
 .price .packtwo .button a:hover{
@@ -736,13 +747,13 @@ a{
     text-shadow: 0.1px 0.1px 1px white;
 }
 .price .packthree{
-    height: 395px;
-    width: 285px;
+    height: 395px;            /* + 2px border = 397 = PSD Item3 card height (mirror of Item1) */
+    width: 285px;            /* + 2px border = 287 = PSD Item3 card width */
     float: left;
     background-color: #f9f9f9;
     border: 1px solid #e3e0e0;
     border-radius: 5px;
-    margin: 0px 41px;         /* 3 cards: 285 + 2×41 = 367, ×3 = 1101 fits 1110 (51 overflowed) */
+    margin: 0 0 0 25px;       /* 25px gap after the wider PRO card (PSD price row) */
     transition: 0.5s;
 }
 .price .packthree:hover{
@@ -771,13 +782,13 @@ a{
     text-shadow: 1px 1px 1px #afafaf;
 }
 .price .packthree .packinfo p{
-    height: 155px;
+    height: 114px;            /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
     line-height: 37.96px;
     font-family:Lato-Bold ;
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 12px;
+    padding-top: 34px;        /* list top at PSD y2787 = 34px below the price block (was 12 — sat the list too high) */
     color: #d7d7d7;
     transition: 0.5s;
 }
@@ -788,12 +799,14 @@ a{
     text-transform: uppercase;
 }
 .price .packthree .button a{
+    display: inline-block;    /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
     font-family: Lato-Bold;
     font-weight: 700;         /* PURCHASE is bold (Lato-Bold 700) */
     font-size: 14px;
     color: white;
     background-color: #fd7c00;
-    padding: 15px 30px;
+    padding: 16px 46px;       /* PSD button box 166×50: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
+    border-radius: 3px;       /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
     transition: 0.5s;
 }
 .price .packthree .button a:hover{
