@@ -160,14 +160,14 @@ a{
 }
 .banner_content{
     float:right;
-    width:637px;        /* PSD content block: right edge ~canvas 1257, heading left x620 -> 1257-620 = 637 (was 670, sat ~33px left) */
+    padding-top: 324px;  /* eyeball-corrected: push the whole content block down 324px (replaces the h1 margin-top) */
+    width:638.4px;       /* eyeball-corrected (was 637) */
     height:760px ;      /* match the banner (was 800, master-space) */
 }
 .banner_content h1{
     font-family: Lato-Light;  /* hero root text is light; the "and Amazing" .lb span overrides to bold below */
     font-weight: 300;         /* PSD hero is Lato-Light 300 — UA gives <h1> 700 by default, so set it explicitly */
-    font-size: 46px;          /* hero heading: Lato 48 true -> 46 psd-px (BUILD-SPEC §8) */
-    margin-top: 330px;        /* PSD heading top y330 (was 350, sat ~20px low) — fine-tune to taste against the PNG */
+    font-size: 45.55px;       /* eyeball-corrected (was 46; psd-spec true 45.5) */
     line-height: 1;           /* PSD heading box ~43px; default ~1.2 (55px) sat the glyph ~4px low and padded the stack */
     color: white;
     text-shadow: 0 1px 3px rgba(25, 22, 24, 0.36);   /* PSD DropShadow 36% / dist 1 / size 3 / #191618 (BUILD-SPEC §6) */
