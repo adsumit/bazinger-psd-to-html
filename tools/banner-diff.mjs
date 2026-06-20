@@ -10,7 +10,7 @@
  *   node tools/banner-diff.mjs <page.html> <psd.png> [outFile] [bannerHeight]
  *   node tools/banner-diff.mjs index.html bazinger.png _banner_2026-06-18_diff.png 760
  *
- * Defaults: page=index.html, psd=bazinger.png, out=diff/_banner_diff.png, bannerHeight=760
+ * Defaults: page=index.html, psd=bazinger.png, out=tools/diff/_banner_diff.png, bannerHeight=760
  * (760 = the rendered psd-px banner height; the navbar overlays its top 95px,
  * so this strip is the full hero region including the nav chrome.)
  *
@@ -28,8 +28,8 @@ import { resolve, dirname } from "node:path";
 const pagePath = process.argv[2] || "index.html";
 const psdPng   = process.argv[3] || "bazinger.png";
 const outArg   = process.argv[4] || "_banner_diff.png";   // caller picks → no clobber
-// outputs live in diff/ (gitignored); a bare name lands there, an explicit path is kept
-const outFile  = outArg.includes("/") ? outArg : `diff/${outArg}`;
+// outputs live in tools/diff/ (gitignored); a bare name lands there, an explicit path is kept
+const outFile  = outArg.includes("/") ? outArg : `tools/diff/${outArg}`;
 const BANNER_H = Number(process.argv[5] || 760);          // rendered psd-px banner height
 
 const ref = PNG.sync.read(readFileSync(psdPng));
@@ -67,7 +67,7 @@ const changed = pixelmatch(a.data, b.data, diff.data, W, H, {
   threshold: 0.12,            // same AA/sub-pixel tolerance as visual-diff.mjs
   includeAA: false,
 });
-mkdirSync(dirname(outFile), { recursive: true });   // ensure diff/ exists
+mkdirSync(dirname(outFile), { recursive: true });   // ensure tools/diff/ exists
 writeFileSync(outFile, PNG.sync.write(diff));
 
 const pct = ((changed / (W * H)) * 100).toFixed(2);
