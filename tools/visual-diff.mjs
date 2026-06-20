@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * visual-diff.mjs — Screenshot the rendered page and pixel-diff it against the
- * PSD PNG, writing a red heatmap (diff.png) of where they diverge plus a % score.
+ * PSD PNG, writing a red heatmap (tools/diff/diff.png) of where they diverge plus a % score.
  * This is the catch-all for things not in checks.json (radii, shadows, bar tints).
  *
  *   npm i -D playwright pixelmatch pngjs && npx playwright install chromium
@@ -57,9 +57,9 @@ const changed = pixelmatch(a.data, b.data, diff.data, W, H, {
   threshold: 0.12,            // tolerance for AA/sub-pixel noise; raise to ignore more
   includeAA: false,
 });
-mkdirSync("diff", { recursive: true });   // outputs live in diff/ (gitignored)
-writeFileSync("diff/diff.png", PNG.sync.write(diff));
+mkdirSync("tools/diff", { recursive: true });   // outputs live in tools/diff/ (gitignored)
+writeFileSync("tools/diff/diff.png", PNG.sync.write(diff));
 
 const pct = ((changed / (W * H)) * 100).toFixed(2);
-console.log(`Compared ${W}x${H}. ${changed} differing px (${pct}%). Heatmap -> diff/diff.png`);
-console.log("Red = divergence. Open diff/diff.png and inspect the flagged regions.");
+console.log(`Compared ${W}x${H}. ${changed} differing px (${pct}%). Heatmap -> tools/diff/diff.png`);
+console.log("Red = divergence. Open tools/diff/diff.png and inspect the flagged regions.");
