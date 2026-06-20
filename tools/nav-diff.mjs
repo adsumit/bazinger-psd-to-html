@@ -9,7 +9,7 @@
  *   node tools/nav-diff.mjs <page.html> <psd.png> [outFile] [navHeight]
  *   node tools/nav-diff.mjs index.html bazinger.png _nav_2026-06-16_diff.png 95
  *
- * Defaults: page=index.html, psd=bazinger.png, out=diff/_nav_diff.png, navHeight=95
+ * Defaults: page=index.html, psd=bazinger.png, out=tools/diff/_nav_diff.png, navHeight=95
  * (95 = 94px dark fill + 1px shadow = the navbar's visual height; no banner bleed).
  */
 import { chromium } from "playwright";
@@ -22,8 +22,8 @@ import { resolve, dirname } from "node:path";
 const pagePath = process.argv[2] || "index.html";
 const psdPng   = process.argv[3] || "bazinger.png";
 const outArg   = process.argv[4] || "_nav_diff.png";   // caller picks → no clobber
-// outputs live in diff/ (gitignored); a bare name lands there, an explicit path is kept
-const outFile  = outArg.includes("/") ? outArg : `diff/${outArg}`;
+// outputs live in tools/diff/ (gitignored); a bare name lands there, an explicit path is kept
+const outFile  = outArg.includes("/") ? outArg : `tools/diff/${outArg}`;
 const NAV_H    = Number(process.argv[5] || 95);        // navbar visual height: 94px dark fill + 1px shadow
 
 const ref = PNG.sync.read(readFileSync(psdPng));
@@ -61,7 +61,7 @@ const changed = pixelmatch(a.data, b.data, diff.data, W, H, {
   threshold: 0.12,            // same AA/sub-pixel tolerance as visual-diff.mjs
   includeAA: false,
 });
-mkdirSync(dirname(outFile), { recursive: true });   // ensure diff/ exists
+mkdirSync(dirname(outFile), { recursive: true });   // ensure tools/diff/ exists
 writeFileSync(outFile, PNG.sync.write(diff));
 
 const pct = ((changed / (W * H)) * 100).toFixed(2);
