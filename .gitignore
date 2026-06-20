@@ -2,7 +2,7 @@ node_modules/
 diff.png
 diff*.png
 *diff.png
-diff/
+tools/diff/
 crop*.mjs
 *.psd
 *.log
