@@ -190,6 +190,7 @@ a{
 }
 .banner_content .button_one{
     margin-top: 44px;        /* eyeball-corrected para->button gap (was 36) */
+    margin-left: 3px;        /* eyeball nudge: shifts the whole button row 3px right (keeps the 35px inter-button gap) */
     display: inline-block;
     padding: 21px 50px;      /* tuned to the PSD button box ~188x64 (text ~85px + 2x50 pad + 2x2 border) */
     color: white;
