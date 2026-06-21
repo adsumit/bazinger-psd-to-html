@@ -189,7 +189,7 @@ a{
     line-height: 19px;        /* PSD paragraph = 3 lines in a 57px box (~1.12 leading); 3x19 ~= the old 4x14.25 so the buttons below don't move */
 }
 .banner_content .button_one{
-    margin-top: 36px;        /* PSD para-bottom 453 -> button-top 489 = 36px gap (was 40) */
+    margin-top: 44px;        /* eyeball-corrected para->button gap (was 36) */
     display: inline-block;
     padding: 21px 50px;      /* tuned to the PSD button box ~188x64 (text ~85px + 2x50 pad + 2x2 border) */
     color: white;
@@ -209,7 +209,7 @@ a{
     background-color: rgba(0, 0, 0, 0.44);
 }
 .banner_content .button_two{
-    margin-top: 36px;        /* match button_one (PSD para->button gap 36) */
+    margin-top: 44px;        /* match button_one (eyeball-corrected gap 44) */
     margin-left: 35px;       /* PSD inter-button gap: 844-809 = 35px (was 40) */
     display: inline-block;
     padding: 22px 50px;      /* tuned to the PSD blue button box ~188x61 (no border; box-shadow adds no layout height) */
