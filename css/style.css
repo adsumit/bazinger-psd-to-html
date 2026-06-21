@@ -233,9 +233,10 @@ a{
     height: 180px;
 }
 .banner_content .iconcontainer .ptwo{
-    float: left;
-    width: 110px;
-    padding-top: 59px;       /* "Aavailable on :" row at PSD y597 (was 69) */
+    float: left;              /* label sits left of the store circles on the same row */
+    width: 110px;             /* fixed label column width */
+    padding-top: 61px;        /* eyeball-corrected (was 59): seats the label on the PSD store-row */
+    padding-left: 0px;        /* was 2.5px; horizontal nudge now handled by translateX in the transform below */
     color: white;
     font-family: Lato-Light;
     font-weight: 300;         /* "Aavailable on :" is Lato-Light 300 */
