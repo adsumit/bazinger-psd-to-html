@@ -248,6 +248,8 @@ a{
     height: 50px;
 }
 .banner_content .iconcontainer .iconcontainerchild .appleicon{
+    margin-top: 1px;         /* eyeball nudge (DevTools vs PNG): drops the circle 1px to seat it on the PSD apple row */
+    margin-left: 2px;        /* eyeball nudge (DevTools vs PNG): pushes the circle 2px right onto the PSD apple x-position */
     color: #4bcaff;          /* SVG inherits this via fill="currentColor" */
     background-color: rgba(0, 0, 0, 0.35);   /* PSD store circle is at 35% layer opacity (the glyph stays opaque) */
     /* flex centers the inline SVG in the circle (replaces the old
@@ -256,8 +258,8 @@ a{
     align-items: center;
     justify-content: center;
     float: left;
-    width:53px;              /* PSD apple container bbox 53x53 (was 50) */
-    height: 53px;
+    width: 51px;             /* eyeball-corrected vs PNG (was 53 from psd-spec bbox; the rendered circle reads ~51) */
+    height: 51px;            /* kept equal to width so border-radius:50% stays a true circle */
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
