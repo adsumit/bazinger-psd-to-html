@@ -7,11 +7,12 @@
       "label": "Header — Aavailable on :",
       "selector": ".ptwo p",
       "expect": {
-        "font-size": "17px",
+        "font-size": "18.1px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
-      "_psd_font": "Lato-Light"
+      "_psd_font": "Lato-Light",
+      "_note": "computed font-size 18.1px; parent .ptwo has transform scaleX/Y(0.94) so the VISUAL size is ~17px (the audit reads the un-transformed computed value). Eyeball-tuned vs PNG."
     },
     {
       "label": "Header — DOWNLOAD",

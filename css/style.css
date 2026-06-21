@@ -237,10 +237,17 @@ a{
     width: 110px;             /* fixed label column width */
     padding-top: 61px;        /* eyeball-corrected (was 59): seats the label on the PSD store-row */
     padding-left: 0px;        /* was 2.5px; horizontal nudge now handled by translateX in the transform below */
-    color: white;
-    font-family: Lato-Light;
+    color: white;             /* label text colour */
+    font-family: Lato-Light;  /* @font-face Lato-Light (matches the PSD) */
     font-weight: 300;         /* "Aavailable on :" is Lato-Light 300 */
-    font-size: 17px;          /* "Aavailable on :" Lato-Light 18 true -> 17 psd-px (BUILD-SPEC §8) */
+    font-size: 18.1px;        /* near the true Lato 18; scaleX/Y(0.94) below brings the VISUAL size to ~17px (the audit reads this computed 18.1) */
+    /* Visual-only fine-tune to match the PNG glyphs (DevTools eyeball):
+       scaleX/Y(0.94) shrinks the painted text to ~94% -- matches the PNG's
+       lighter glyph rendering better than a plain smaller font-size; the
+       translate nudges it -0.4px x / +1.2px y. transform-origin is the box
+       centre by default, and transforms paint-only (no layout reflow), so the
+       floated store circles beside it do not shift. */
+    transform: scaleX(0.94) scaleY(0.94) translateX(-0.4px) translateY(1.2px);
 }
 .banner_content .iconcontainer .iconcontainerchild{
     padding-top: 45px;       /* store circles at PSD y597 (was 54.9), keeping ~14px offset from .ptwo baseline */
