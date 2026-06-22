@@ -19,7 +19,7 @@ Each build lives on its own branch (see **Branches**). The point isn't only the 
 
 A measured pipeline, run section by section:
 
-1. **Extract** — [psd-tools](https://github.com/psd-tools/psd-tools) parses the PSD into `psd-spec.json` (223 layers: geometry, fills, layer effects, type runs). [Pillow](https://python-pillow.org) samples the flattened PNG for *rendered* truth — effective colors under blend modes, real shadow extents, true positions and insets.
+1. **Extract** — [psd-tools](https://github.com/psd-tools/psd-tools) parses the PSD into `tools/psd-spec.json` (223 layers: geometry, fills, layer effects, type runs). [Pillow](https://python-pillow.org) samples the flattened PNG for *rendered* truth — effective colors under blend modes, real shadow extents, true positions and insets.
 2. **Specify** — values are consolidated into `BUILD-SPEC.md`, the single source of truth. Where a raw layer value disagrees with the rendered pixels — which it often does — the rendered value wins, and that decision is recorded in the spec.
 3. **Build** — the section is implemented from the spec. Every CSS rule carries a comment explaining *why* that value exists.
 4. **Audit** — [Playwright](https://playwright.dev) reads the live computed styles and checks them against the spec (computed-style checks: typography, color, alignment).
@@ -38,13 +38,13 @@ main                 # non-responsive build — the shared parent (spec + toolki
       └─ tailwind    # Tailwind rebuild, off raw-responsive
 ```
 
-Each branch holds that build at the repo root. The shared source of truth — `BUILD-SPEC.md`, `psd-spec.json`, `bazinger.png`, and the audit toolkit — lives on `main` and is inherited by every branch. Branches are created once the non-responsive build is pixel-perfect with every section's JS complete.
+Each branch holds that build at the repo root. The shared source of truth — `BUILD-SPEC.md`, `tools/psd-spec.json`, `bazinger.png`, and the audit toolkit — lives on `main` and is inherited by every branch. Branches are created once the non-responsive build is pixel-perfect with every section's JS complete.
 
 ## Verification toolkit
 
 | File | What it does |
 |---|---|
-| `tools/extract_psd_spec.py` → `psd-spec.json` | Dumps every PSD layer's properties (geometry, type, fill, effects) to JSON — the machine-readable source of truth. |
+| `tools/extract_psd_spec.py` → `tools/psd-spec.json` | Dumps every PSD layer's properties (geometry, type, fill, effects) to JSON — the machine-readable source of truth. |
 | `tools/style-audit.mjs` + `checks.json` | Renders the page and compares each element's **computed CSS** to the spec. Exact, no image alignment — the workhorse. |
 | `tools/visual-diff.mjs` | Pixel-diffs a screenshot against `bazinger.png` → a red heatmap (`tools/diff/diff.png`). The catch-all net. |
 
@@ -57,7 +57,7 @@ node tools/style-audit.mjs                     # computed-style audit -> PASS/FA
 node tools/visual-diff.mjs index.html bazinger.png   # pixel-diff -> tools/diff/diff.png
 ```
 
-> `checks.json` selectors are per-build (class names differ); the **expected values are correct** (straight from `psd-spec.json`). Point the selectors at the current branch's markup. Each entry accepts any property `getComputedStyle` returns, and `"state":"hover"` hovers first for hover-state colors.
+> `checks.json` selectors are per-build (class names differ); the **expected values are correct** (straight from `tools/psd-spec.json`). Point the selectors at the current branch's markup. Each entry accepts any property `getComputedStyle` returns, and `"state":"hover"` hovers first for hover-state colors.
 
 ## Status
 
