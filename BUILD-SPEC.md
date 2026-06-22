@@ -12,7 +12,7 @@ Generated 2026-06-10 · Maintainer: adsumit
 
 The pipeline:
 
-1. **`bazinger_UPDATED.psd`** (canvas 1404 × 4364) was parsed with **psd-tools** via `tools/extract_psd_spec.py`, producing **`psd-spec.json`** — all 223 layers machine-extracted: geometry (psd + true px), fills, layer effects (color / opacity / distance / size / blend mode), text runs (font / size / color / tracking), and fill-opacity tagged blocks.
+1. **`bazinger_UPDATED.psd`** (canvas 1404 × 4364) was parsed with **psd-tools** via `tools/extract_psd_spec.py`, producing **`tools/psd-spec.json`** — all 223 layers machine-extracted: geometry (psd + true px), fills, layer effects (color / opacity / distance / size / blend mode), text runs (font / size / color / tracking), and fill-opacity tagged blocks.
 2. **`bazinger.png`** — the flattened export of the same canvas, 1:1 with PSD pixels — was sampled pixel-by-pixel with **Pillow** to capture *rendered* values: effective colors under blend modes and tints, real shadow extents, true element positions and insets.
 3. Values were cross-checked by eye against cropped PNG regions, and on the build side are verified with the **Playwright** style audit (`tools/style-audit.mjs` + `checks.json`, 112 computed-style checks) and `tools/visual-diff.mjs` (pixel-diff heatmap vs the PNG).
 
@@ -38,7 +38,7 @@ This spec mixes **machine-extracted layer data** with **human-verified rendered 
 - **Nav link size (eyeballed 2026-06-16):** psd-spec is 12px (≈ true 13×0.9489=12.34), but **12.4px** + `transform: scaleY(0.9)` reads truest against the PNG — menu-band heatmap red dropped 3130→1560. (`checks.json` `.header .menu .active` updated 12→12.4.)
 - **Logo image height (eyeballed 2026-06-16):** psd-spec is 50px (130×50 psd-px), but the raster `logo.png` matches best at **48.5px** + `transform: scale(1.01)` — logo-band heatmap red 667→117. (`checks.json` `.header .logoimg` updated 50→48.5; `scale(1.01)` is visual-only, doesn't change computed height.)
 
-**Authority order: (1) `bazinger.png` rendered pixels → (2) `psd-spec.json` layer data → (3) this document.** Any value here may still mismatch the rendered website against the pixel-accurate PSD/PNG — **every applied value must be eye-verified on screen against the PNG.** The automated audit reads computed styles only; it cannot see positioning, clipping, shadows, or transitions — those remain visual checks.
+**Authority order: (1) `bazinger.png` rendered pixels → (2) `tools/psd-spec.json` layer data → (3) this document.** Any value here may still mismatch the rendered website against the pixel-accurate PSD/PNG — **every applied value must be eye-verified on screen against the PNG.** The automated audit reads computed styles only; it cannot see positioning, clipping, shadows, or transitions — those remain visual checks.
 
 Items **not** listed in this spec (e.g. download-band height/background, exact inter-section paddings) were not measured. **Measure them from the PNG at build time — never guess.**
 
