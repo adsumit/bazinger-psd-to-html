@@ -3,14 +3,15 @@
 extract_psd_spec.py  —  Dump EVERY layer's full properties from a PSD to JSON.
 
 No human curation: it records geometry, opacity, blend mode, text typography,
-fill colour, and every layer effect for every layer. The output (psd-spec.json)
+fill colour, and every layer effect for every layer. The output (tools/psd-spec.json)
 is the machine-readable source of truth the style-audit harness diffs against.
 
-Usage:
+Usage (defaults resolve to the repo-root PSD and tools/psd-spec.json, from any CWD):
     pip install psd-tools pillow --break-system-packages
-    python tools/extract_psd_spec.py bazinger_UPDATED.psd psd-spec.json
+    python tools/extract_psd_spec.py                        # uses the defaults
+    python tools/extract_psd_spec.py <input.psd> <out.json> # or pass explicit paths
 """
-import sys, json, statistics
+import os, sys, json, statistics
 from psd_tools import PSDImage
 
 # --- The PSD renders at 0.9489x its stored values (the doc is a 0.9489 scale of a
@@ -145,9 +146,17 @@ def walk(layer, path, out):
         for c in layer:
             walk(c, p, out)
 
+# Resolve the default I/O paths from THIS script's own location, not the
+# caller's working directory — so the script reads the repo-root PSD and writes
+# tools/psd-spec.json whether you run it from the repo root or from inside tools/.
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))   # .../tools
+_REPO_ROOT  = os.path.dirname(_SCRIPT_DIR)                 # repo root (parent of tools/)
+
 def main():
-    src = sys.argv[1] if len(sys.argv) > 1 else "bazinger_UPDATED.psd"
-    dst = sys.argv[2] if len(sys.argv) > 2 else "psd-spec.json"
+    # An explicitly-passed path is honored as typed (relative to your CWD);
+    # only the fallback defaults are pinned to the repo layout.
+    src = sys.argv[1] if len(sys.argv) > 1 else os.path.join(_REPO_ROOT, "bazinger_UPDATED.psd")
+    dst = sys.argv[2] if len(sys.argv) > 2 else os.path.join(_SCRIPT_DIR, "psd-spec.json")
     psd = PSDImage.open(src)
     layers = []
     for l in psd:
