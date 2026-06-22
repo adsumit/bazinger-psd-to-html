@@ -127,7 +127,8 @@ a{
 }
 /*==============================================================BANNER*/
 .banner{
-    height: 760px;                  /* rendered psd-px: PSD "Header / Base" bbox bottom = 760, Features starts y762 (was 800, master-space) */
+    height: 758px;                  /* eyeball-corrected vs PNG (was 760 from PSD "Header / Base" bbox; ~758 reads truest) */
+    box-shadow: 0 4px 0 rgba(75, 202, 255, 1);   /* solid 4px #4bcaff accent line along the banner's bottom edge (no blur). box-shadow is OUTSET, so the banner's own overflow:hidden doesn't clip it */
     width: 100%;
     position: relative;             /* anchor for the absolutely-positioned .banner_bg child */
     overflow: hidden;               /* crop the (possibly transformed) hero image to the banner box */
@@ -189,20 +190,20 @@ a{
     line-height: 19px;        /* PSD paragraph = 3 lines in a 57px box (~1.12 leading); 3x19 ~= the old 4x14.25 so the buttons below don't move */
 }
 .banner_content .button_one{
-    margin-top: 44px;        /* eyeball-corrected para->button gap (was 36) */
-    margin-left: 3px;        /* eyeball nudge: shifts the whole button row 3px right (keeps the 35px inter-button gap) */
-    display: inline-block;
-    padding: 20px 48.5px;    /* eyeball-corrected button box (was 21px 50px) */
-    color: white;
-    border-style: solid;
-    border-color: white;
-    border-width: 2px;       /* PSD DOWNLOAD = 2px white stroke (was 3) */
-    border-radius: 7.6px;
-    background-color: none;
-    font-family: Lato-Bold;
-    font-weight: 700;        /* DOWNLOAD is bold (Lato-Bold 700) */
-    font-size: 14px;         /* DOWNLOAD: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
-    transition: 0.5s;
+    margin-top: 44px;                /* eyeball-tuned paragraph->button vertical gap (was 36): seats the button row on the PSD line */
+    margin-left: 2.9px;              /* DevTools nudge vs the PNG: shifts the WHOLE inline button row ~3px right. On the LEADING button margin-left moves the row; the inter-button gap is button_two's margin-left, so it stays put */
+    display: inline-block;           /* an inline <a> ignores vertical padding -- inline-block gives the link a real box so the 20px top/bottom padding applies, and lets the two buttons sit side-by-side */
+    padding: 20px 47px 20px 48px;    /* the visible box = label + padding (top 20 / right 47 / bottom 20 / left 48); the 1px left/right difference is a DevTools eyeball tune to centre the label over the PNG button */
+    color: white;                    /* label colour */
+    border-style: solid;             /* solid outline -- the button is a stroke, not a fill */
+    border-color: white;             /* PSD DOWNLOAD has a white stroke */
+    border-width: 2px;               /* PSD stroke is 2px (was 3) */
+    border-radius: 7.6px;            /* corner radius read off the PNG corner in DevTools (hence the .6) */
+    background-color: transparent;   /* unfilled, so the hero shows through (hover paints rgba(0,0,0,.44)). Was `none`, which is INVALID for background-color -- it only rendered transparent by falling back to the initial value, so `transparent` is the correct, equivalent keyword */
+    font-family: Lato-Bold;          /* @font-face Lato-Bold */
+    font-weight: 700;                /* compute 700 AND select the real bold face (prevents faux-bold) */
+    font-size: 14.3px;               /* DevTools eyeball vs the PNG (~14 psd-px; Lato-Bold 15 true). Mirrored into checks.json so the audit's 0.1px tolerance still passes */
+    transition: 0.5s;                /* ease the hover colour/background fade over 0.5s */
 }
 .banner_content .button_one:hover{
     color: #cbcbcb;
@@ -210,18 +211,19 @@ a{
     background-color: rgba(0, 0, 0, 0.44);
 }
 .banner_content .button_two{
-    margin-top: 44px;        /* match button_one (eyeball-corrected gap 44) */
-    margin-left: 35px;       /* PSD inter-button gap: 844-809 = 35px (was 40) */
-    display: inline-block;
-    padding: 22px 50px;      /* tuned to the PSD blue button box ~188x61 (no border; box-shadow adds no layout height) */
-    color: white;
-    box-shadow: 0 4px 0 #277697;   /* PSD LEARN MORE = hard DropShadow #277697, distance 4, size 0 (not a border-bottom) */
-    border-radius: 7.6px;
-    background-color: #4bcaff;
-    font-family: Lato-Bold;
-    font-weight: 700;        /* LEARN MORE is bold (Lato-Bold 700) */
-    font-size: 14px;         /* LEARN MORE: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §8) */
-    transition: 0.5s;
+    margin-top: 44px;                       /* match button_one's eyeball-tuned paragraph->button gap */
+    margin-left: 33.5px;                    /* DevTools nudge: inter-button gap to DOWNLOAD (was 35; PSD ~844-809) -- on the SECOND button margin-left sets the gap, not the row position */
+    display: inline-block;                  /* gives the link a real box so the padding applies, and sits it inline beside button_one */
+    padding: 21px 48.1px 18.9px 47.55px;    /* eyeballed box vs the PNG: top 21 / right 48.1 / bottom 18.9 / left 47.55. padding-left is the only side that moves the (baseline-pinned) glyphs (the x-nudge); top/right/bottom just size the box */
+    color: white;                           /* label colour */
+    box-shadow: 0 4px 0 #277697;            /* PSD LEARN MORE = hard DropShadow #277697, distance 4, size 0 -- a solid offset block, not a blur and not a border-bottom (adds no layout height) */
+    border-radius: 7.6px;                   /* corner radius (matches button_one) */
+    background-color: #4bcaff;              /* PSD blue FILL (this button is filled, unlike the outlined DOWNLOAD) */
+    font-family: Lato-Bold;                 /* @font-face Lato-Bold */
+    font-weight: 700;                       /* compute 700 AND select the real bold face (prevents faux-bold) */
+    font-size: 14.18px;                     /* DevTools eyeball vs the PNG (~14 psd-px; Lato-Bold 15 true). Mirrored into checks.json so the audit's 0.1px tolerance still passes */
+    transform: translateY(-1.5px) scaleY(1.02);  /* paint-only (no reflow): translateY lifts the WHOLE button 1.5px up -- box + fill + shadow + text together (so it now sits ~1.5px above DOWNLOAD); scaleY(1.02) stretches it 2% taller from its centre. Eyeballed to the PNG. (scaleY also stretches the glyphs ~2%; getComputedStyle still reports font-size 14.18, so the audit is unaffected) */
+    transition: 0.5s;                       /* ease the hover colour/background fade over 0.5s */
 }
 .banner_content .button_two:hover{
     color: white;
@@ -282,10 +284,10 @@ a{
     display: flex;           /* same centering approach as .appleicon */
     align-items: center;
     justify-content: center;
-    margin-left: 12px;       /* PSD gap apple→android = 808-796 = 12px */
+    margin-left: 14.3px;     /* eyeball-tuned gap to the apple circle (was 12; re-nudged to seat android on its PSD x after the apple circle shrank 53→51) */
     float: left;
-    width:53px;              /* PSD android container bbox ~53x53 (was 50) */
-    height: 53px;
+    width: 51px;             /* eyeball-corrected vs PNG, mirrors the apple circle (was 53 from psd-spec bbox) */
+    height: 51px;            /* equal to width so border-radius:50% stays a true circle */
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
@@ -302,8 +304,9 @@ a{
     padding: 0px 4px 2px 0px;  /* eyeball nudge: 4px right, 2px down */
 }
 .icon-android{
-    width: 24px;
-    height: 27px;
+    width: 23px;             /* eyeball-corrected vs PNG (was 24) */
+    height: 25px;            /* eyeball-corrected vs PNG (was 27) */
+    transform: scale(1.03) translateY(1.4px);   /* paint-only seat in the circle: scale(1.03) sizes the glyph up 3%, translateY(1.4px) drops it 1.4px to centre on the PSD android mark */
 }
 /* ---- Slider chrome (static frame): 3 dots + prev/next arrows ----
    Both live inside .banner .center so they anchor to the centred 1110 content,
@@ -311,7 +314,7 @@ a{
 .banner .center .slider-dots{
     position: absolute;
     left: 50%;               /* dots row centred on the banner */
-    bottom: 19px;            /* eyeball-corrected (was 18) */
+    bottom: 17.3px;          /* eyeball-corrected vs PNG (was 19) */
     transform: translateX(-54%);  /* eyeball-corrected centring nudge (was -50%) */
     display: flex;
     align-items: center;     /* sit the 17px and 13px dots on a shared centre line */
