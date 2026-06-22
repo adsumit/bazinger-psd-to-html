@@ -10,7 +10,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com); versioning follo
 ## [Unreleased]
 
 ### In progress — non-responsive build (`main`)
-**Baseline commit:** the existing static, fixed-width HTML/CSS build, plus the shared source of truth (`BUILD-SPEC.md`, `psd-spec.json`, `bazinger.png`) and the verification toolkit (psd-tools extractor, Playwright style audit, visual diff). The build is being brought to pixel-perfect against the PSD **section by section** — one commit per fix, verified by the audit and an eye-check against the PNG — with each section's JavaScript completed (slider, testimonials, etc.).
+**Baseline commit:** the existing static, fixed-width HTML/CSS build, plus the shared source of truth (`BUILD-SPEC.md`, `psd-spec.json`, `bazinger.png`) and the verification toolkit (psd-tools extractor, Playwright style audit, visual diff). The build is being brought to pixel-perfect against the PSD **section by section** — one commit per fix, verified by the audit and an eye-check against the PNG — with each section's JavaScript completed (slider, testimonials, etc.). *(`psd-spec.json` was at the repo root at this baseline; it was later relocated to `tools/psd-spec.json` — see **Changed** below.)*
+
+### Changed
+- **2026-06-22 — Relocated `psd-spec.json` → `tools/psd-spec.json`** (`git mv`, history preserved). The machine-extracted layer dump now sits next to the scripts that write and read it. Updated every reference (`CLAUDE.md`, `ARCHITECTURE.md`, `README.md`, `BUILD-SPEC.md`, `checks.json`, `requirements.txt`). `tools/extract_psd_spec.py` now resolves its default input/output paths from the script's own location, so it reads the repo-root PSD and writes `tools/psd-spec.json` from any working directory. No runtime impact — nothing loads the file at run time, and the computed-style audit is unchanged (**102 passed / 3 failed**).
 
 ### Roadmap
 - **v0.1.0** — non-responsive build pixel-perfect + all section JS done → tagged on `main` (the shared parent for all branches)
