@@ -22,7 +22,7 @@
    truth. Where layer data disagrees with the rendered pixels, the PIXELS WIN. (Proven
    repeatedly: a layer box can straddle an edge, a Photoshop shadow ≠ a CSS blur, fill
    opacity hides in tagged blocks, etc.)
-2. **psd-spec.json** — every PSD layer machine-extracted. The values source for #3.
+2. **tools/psd-spec.json** — every PSD layer machine-extracted. The values source for #3.
 3. **BUILD-SPEC.md** — the consolidated, human-readable spec (measured values +
    provenance + the layer-vs-rendered caveats). The day-to-day working reference.
 - The PSD/PNG is the design. The original `style.css` and earlier hand-tweaks are NOT
@@ -41,7 +41,7 @@
 
 ## Never assume — measure
 - Do NOT infer any visual value (color, size, radius, shadow, alignment, spacing,
-  opacity, per-state). Read it from `psd-spec.json` or sample `bazinger.png`; if it
+  opacity, per-state). Read it from `tools/psd-spec.json` or sample `bazinger.png`; if it
   isn't there, extract it or ask — never guess a "reasonable" or "modern" value. Where
   the spec and the rendered PNG disagree, trust the PNG.
 - Transcribe text content character-for-character (every list item, every line break,
@@ -52,7 +52,7 @@ After ANY fidelity edit to the build's HTML/CSS, before reporting done:
 1. Ensure `checks.json` `"page"` points at the build you edited (the current branch's
    root `index.html`) and its selectors match that markup (map any that report MISSING).
 2. Run the computed-style audit; fix every FAIL with the exact value from
-   `psd-spec.json` / the PNG; re-run until it prints `0 failed`:
+   `tools/psd-spec.json` / the PNG; re-run until it prints `0 failed`:
    - non-responsive / raw-responsive (no build step):  `node tools/style-audit.mjs`
    - tailwind (builds then audits):  `npm run verify`  (from the `tailwind/` folder)
 3. Run the visual net: `node tools/visual-diff.mjs index.html bazinger.png`; open `tools/diff/diff.png`;
@@ -65,7 +65,7 @@ After ANY fidelity edit to the build's HTML/CSS, before reporting done:
   the computed-style values are unchanged.)
 
 ## Toolkit (in `tools/`)
-- `tools/extract_psd_spec.py` → regenerates `psd-spec.json` if the PSD changes (Python; deps
+- `tools/extract_psd_spec.py` → regenerates `tools/psd-spec.json` if the PSD changes (Python; deps
   in `requirements.txt`).
 - `tools/style-audit.mjs` + `checks.json` → exact computed-style check (the gate).
 - `tools/visual-diff.mjs` → pixel-diff heatmap vs `bazinger.png` (the net).
