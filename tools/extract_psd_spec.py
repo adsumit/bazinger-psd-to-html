@@ -163,7 +163,7 @@ def main():
         walk(l, "", layers)
     doc = {
         "meta": {
-            "source": src,
+            "source": os.path.basename(src),   # filename only — keep the spec portable/reproducible regardless of CWD or absolute-path defaults
             "canvas_psd": [psd.width, psd.height],
             "note": "All values are RENDERED psd px (the 1404-wide canvas, matching the PNG). Geometry is raw psd-space; FontSize is multiplied by the 0.9489 doc scale to give rendered px. Container content width ~1110 psd px.",
             "layer_count": len(layers),
