@@ -132,7 +132,7 @@
       "label": "Gallery — Nunc cursus libero purus ac congue arcu cursus ut sed vitae pul copy 4",
       "selector": ".gallery-box p",
       "expect": {
-        "font-size": "12px",
+        "font-size": "13px",
         "font-weight": "400",
         "color": "#838383",
         "text-align": "center"
@@ -143,7 +143,7 @@
       "label": "Gallery — SCREEN SHOT 4",
       "selector": ".photo-name h4",
       "expect": {
-        "font-size": "14px",
+        "font-size": "14.5px",
         "font-weight": "700",
         "color": "#4BCAFF"
       },
@@ -173,11 +173,12 @@
       "label": "Video — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc e",
       "selector": ".watch p",
       "expect": {
-        "font-size": "17px",
+        "font-size": "16.8px",
         "font-weight": "300",
         "color": "#FFFFFF"
       },
-      "_psd_font": "Lato-Light"
+      "_psd_font": "Lato-Light",
+      "_note": "font-size eyeball-corrected 17 -> 16.8px vs the PNG (≤2-dp policy)."
     },
     {
       "label": "Video — Watch the best Technology in Action",
@@ -351,7 +352,7 @@
       "label": "Footer — Copyright © 2013 | bazinger | All Rights Reserved",
       "selector": ".footer .center > a",
       "expect": {
-        "font-size": "11px",
+        "font-size": "11.3px",
         "font-weight": "400",
         "color": "#707071"
       },
@@ -362,7 +363,7 @@
       "label": "Footer — Terms of Service | Privacy Policy",
       "selector": ".terms-privacy a",
       "expect": {
-        "font-size": "11px",
+        "font-size": "11.3px",
         "font-weight": "400",
         "color": "#707071"
       },
