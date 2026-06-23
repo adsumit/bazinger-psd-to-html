@@ -364,8 +364,8 @@ a{
 .features{
     text-align: center;
     background-color: #f9f9f9;
-    height: 555px;
-    padding-top: 45px;
+    height: 514px;            /* eyeball-corrected to the PNG (was 555) */
+    padding-top: 43px;        /* eyeball-corrected to the PNG (was 45) */
 }
 .features .mainheading{
     font-family: Lato-Black;
@@ -374,7 +374,7 @@ a{
     color: #414042;
 }
 .features .top_para{
-    padding-bottom: 70px;
+    padding-bottom: 59px;     /* eyeball-corrected to the PNG (was 70) — tightens the subtitle→cards gap */
     font-family: Lato-Light;
     font-weight: 300;         /* subtitle is Lato-Light 300 */
     font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was unset, inheriting 16) (BUILD-SPEC §9) */
@@ -384,9 +384,15 @@ a{
     width: 205px;
     height: 115;
     float: left;
-    padding: 0px 36px;        /* 4 boxes: 205 + 2×36 = 277, ×4 ≈ 1108 fits the 1110 container */
+    padding: 0px 48px;        /* with the 2 end paddings zeroed: 4×205 + 6×48 = 1108 ≈ 1110, flush both edges, even 96px gaps */
     cursor: pointer;
 }
+/* Drop the OUTER padding on the two end cards so the row's content reaches the
+   container edges. Uses :first-/:last-of-type (NOT :first-/:last-child) because
+   .center's first children are the <h1> + <p>; the feat-boxes are the only <div>s,
+   so "first/last div" == first/last card. Same reason as :nth-of-type(3) below. */
+.features .feat-box:first-of-type{ padding-left: 0; }
+.features .feat-box:last-of-type{ padding-right: 0; }
 .features .feat-box:hover .icons{
     background-color: #414042;
 }
@@ -426,7 +432,7 @@ a{
     font-family: Lato-Bold;
     font-size: 14px;          /* feature card title: Lato-Bold 15 true -> 14 psd-px (BUILD-SPEC §9) */
     text-transform: uppercase;
-    padding: 30px 0;
+    padding: 21px 0;          /* eyeball-corrected to the PNG (was 30) — tightens icon→title and title→body gaps */
     color: #414042;
 }
 /* The 3rd feature ("multipurpose") is captured in its ACTIVE/hover state in the PSD:
@@ -448,7 +454,7 @@ a{
 /*===========================================================GALLERY*/
 .gallery{
     text-align: center;
-    height: 545px;
+    height: 544px;            /* eyeball-corrected to the PNG (was 545) */
     background-color: #fff;
 }
 .gallery .mainheading{
@@ -456,20 +462,25 @@ a{
     font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
     font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
     color: #414042;           /* was unset -> defaulted to black; PSD title is #414042 */
-    padding-top: 45px;
+    padding-top: 37px;        /* eyeball-corrected to the PNG (was 45) */
 }
 .gallery .top-para{
     font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was wrongly 13) (BUILD-SPEC §10) */
     font-family: Lato-Light;
     font-weight: 300;         /* subtitle is Lato-Light 300 */
     color: #414042;           /* was unset -> defaulted to black; PSD subtitle is #414042 */
-    padding-bottom: 60px;
+    padding-bottom: 53px;     /* eyeball-corrected to the PNG (was 60) — tightens the subtitle→thumbnails gap */
 }
 .gallery .gallery-box{
     width:255px;
     float: left;
-    padding: 0px 11px;        /* 4 boxes: 255 + 2×11 = 277, ×4 ≈ 1108 fits the 1110 container */
+    padding: 0px 15px;        /* with the 2 end paddings zeroed: 4×255 + 6×15 = 1110, flush both edges, even 30px gaps */
 }
+/* Same end-card treatment as .feat-box: zero the OUTER padding so the row reaches
+   the container edges. :first-/:last-of-type (NOT child) — the inner .gallery's
+   first children are the <h1> + <p>; the gallery-boxes are the only <div>s. */
+.gallery .gallery-box:first-of-type{ padding-left: 0; }
+.gallery .gallery-box:last-of-type{ padding-right: 0; }
 .gallery .gallery-box .photo-box{
     text-align: center;
     position: relative;
@@ -505,7 +516,8 @@ a{
     position: absolute;
     width: 19px;
     height: 19px;
-    color: #fff;
+    color: #d7d7d7;           /* eyeball-corrected to the PNG (was #fff) — light-grey plus */
+    filter: drop-shadow(0px 0px 1.5px rgba(0, 0, 0, 0.5));   /* soft black halo, eyeballed PSD-accurate */
     left: 50%;
     top: 50%;
     transform: translate(-50%, calc(-50% - 11px));
@@ -514,41 +526,40 @@ a{
 .gallery .gallery-box .photo-box .photo-name{
     position: absolute;
     bottom: 0;
-    font-size: 14px;
+    font-size: 14.5px;        /* eyeball-corrected to the PNG (was 14) — mirrored in checks.json */
     color: #4bcaff;
     font-family: Lato-Bold;
-    padding: 4% 0;
+    padding: 11px 0 11px 0;   /* eyeball-corrected to the PNG (was 4% 0) */
     background-color: rgba(83, 83, 83, 0.61);
     width: 100%;
 }
 .gallery .gallery-box p{
-    padding: 20px 10%;
-    font-size: 12px;
+    padding: 17px 17px 0px 17px;   /* eyeball-corrected to the PNG (was 20px 10%) */
+    font-size: 13px;          /* eyeball-corrected to the PNG (was 12) — mirrored in checks.json */
     line-height: 20.88px;
     font-family: Lato-Light;
     color: #838383;           /* was unset -> defaulted to black; PSD body copy is #838383 (matches features) */
-    padding-bottom: 100px;
 }
 /*==================================================WATCH*/
 .watch {
     overflow: hidden;
-    height: 520px;
+    height: 522px;            /* eyeball-corrected to the PNG (was 520); removed a duplicate height decl */
     position: relative;
     transition: 0.8s;
-    background-color: rgba(75, 202, 255, 0.61);
-    height: 520px;
+    background-color: #4bcaff;                    /* solid blue base; the video image sits over it at 60% (normal blend) */
+    isolation: isolate;                           /* make .watch a stacking context so the z-index:-1 image paints OVER this bg, not behind it */
     width: 100%;
 }
 .watch img{
     position: absolute;
     left: 0;
-    top: -10%;
-    z-index: -1;
+    top: -62%;                /* eyeball-corrected to the PNG (was -10%) — shifts the bg image up */
+    z-index: -1;              /* with .watch isolated, -1 paints above the #4bcaff base but below the content */
     width: 100%;
+    opacity: 0.6;             /* image at 60% blends (normal) over the solid #4bcaff */
 }
-.watch:hover{
-    background-color: rgba(75, 202, 255, 0.24);
-}
+/* section-wide hover removed — hover lives on the play icon only (per request).
+   Add `.watch:hover img { opacity: ... }` here if you later want hover to reveal more video. */
 .watch .center{
 
 }
@@ -561,15 +572,16 @@ a{
     justify-content: center;
     border: 2px solid #fff;
     border-radius: 10px;
-    height: 80px;
-    width: 120px;
-    margin: 100px auto;
+    height: 66px;            /* eyeball-corrected to the PNG (was 80) */
+    width: 105px;            /* eyeball-corrected to the PNG (was 120) */
+    margin: 152px auto;      /* top offset to the PNG (was 100); bottom overridden below */
     color: #fff;
     transition: 0.25s;
-    margin-bottom: 50px;
+    margin-bottom: 26px;     /* eyeball-corrected to the PNG (was 50) */
 }
-.watch .center .play:hover{
-    text-shadow: 1px 1px 20px white;
+.watch .center .play:hover .icon{
+    /* the play glyph is an SVG, so text-shadow can't shadow it — use an SVG drop-shadow filter (white glow) */
+    filter: drop-shadow(0 0 8px #fff);
 }
 .watch .center .play .icon{
     /* 34x38 white triangle; nudge right 3px so the triangle looks optically
@@ -578,6 +590,7 @@ a{
     width: 34px;
     height: 38px;
     margin-left: 3px;
+    transition: filter 0.25s;   /* fade the hover glow in/out smoothly */
 }
 .watch h1{
     text-align: center;
@@ -585,6 +598,7 @@ a{
     font-size: 46px;
     color: #fff;
     font-weight: 300;         /* was 100 (too light, wrong file) — PSD "Watch the best..." is Lato-Light 300 */
+    text-shadow: 0 1px 3px rgba(25, 22, 24, 0.36);   /* soft drop shadow on the heading (PNG) */
 }
 .watch h1 span{              /* the emphasised word "Action" */
     font-family: Lato-Bold;
@@ -595,8 +609,8 @@ a{
     font-weight: 300;         /* body copy is Lato-Light 300 */
     color: white;
     text-align: center;
-    padding: 4% 22%;
-    font-size: 17px;
+    padding: 1.7% 20.9%;      /* eyeball-corrected to the PNG (was 4% 22%) */
+    font-size: 16.8px;        /* eyeball-corrected to the PNG (was 17) — mirrored in checks.json */
 }
 /*==================================================PRICE*/
 .price{
@@ -604,7 +618,7 @@ a{
     height: 615px;            /* was 600 — the taller PRO card (centred, +19px below) needs the extra room */
 }
 .price h1{
-    margin-top: 50px;
+    margin-top: 59px;         /* eyeball-corrected to the PNG (was 50) */
     font-family: Lato-Black;
     font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
     font-size: 34px;
@@ -615,7 +629,7 @@ a{
     font-weight: 300;         /* subtitle is Lato-Light 300 */
     font-size: 19px;
     color: #414042;           /* was unset -> defaulted to black; PSD subtitle is #414042 */
-    margin-bottom: 75px;
+    margin-bottom: 66px;      /* eyeball-corrected to the PNG (was 75) — tightens the subtitle→cards gap */
 }
 .price .packone{
     height: 395px;            /* + 2px border = 397 = PSD Item1 card height */
@@ -630,7 +644,7 @@ a{
     transition: 0.5s;
 }
 .price .packone:hover{
-    transform: scale(1.2);
+    transform: translateY(-6px);   /* reference price-card hover: subtle 6px lift (was scale 1.2) */
 }
 .price .packone .packname h4{
     height: 70px;
@@ -647,13 +661,17 @@ a{
 .price .packone .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
+    font-size: 78px;          /* eyeball-corrected to the PNG (was 81); not audited (only packtwo's number is checked) */
     font-family: DroidSansBold;
     font-weight: 700;         /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
     color: white;
     background-color: #91c46b;
     text-shadow: 1px 1px 1px #afafaf;
 }
+/* scaleX lives on the INNER span, NOT .packprice: a transform on .packprice would
+   scale its colored background too. The span needs display:inline-block because
+   `transform` is ignored on default-inline (non-replaced) elements. */
+.price .packone .packprice span{ display: inline-block; transform: scaleX(1); letter-spacing: -2.6px; }   /* tighten via letter-spacing instead of scaleX */
 .price .packone .packinfo p{
     height: 114px;            /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
     line-height: 37.96px;
@@ -661,7 +679,8 @@ a{
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 34px;        /* list top at PSD y2787 = 34px below the price block (was 12 — sat the list too high) */
+    padding-top: 17px;        /* eyeball-corrected to the PNG (was 34) */
+    padding-bottom: 19px;     /* eyeball-corrected to the PNG (added) */
     color: #d7d7d7;
     transition: 0.5s;
 }
@@ -703,7 +722,7 @@ a{
     transition: 0.5s;
 }
 .price .packtwo:hover{
-    transform: scale(1.2);
+    transform: translateY(-6px);   /* reference price-card hover: subtle 6px lift (was scale 1.2) */
 }
 .price .packtwo .packname h4{
     height: 70px;
@@ -713,6 +732,7 @@ a{
     font-family: Lato-Bold;
     color: #4bcaff;           /* PRO (middle) card label is blue in the PSD (sampled #4bcaff) — others stay #d7d7d7 */
     transition: 0.5s;
+    letter-spacing: -0.7px;   /* tighten the PRO label to the PNG */
 }
 .price .packtwo:hover h4{
     color: #4bcaff; 
@@ -727,6 +747,7 @@ a{
     background-color: #4bcaff;
     text-shadow: 1px 1px 1px #afafaf;
 }
+.price .packtwo .packprice span{ display: inline-block; transform: scaleX(1); letter-spacing: -2.3px; }   /* tighten the number via letter-spacing instead of scaleX */
 .price .packtwo .packinfo p{
     height: 157px;            /* 4 lines (PRO has the extra "Praesent pharetra"): box ends at the PSD button top y2917 */
     line-height: 37.96px;
@@ -734,7 +755,8 @@ a{
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 26px;        /* list top at PSD y2760 = 26px below the price block (PRO list starts a touch higher than the others') */
+    padding-top: 16px;        /* eyeball-corrected to the PNG (was 26) */
+    padding-bottom: 11px;     /* eyeball-corrected to the PNG (added) */
     color: #4bcaff;           /* PRO (middle) card list is blue in the PSD (sampled #4bcaff) — the other cards stay #d7d7d7 */
     transition: 0.5s;
 }
@@ -771,7 +793,7 @@ a{
     transition: 0.5s;
 }
 .price .packthree:hover{
-    transform: scale(1.2);
+    transform: translateY(-6px);   /* reference price-card hover: subtle 6px lift (was scale 1.2) */
 }
 .price .packthree .packname h4{
     height: 70px;
@@ -788,13 +810,14 @@ a{
 .price .packthree .packprice{
     height: 110px;
     line-height: 110px;
-    font-size: 81px;          /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
+    font-size: 78px;          /* eyeball-corrected to the PNG (was 81); not audited (only packtwo's number is checked) */
     font-family: DroidSansBold;
     font-weight: 700;         /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
     color: white;
     background-color: #fd7c00;
     text-shadow: 1px 1px 1px #afafaf;
 }
+.price .packthree .packprice span{ display: inline-block; transform: scaleX(1); letter-spacing: -1.6px; }   /* tighten via letter-spacing instead of scaleX */
 .price .packthree .packinfo p{
     height: 114px;            /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
     line-height: 37.96px;
@@ -802,7 +825,8 @@ a{
     font-weight: 700;         /* price list items are bold (Lato-Bold 700) */
     font-size: 17px;          /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
     padding: 0 50px;
-    padding-top: 34px;        /* list top at PSD y2787 = 34px below the price block (was 12 — sat the list too high) */
+    padding-top: 17px;        /* eyeball-corrected to the PNG (was 34) */
+    padding-bottom: 19px;     /* eyeball-corrected to the PNG (added) */
     color: #d7d7d7;
     transition: 0.5s;
 }
@@ -849,125 +873,118 @@ a{
 }
 .testimonial .cominfo .avatar{
     position: relative;
-    height: 150px;
-    width: 145px;
+    width: 147px;            /* eyeball-corrected to the PNG (was 143) */
+    height: 163px;           /* eyeball-corrected to the PNG (was 161) */
     float: left;
+    /* sharp light-grey bottom edge under the badge (reference: 0.1 black on #f9f9f9) */
+    filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.1));
+    transform: translate(-16px, -5px);   /* eyeball-nudge the whole badge to the PNG */
 }
 .testimonial .cominfo .avatar .hex-prnt{
     position: absolute;
     height: 100%;
     width: 100%;
 }
-.testimonial .cominfo .avatar .photo-prnt{
-    height: 150px;
-    width: 145px;
-}
 .testimonial .cominfo .avatar .hex-prnt .hexagon{
     height: 100%;
     width: 100%;
-    font-size: 150px;
-    line-height: 150px;  
 }
-.testimonial .cominfo .avatar .fam.fa-circle-man-avatar{
-    position: absolute;
-    font-size: 60px;
-    top: 45px;
-    left: 45px;
+/* base.svg = blue hexagon + 7px white ring; the box matches the SVG aspect, so 100% doesn't distort it */
+.testimonial .cominfo .avatar .hex-prnt .hexagon .hex-svg{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
-/*
-.testimonial .cominfo .avatar .fam.fa-circle-man-avatar:after{
-    text-align: center;
-    color: #ffffff;
-}
-*/
-.testimonial .cominfo .avatar .fam.fa-circle-man-avatar:before{
-    text-align: center;
-    color: #ffffff;
-}
-.testimonial .cominfo .avatar .hex-prnt .hexagon .fad.fa-hexagon:before{
-    text-align: center;
-    color: #4bcaff;
+.testimonial .cominfo .avatar .photo-prnt{
+    position: relative;      /* lift the avatar layer ABOVE the absolutely-positioned hexagon (positioned paints over static) */
     z-index: 1;
-/*    text-shadow: 0px 1px 9px black;*/
-/*    -webkit-text-stroke: 10px white; */
-/*    -ms-text-stroke: 10px white;*/
+    height: 100%;
+    width: 100%;
 }
-.testimonial .cominfo .avatar .hex-prnt .hexagon .fad.fa-hexagon:after{
-    text-align: center;
-    text-shadow: 0px 0px 3px #414042;
-    color: #ffffff;
-/*    -webkit-text-stroke: 10px white;   */
-/*    -ms-text-stroke: 10px white;*/
+/* icon.svg = white avatar, centred over the hexagon */
+.testimonial .cominfo .avatar .photo-prnt .photo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85px;             /* eyeball-corrected to the PNG (was 94) */
+    height: 85px;            /* eyeball-corrected to the PNG (was 93) */
 }
 .testimonial .cominfo .comment{
-    margin-top: 35px;
+    margin-top: 29px;         /* eyeball-corrected to the PNG (was 35) */
     margin-left: 160px;
     font-size: 13px;
     font-family: Lato-Bold;
     color: #4bcaff;
     line-height: 17.08px;
+    width: 318px;             /* constrain the comment width to the PNG so it wraps like the design */
 }
 .testimonial .cominfo .commenter{
     float: right;
     font-family: Lato-Bold;
     font-size: 13px;
     color: #4bcaff;
+    transform: scaleX(0.95) translateX(4px);   /* paint-only glyph-match to the PNG; no reflow */
 }
 .testimonial .cominfo .commenter-info{
     float: right;
-    clear:left;
-    margin-top: -12px;
+    clear: left;
+    margin-top: -35px;        /* eyeball-corrected to the PNG (was -12) */
+    padding-left: 0px;
     font-family: Lato-Bold;
-    font-size: 13px;
+    font-size: 14px;          /* eyeball-corrected to the PNG (was 13) */
     color: #4bcaff;
+    transform: scaleX(0.85) translateX(17.4px) translateY(-15px);   /* paint-only glyph-match; no reflow */
 }
 .testimonial .indicator-prnt{
     clear: both;
-    height: 5px;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 87px;        /* eyeball-corrected to the PNG (was 80) */
+    text-align: center;      /* centre the inline-block dot bars */
 }
 .testimonial .indicator-prnt .indicator{
-    width: 15.5%;
-    height: 100%;
     margin: 0 auto;
 }
 .testimonial .indicator ul{
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
 }
+/* Three dots = 53x9 #4BCAFF bars (scaffold from the reference — eyeball vs the PNG).
+   The .active dot is full opacity; the others are dimmed to 0.32. */
 .testimonial .indicator ul .indi{
-    height: 100%;
-    margin: 0;
-    padding: 0 5px;
-    float: left;
-}
-.testimonial .indicator ul .indi .fam.fa-horizontal-rule{
-    color: #4bcaff;
-    font-size: 50px;
+    display: inline-block;
+    width: 48px;             /* eyeball-corrected to the PNG (was 53) */
+    height: 7px;             /* eyeball-corrected to the PNG (was 9) */
+    margin: 0 1px;           /* eyeball-corrected to the PNG (was 4px) */
+    padding: 0;
+    background-color: #4bcaff;
+    border-radius: 1px;
+    opacity: 0.32;
     cursor: pointer;
-    line-height: 5px;
+}
+.testimonial .indicator ul .indi.active{
+    opacity: 1;
 }
 /*===================================================download*/
 .download-bg{
     background-color: #414042;
 }
 .download{
-    height: 220px;
+    height: 198px;            /* eyeball-corrected to the PNG (was 220) */
 }
 .download h1{
     text-align: center;
     font-family: Lato-Bold;
     font-size: 52px;          /* "Do you Like this app?": Lato-Bold 55 true -> 52 psd-px (was unset, h1 default 32) (BUILD-SPEC §14) */
     color: white;
-    padding-top:50px;
-    padding-bottom:50px;
+    padding-top: 21px;        /* eyeball-corrected to the PNG (was 50) */
+    padding-bottom: 26px;     /* eyeball-corrected to the PNG (was 50) */
     letter-spacing: -1px;
+    transform: scaleX(0.93);  /* paint-only horizontal squish to match the PNG glyphs; computed font-size stays 52px */
 }
 .download .a{
+    display: inline-block;    /* <a> is inline by default -> vertical padding can't position the text; inline-block gives it a real box so padding-top pushes the text down */
     color: #414042;
     background-color: #4bcaff;
     font-size: 14px;
@@ -976,8 +993,8 @@ a{
     border-bottom: 5px solid #277697;
     border-radius: 8px;
     text-transform: uppercase;
-    padding: 20px 40px;
-    margin: 0px 453px;        /* centers the button in the 1110 container (was 41%) */
+    padding: 20px 31px 19px 30px;   /* asymmetric: seats the label to the PNG */
+    margin: 0px 450px 0px 463px;    /* eyeball-positioned in the 1110 container */
     transition: 0.2s;
 }
 .download a:hover{
@@ -1007,15 +1024,16 @@ a{
 .cntmprnt .contact-map .contact{
     position: absolute;
     left: 50%;
-    top: 100px;
+    top: 104px;               /* eyeball-corrected to the PNG (was 90) */
+    transform: translateX(-50%);   /* centre regardless of width (replaces margin-left:-190) */
     text-align: center;
-    height: 440px;
-    width: 310px;
-    margin-left: -190px;
-    padding: 10px 30px 50px 30px;
-    background-color: rgba(75, 202, 255, 0.69);
+    width: 254px;             /* eyeball-corrected to the PNG (was 327) */
+    padding: 10px 27px 14px 27px;   /* eyeball-corrected to the PNG (bottom 27 -> 14) */
+    background-color: rgba(75, 202, 255, 0.8);   /* was 0.69 — map still shows through faintly */
     border-radius: 5px;
-    box-shadow: 1px 1px 10px #a8a8a8;
+    /* refined: soft drop shadow + a 1px dark outer edge (reference psd-fix #6) */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.20);
     transition: 0.5s;
 }
 .cntmprnt .contact-map .contact:hover{
@@ -1023,8 +1041,9 @@ a{
 }
 .cntmprnt .contact-map .contact h6{
     text-align: center;
-    padding: 20px;
-    font-size: 34px;
+    padding: 8px 0 0;         /* reference title spacing */
+    margin-bottom: 21px;      /* eyeball-corrected to the PNG (was 27) — title -> first field */
+    font-size: 34px;          /* KEEP psd-px (reference uses 36; PSD says 34) */
     font-family: Lato-Bold;
     color: white;
     cursor: default;
@@ -1049,32 +1068,45 @@ a{
     text-align: center;
     color: #d3d3d3;
 }
+/* placeholders: Arial (the one system font the PSD uses for contact), 14 true -> 13 psd-px (BUILD-SPEC §15) */
+.cntmprnt .contact-map .contact ::placeholder{
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
 .cntmprnt .contact-map .contact .textbox{
-    border:0;
-    border-radius:4px;
-    margin: 10px auto;
-    padding: 10px 0;
+    height: 31px;             /* eyeball-corrected to the PNG (was 38) */
+    border: 0;
+    border-radius: 4px;
+    margin: 0 auto 15px;      /* 15px between fields (reference) */
+    background: #fff;         /* white inputs (reference) */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);   /* faint drop shadow (reference) */
     width: 100%;    
 }
 .cntmprnt .contact-map .contact .message{
-    font-size: 13px;          /* placeholder: Arial 14 true -> 13 psd-px (was unset, textarea default 13.3333) (BUILD-SPEC §15) */
-    margin: 20px auto 40px auto;
-    border:0;
-    border-radius:4px;
+    font-size: 13px;          /* KEEP psd-px (BUILD-SPEC §15); placeholder is Arial 13 above */
+    height: 28px;             /* eyeball-corrected to the PNG (was 148) */
+    margin: 0 0 19px 0;       /* eyeball-corrected to the PNG (was 0 auto 20px) */
+    border: 0;
+    border-radius: 4px;
     width: 100%;
-    padding-bottom: 100px;
-    padding-top: 10px;
+    padding: 3px 0 107px 0;   /* eyeball-corrected: placeholder nudged down 3px (total still 110) */
+    background: #fff;         /* white input (reference) */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
 }
 .cntmprnt .contact-map .contact .send-button{
-    font-size: 14px;          /* Send: Lato-Bold 15 true -> 14 psd-px (was unset, button default 13.3333) (BUILD-SPEC §15) */
-    font-family: Lato-Bold;   /* was unset (UA <input> default) — PSD Send is Lato-Bold */
+    padding: 0px 0px 4px 1px;   /* seats the "Send" label inside the button */
+    margin: 0px 0 0 7px;        /* nudge the button right to the PNG */
+    width: 181px;             /* eyeball-corrected to the PNG (was 179) */
+    height: 47px;             /* eyeball-corrected to the PNG (was 48) */
+    font-size: 14px;          /* KEEP psd-px (reference uses 15; PSD says 14) (BUILD-SPEC §15) */
+    font-family: Lato-Bold;
     font-weight: 700;         /* Send is bold (Lato-Bold 700) */
-    padding: 3% 8%;
+    color: #72b3cc;           /* KEEP: PSD muted blue (sampled), not the vivid #4bcaff */
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.40);   /* reference */
     background-color: #414042;
-    color: #72b3cc;           /* PSD Send text is a MUTED blue #72b3cc (sampled), not the vivid #4bcaff */
-    border: none;
-    border-bottom: 2px solid #313032;
+    border: 1px solid #313032;   /* full 1px stroke (reference; was border-bottom only) */
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);   /* reference */
     cursor: pointer;
     transition: 0.25s;
 }
@@ -1102,7 +1134,7 @@ a{
        (was #808081, a too-bright earlier guess). See BUILD-SPEC footer note. */
     color: #707071;
     font-family: Lato-Regular;
-    font-size: 11px;
+    font-size: 11.3px;        /* eyeball-corrected to the PNG (was 11) — mirrored in checks.json */
     line-height: 105px;
     transition: 0.25s;
     display: inline-block;
@@ -1110,13 +1142,18 @@ a{
 .footer a:hover{
     color: #d1d1d1;    
     font-family: Lato-Regular;
-    font-size: 11px;
+    font-size: 11.3px;        /* match the base so text doesn't resize on hover */
     line-height: 105px;
 }
 .footer .terms-privacy{
     float: right;
 }
+.footer .terms-privacy .terms{
+    transform: translate(6px, 0px);   /* nudge "Terms of Service" right (already inline-block via .footer a) */
+}
 .footer .terms-privacy span{
     font-size: 11px;
-    color: #d1d1d1;    
+    display: inline-block;    /* transform is ignored on inline elements; inline-block lets the nudge apply */
+    transform: translate(3px, 0px);   /* nudge the | separator right to the PNG */
+    color: #707071;           /* eyeball-corrected to the PNG (was #d1d1d1) — matches the footer text */    
 }
