@@ -58,6 +58,18 @@ function initSlider(root, opts) {
         })(i);
     }
 
+    // Guard against rapid-click text selection. A fast double/triple-click makes the
+    // browser run its word/line text-select; because the arrows hold no text of their
+    // own, that select spills into the nearest heading ("summarise the features").
+    // Cancelling the default on mousedown suppresses the selection while leaving the
+    // click — and therefore the slide change — completely untouched.
+    function noTextSelect(el) {
+        if (el) el.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    }
+    noTextSelect(prevBtn);
+    noTextSelect(nextBtn);
+    for (let i = 0; i < dots.length; i++) noTextSelect(dots[i]);
+
     // Autoplay — only if opts.autoplay (ms) was given. We keep the timer in one
     // place so manual nav can reset it (restart), giving the reader a full beat
     // on the slide they just chose instead of an immediate auto-advance.
