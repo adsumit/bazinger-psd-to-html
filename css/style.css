@@ -951,9 +951,9 @@ a{
 .testimonial .indicator-prnt{
     clear: both;
     width: 100%;
-    margin-top: 30px;        /* was 87 (tuned for the pre-slider float layout); the slider's .t-slide
-                                contains the avatar float, so 87 pushed the dots past the section bottom
-                                where the download <h1> covered them (unclickable). 30 keeps them inside. */
+    margin-top: 44px;        /* was 87 (pre-slider float layout) then 30; the slider's .t-slide contains
+                                the avatar float, so 87 pushed the dots past the section bottom where the
+                                download <h1> covered them (unclickable). 44 keeps them inside. */
     text-align: center;      /* centre the inline-block dot bars */
 }
 .testimonial .indicator-prnt .indicator{
