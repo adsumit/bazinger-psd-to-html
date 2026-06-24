@@ -136,13 +136,26 @@
         setActive(items[cur].link);
     }
 
-    // rAF-throttle the scroll handler so it stays cheap.
+    // --- 3) Translucent navbar -> more opaque once you scroll off the top ---------
+    // At the very top the fixed navbar is barely-there (30% black) so it rests lightly
+    // over the banner; once you've scrolled past the first 100px we deepen it to 85%
+    // so the links stay readable over the page content. The CSS rule .header.scrolled
+    // holds the actual colour (and fades it); here we just flip the class at 100px.
+    const header = document.querySelector('.header');
+    const SOLID_AFTER = 100;   // px of scroll before the navbar turns opaque
+    function updateNavbar() {
+        if (header) header.classList.toggle('scrolled', window.pageYOffset > SOLID_AFTER);
+    }
+
+    // rAF-throttle the scroll handler so it stays cheap (it drives both the active
+    // link and the navbar background).
     let ticking = false;
     window.addEventListener('scroll', function () {
         if (ticking) return;
         ticking = true;
-        requestAnimationFrame(function () { spy(); ticking = false; });
+        requestAnimationFrame(function () { spy(); updateNavbar(); ticking = false; });
     }, { passive: true });
 
-    spy();   // set the correct link on first paint
+    spy();           // set the correct link on first paint
+    updateNavbar();  // set the navbar background for the initial scroll position
 })();
