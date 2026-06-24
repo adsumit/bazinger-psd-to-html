@@ -172,12 +172,32 @@
   margin-bottom: 26px;
 }
 
+.mb-\[66px\] {
+  margin-bottom: 66px;
+}
+
+.ml-\[25px\] {
+  margin-left: 25px;
+}
+
 .ml-\[3px\] {
   margin-left: 3px;
 }
 
+.ml-\[66px\] {
+  margin-left: 66px;
+}
+
+.mt-\[-19px\] {
+  margin-top: -19px;
+}
+
 .mt-\[152px\] {
   margin-top: 152px;
+}
+
+.mt-\[59px\] {
+  margin-top: 59px;
 }
 
 .inline-block {
@@ -196,8 +216,20 @@
   height: 105px;
 }
 
+.h-\[110px\] {
+  height: 110px;
+}
+
+.h-\[114px\] {
+  height: 114px;
+}
+
 .h-\[155px\] {
   height: 155px;
+}
+
+.h-\[157px\] {
+  height: 157px;
 }
 
 .h-\[190px\] {
@@ -212,6 +244,14 @@
   height: 38px;
 }
 
+.h-\[395px\] {
+  height: 395px;
+}
+
+.h-\[433px\] {
+  height: 433px;
+}
+
 .h-\[514px\] {
   height: 514px;
 }
@@ -222,6 +262,10 @@
 
 .h-\[544px\] {
   height: 544px;
+}
+
+.h-\[615px\] {
+  height: 615px;
 }
 
 .h-\[66px\] {
@@ -264,8 +308,16 @@
   width: 255px;
 }
 
+.w-\[285px\] {
+  width: 285px;
+}
+
 .w-\[34px\] {
   width: 34px;
+}
+
+.w-\[352px\] {
+  width: 352px;
 }
 
 .w-\[50px\] {
@@ -304,8 +356,20 @@
   border-radius: 10px;
 }
 
+.rounded-\[3px\] {
+  border-radius: 3px;
+}
+
+.rounded-\[5px\] {
+  border-radius: 5px;
+}
+
 .rounded-full {
   border-radius: 9999px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-2 {
@@ -318,6 +382,11 @@
 
 .border-solid {
   border-style: solid;
+}
+
+.border-cardbdr {
+  --tw-border-opacity: 1;
+  border-color: rgb(227 224 224 / var(--tw-border-opacity, 1));
 }
 
 .border-ring {
@@ -338,6 +407,11 @@
   background-color: rgba(83,83,83,0.61);
 }
 
+.bg-grass {
+  --tw-bg-opacity: 1;
+  background-color: rgb(145 196 107 / var(--tw-bg-opacity, 1));
+}
+
 .bg-ink {
   --tw-bg-opacity: 1;
   background-color: rgb(65 64 66 / var(--tw-bg-opacity, 1));
@@ -351,6 +425,11 @@
 .bg-sky {
   --tw-bg-opacity: 1;
   background-color: rgb(75 202 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-tang {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 124 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-white {
@@ -373,9 +452,19 @@
   padding-right: 20.9%;
 }
 
+.px-\[46px\] {
+  padding-left: 46px;
+  padding-right: 46px;
+}
+
 .px-\[48px\] {
   padding-left: 48px;
   padding-right: 48px;
+}
+
+.px-\[50px\] {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .py-\[1\.7\%\] {
@@ -388,6 +477,11 @@
   padding-bottom: 11px;
 }
 
+.py-\[16px\] {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .py-\[21px\] {
   padding-top: 21px;
   padding-bottom: 21px;
@@ -395,6 +489,14 @@
 
 .pb-0 {
   padding-bottom: 0px;
+}
+
+.pb-\[11px\] {
+  padding-bottom: 11px;
+}
+
+.pb-\[19px\] {
+  padding-bottom: 19px;
 }
 
 .pb-\[53px\] {
@@ -421,6 +523,10 @@
   padding-right: 48px;
 }
 
+.pt-\[16px\] {
+  padding-top: 16px;
+}
+
 .pt-\[17px\] {
   padding-top: 17px;
 }
@@ -435,6 +541,10 @@
 
 .text-center {
   text-align: center;
+}
+
+.font-droid-bold {
+  font-family: DroidSansBold;
 }
 
 .font-lato {
@@ -481,8 +591,20 @@
   font-size: 16.8px;
 }
 
+.text-\[16px\] {
+  font-size: 16px;
+}
+
+.text-\[17px\] {
+  font-size: 17px;
+}
+
 .text-\[19px\] {
   font-size: 19px;
+}
+
+.text-\[21px\] {
+  font-size: 21px;
 }
 
 .text-\[34px\] {
@@ -491,6 +613,14 @@
 
 .text-\[46px\] {
   font-size: 46px;
+}
+
+.text-\[78px\] {
+  font-size: 78px;
+}
+
+.text-\[81px\] {
+  font-size: 81px;
 }
 
 .font-black {
@@ -517,8 +647,36 @@
   line-height: 105px;
 }
 
+.leading-\[110px\] {
+  line-height: 110px;
+}
+
 .leading-\[20\.88px\] {
   line-height: 20.88px;
+}
+
+.leading-\[37\.96px\] {
+  line-height: 37.96px;
+}
+
+.leading-\[70px\] {
+  line-height: 70px;
+}
+
+.tracking-\[-0\.7px\] {
+  letter-spacing: -0.7px;
+}
+
+.tracking-\[-1\.6px\] {
+  letter-spacing: -1.6px;
+}
+
+.tracking-\[-2\.3px\] {
+  letter-spacing: -2.3px;
+}
+
+.tracking-\[-2\.6px\] {
+  letter-spacing: -2.6px;
 }
 
 .text-body {
@@ -567,6 +725,10 @@
   text-shadow: 0 1px 3px rgba(25,22,24,0.36);
 }
 
+.\[text-shadow\:1px_1px_1px_\#afafaf\] {
+  text-shadow: 1px 1px 1px #afafaf;
+}
+
 .\[transform\:scale\(1\.7\)\] {
   transform: scale(1.7);
 }
@@ -589,6 +751,10 @@
 
 .\[transition\:0\.2s\] {
   transition: 0.2s;
+}
+
+.\[transition\:0\.5s\] {
+  transition: 0.5s;
 }
 
 .\[transition\:0\.8s\] {
@@ -1191,355 +1357,6 @@ a{
 
 .gallery .gallery-box:last-of-type{
   padding-right: 0;
-}
-
-/*==================================================PRICE*/
-
-.price{
-  text-align: center;
-  height: 615px;
-  /* was 600 — the taller PRO card (centred, +19px below) needs the extra room */
-}
-
-.price h1{
-  margin-top: 59px;
-  /* eyeball-corrected to the PNG (was 50) */
-  font-family: Lato-Black;
-  font-weight: 900;
-  /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
-  font-size: 34px;
-  color: #414042;
-  /* was unset -> defaulted to black; PSD title is #414042 */
-}
-
-.price .p{
-  font-family: Lato-Light;
-  font-weight: 300;
-  /* subtitle is Lato-Light 300 */
-  font-size: 19px;
-  color: #414042;
-  /* was unset -> defaulted to black; PSD subtitle is #414042 */
-  margin-bottom: 66px;
-  /* eyeball-corrected to the PNG (was 75) — tightens the subtitle→cards gap */
-}
-
-.price .packone{
-  height: 395px;
-  /* + 2px border = 397 = PSD Item1 card height */
-  width: 285px;
-  /* + 2px border = 287 = PSD Item1 card width */
-  float: left;
-  background-color: #f9f9f9;
-  border: 1px solid #e3e0e0;
-  border-radius: 5px;
-  /* PSD price row, centred in the 1110 .center: 66 | 287 | 25 | 354(PRO) | 25 | 287 | 66.
-       First card sits 66px from the left; the PRO card and last card follow on 25px gaps. */
-  margin: 0 0 0 66px;
-  transition: 0.5s;
-}
-
-.price .packone:hover{
-  transform: translateY(-6px);
-  /* reference price-card hover: subtle 6px lift (was scale 1.2) */
-}
-
-.price .packone .packname h4{
-  height: 70px;
-  line-height: 70px;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-family: Lato-Bold;
-  color: #d7d7d7;
-  transition: 0.5s;
-}
-
-.price .packone:hover h4{
-  color: #91c46b;
-}
-
-.price .packone .packprice{
-  height: 110px;
-  line-height: 110px;
-  font-size: 78px;
-  /* eyeball-corrected to the PNG (was 81); not audited (only packtwo's number is checked) */
-  font-family: DroidSansBold;
-  font-weight: 700;
-  /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
-  color: white;
-  background-color: #91c46b;
-  text-shadow: 1px 1px 1px #afafaf;
-}
-
-/* scaleX lives on the INNER span, NOT .packprice: a transform on .packprice would
-   scale its colored background too. The span needs display:inline-block because
-   `transform` is ignored on default-inline (non-replaced) elements. */
-
-.price .packone .packprice span{
-  display: inline-block;
-  transform: scaleX(1);
-  letter-spacing: -2.6px;
-}
-
-/* tighten via letter-spacing instead of scaleX */
-
-.price .packone .packinfo p{
-  height: 114px;
-  /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
-  line-height: 37.96px;
-  font-family:Lato-Bold ;
-  font-weight: 700;
-  /* price list items are bold (Lato-Bold 700) */
-  font-size: 17px;
-  /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
-  padding: 0 50px;
-  padding-top: 17px;
-  /* eyeball-corrected to the PNG (was 34) */
-  padding-bottom: 19px;
-  /* eyeball-corrected to the PNG (added) */
-  color: #d7d7d7;
-  transition: 0.5s;
-}
-
-.price .packone:hover p{
-  color: #91c46b;
-}
-
-.price .packone .button{
-  text-transform: uppercase;
-}
-
-.price .packone .button a{
-  display: inline-block;
-  /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* PURCHASE is bold (Lato-Bold 700) */
-  font-size: 14px;
-  color: white;
-  background-color: #91c46b;
-  padding: 16px 46px;
-  /* PSD button box 166×50: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
-  border-radius: 3px;
-  /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
-  transition: 0.5s;
-}
-
-.price .packone .button a:hover{
-  color: white;
-  background-color: #6d9151;
-  text-shadow: 0.1px 0.1px 1px white;
-}
-
-.price .packtwo{
-  /* PRO = the highlighted middle card: WIDER + TALLER than its siblings and vertically
-       CENTRED on them (PSD Item2 bbox 354×435 vs the siblings' 287×397).
-       width 352 + 2px border = 354;  height 433 + 2px border = 435.
-       margin-top:-19 lifts it 19px so it juts out 19px above the siblings, and the extra
-       height makes it jut 19px below too — the classic "recommended plan" emphasis. */
-  height: 433px;
-  width: 352px;
-  float: left;
-  background-color: #f9f9f9;
-  border: 1px solid #e3e0e0;
-  border-radius: 5px;
-  margin: -19px 0 0 25px;
-  /* -19 top = centre it on the siblings; 25 left = PSD inter-card gap */
-  transition: 0.5s;
-}
-
-.price .packtwo:hover{
-  transform: translateY(-6px);
-  /* reference price-card hover: subtle 6px lift (was scale 1.2) */
-}
-
-.price .packtwo .packname h4{
-  height: 70px;
-  line-height: 70px;
-  text-transform: uppercase;
-  font-size: 21px;
-  /* PRO label is larger: Lato-Bold 22 true -> 21 psd-px (BUILD-SPEC §12) */
-  font-family: Lato-Bold;
-  color: #4bcaff;
-  /* PRO (middle) card label is blue in the PSD (sampled #4bcaff) — others stay #d7d7d7 */
-  transition: 0.5s;
-  letter-spacing: -0.7px;
-  /* tighten the PRO label to the PNG */
-}
-
-.price .packtwo:hover h4{
-  color: #4bcaff;
-}
-
-.price .packtwo .packprice{
-  height: 110px;
-  line-height: 110px;
-  font-size: 81px;
-  /* price number: DroidSans-Bold 85 true -> 81 psd-px (BUILD-SPEC §12) */
-  font-family: DroidSansBold;
-  font-weight: 700;
-  /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
-  color: white;
-  background-color: #4bcaff;
-  text-shadow: 1px 1px 1px #afafaf;
-}
-
-.price .packtwo .packprice span{
-  display: inline-block;
-  transform: scaleX(1);
-  letter-spacing: -2.3px;
-}
-
-/* tighten the number via letter-spacing instead of scaleX */
-
-.price .packtwo .packinfo p{
-  height: 157px;
-  /* 4 lines (PRO has the extra "Praesent pharetra"): box ends at the PSD button top y2917 */
-  line-height: 37.96px;
-  font-family:Lato-Bold ;
-  font-weight: 700;
-  /* price list items are bold (Lato-Bold 700) */
-  font-size: 17px;
-  /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
-  padding: 0 50px;
-  padding-top: 16px;
-  /* eyeball-corrected to the PNG (was 26) */
-  padding-bottom: 11px;
-  /* eyeball-corrected to the PNG (added) */
-  color: #4bcaff;
-  /* PRO (middle) card list is blue in the PSD (sampled #4bcaff) — the other cards stay #d7d7d7 */
-  transition: 0.5s;
-}
-
-.price .packtwo:hover p{
-  color: #4bcaff;
-}
-
-.price .packtwo .button{
-  text-transform: uppercase;
-}
-
-.price .packtwo .button a{
-  display: inline-block;
-  /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* PURCHASE is bold (Lato-Bold 700) */
-  font-size: 14px;
-  color: white;
-  background-color: #4bcaff;
-  padding: 16px 46px;
-  /* PSD button box 165×49: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
-  border-radius: 3px;
-  /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
-  transition: 0.5s;
-}
-
-.price .packtwo .button a:hover{
-  color: white;
-  background-color: #3a98bf;
-  text-shadow: 0.1px 0.1px 1px white;
-}
-
-.price .packthree{
-  height: 395px;
-  /* + 2px border = 397 = PSD Item3 card height (mirror of Item1) */
-  width: 285px;
-  /* + 2px border = 287 = PSD Item3 card width */
-  float: left;
-  background-color: #f9f9f9;
-  border: 1px solid #e3e0e0;
-  border-radius: 5px;
-  margin: 0 0 0 25px;
-  /* 25px gap after the wider PRO card (PSD price row) */
-  transition: 0.5s;
-}
-
-.price .packthree:hover{
-  transform: translateY(-6px);
-  /* reference price-card hover: subtle 6px lift (was scale 1.2) */
-}
-
-.price .packthree .packname h4{
-  height: 70px;
-  line-height: 70px;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-family: Lato-Bold;
-  color: #d7d7d7;
-  transition: 0.5s;
-}
-
-.price .packthree:hover h4{
-  color: #fd7c00;
-}
-
-.price .packthree .packprice{
-  height: 110px;
-  line-height: 110px;
-  font-size: 78px;
-  /* eyeball-corrected to the PNG (was 81); not audited (only packtwo's number is checked) */
-  font-family: DroidSansBold;
-  font-weight: 700;
-  /* price number is bold; the DroidSans-Bold face is tagged 700 -> computes 700, no faux */
-  color: white;
-  background-color: #fd7c00;
-  text-shadow: 1px 1px 1px #afafaf;
-}
-
-.price .packthree .packprice span{
-  display: inline-block;
-  transform: scaleX(1);
-  letter-spacing: -1.6px;
-}
-
-/* tighten via letter-spacing instead of scaleX */
-
-.price .packthree .packinfo p{
-  height: 114px;
-  /* 3 lines × 37.96 ≈ 114: box ends right where the button starts (PSD button top y2901) */
-  line-height: 37.96px;
-  font-family:Lato-Bold ;
-  font-weight: 700;
-  /* price list items are bold (Lato-Bold 700) */
-  font-size: 17px;
-  /* price list: Lato-Bold 18 true -> 17 psd-px (BUILD-SPEC §12) */
-  padding: 0 50px;
-  padding-top: 17px;
-  /* eyeball-corrected to the PNG (was 34) */
-  padding-bottom: 19px;
-  /* eyeball-corrected to the PNG (added) */
-  color: #d7d7d7;
-  transition: 0.5s;
-}
-
-.price .packthree:hover p{
-  color: #fd7c00;
-}
-
-.price .packthree .button{
-  text-transform: uppercase;
-}
-
-.price .packthree .button a{
-  display: inline-block;
-  /* inline <a> ignores vertical padding; inline-block gives the full PSD button box */
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* PURCHASE is bold (Lato-Bold 700) */
-  font-size: 14px;
-  color: white;
-  background-color: #fd7c00;
-  padding: 16px 46px;
-  /* PSD button box 166×50: text ~73 + 2×46 wide; ~17px line + 2×16 tall */
-  border-radius: 3px;
-  /* PSD button corner radius ≈3px (measured off the PNG — fill insets 3→1px round the corner) */
-  transition: 0.5s;
-}
-
-.price .packthree .button a:hover{
-  color: white;
-  background-color: #bf5e00;
-  text-shadow: 0.1px 0.1px 1px white;
 }
 
 /*=======================================testimonial*/
@@ -2786,9 +2603,32 @@ a{
   }
 }
 
+.hover\:bg-\[\#3a98bf\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(58 152 191 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-grassdk:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 145 81 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-tangdk:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 94 0 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-\[\#d1d1d1\]:hover {
   --tw-text-opacity: 1;
   color: rgb(209 209 209 / var(--tw-text-opacity, 1));
+}
+
+.hover\:\[text-shadow\:0\.1px_0\.1px_1px_white\]:hover {
+  text-shadow: 0.1px 0.1px 1px white;
+}
+
+.hover\:\[transform\:translateY\(-6px\)\]:hover {
+  transform: translateY(-6px);
 }
 
 .group:hover .group-hover\:bg-ink {
@@ -2796,9 +2636,19 @@ a{
   background-color: rgb(65 64 66 / var(--tw-bg-opacity, 1));
 }
 
+.group:hover .group-hover\:text-grass {
+  --tw-text-opacity: 1;
+  color: rgb(145 196 107 / var(--tw-text-opacity, 1));
+}
+
 .group:hover .group-hover\:text-sky {
   --tw-text-opacity: 1;
   color: rgb(75 202 255 / var(--tw-text-opacity, 1));
+}
+
+.group:hover .group-hover\:text-tang {
+  --tw-text-opacity: 1;
+  color: rgb(253 124 0 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:opacity-100 {
