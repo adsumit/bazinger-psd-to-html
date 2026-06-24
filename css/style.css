@@ -1569,3 +1569,22 @@ a{
   .lightbox .lb-prev { left: 6px; }
   .lightbox .lb-next { right: 6px; }
 }
+
+/* ============================ 1110-1240px : crop the video band's transparent strip
+   At desktop the video bg <img> is positioned top:-62% (tuned for the 1404px PSD width).
+   Between ~1110 and ~1263px that positioning no longer reaches the band bottom, so the
+   bottom 0-60px exposes watch.png's transparent strip as bright #4bcaff (measured: fully
+   #4bcaff at 1110, fading to none by ~1240). Switch the image to object-fit:cover here so
+   it scales to EXACTLY fill the 522px band — cover crops the over-tall image's top/bottom
+   (~141px each at 1110), far more than the 78px transparent strip, so the strip is removed
+   with no guesswork. The band stays blue (#4bcaff base + photo @60%), just uniform.
+   NB: this intentionally adjusts the >=1110 render in THIS narrow band only (the strip is a
+   pre-existing fidelity bug at non-1404 desktop widths); 1280 is OUTSIDE the range, so the
+   audit width stays byte-identical. */
+@media (min-width: 1110px) and (max-width: 1240px) {
+  .watch img {
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+}
