@@ -1403,6 +1403,14 @@ a{
     top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: cover;        /* fill + crop instead of scaling away and leaving blue */
+    /* watch.png fades to transparent over its top & bottom 78px (7.66% each, measured
+       to alpha>=254). At desktop those strips are cropped off; below desktop a tall
+       (narrow) band shows the FULL image height via cover, exposing them as the bright
+       #4bcaff base. The band IS blue by design (dark photo @60% over a blue base —
+       confirmed by reverse-solving bazinger.png), so we DON'T recolour it; we just
+       crop the transparent strips away. scale crops (1-1/s)/2 per edge, so hiding a
+       7.66% strip needs s >= 1/(1-2*0.0766) = 1.181 -> 1.18 (the measured minimum). */
+    transform: scale(1.18);
   }
   .watch .center .play { margin: 0 auto 24px; }   /* the band padding sets the top gap now */
 
