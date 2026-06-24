@@ -31,8 +31,22 @@
   <div class="center">
      <img class="hero-phone" src="img/iPhone 5S.png" alt=""><!-- foreground iPhone (PSD Header/Base/iPhone 5S) -->
      <div class="banner_content">
-        <h1><span class="ll">Simple, Beautiful</span> <span class="lb">and Amazing</span></h1>
-        <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget nunc vitae tellus luctus ullamcorper. Nam porttitor ullamcorper felis at convallis. Aenean ornare vestibulum nisi fringilla lacinia. Nullam pulvinar sollicitudin velit id laoreet. Quisque non rhoncus sem.</p>
+        <div class="banner-slider"><!-- text slider window: clips to one slide -->
+          <div class="banner-track"><!-- flex row of slides; slider.js translateX-es this -->
+            <div class="banner-slide">
+              <h1><span class="ll">Simple, Beautiful</span> <span class="lb">and Amazing</span></h1>
+              <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget nunc vitae tellus luctus ullamcorper. Nam porttitor ullamcorper felis at convallis. Aenean ornare vestibulum nisi fringilla lacinia. Nullam pulvinar sollicitudin velit id laoreet. Quisque non rhoncus sem.</p>
+            </div>
+            <div class="banner-slide">
+              <h1><span class="ll">Powerful, Fast</span> <span class="lb">and Reliable</span></h1>
+              <p class="p">Curabitur ac felis arcu sadipscing elitr sed diam nonumy eirmod. Vivamus elementum semper nisi aenean vulputate eleifend tellus enim. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim sed. Aliquam lorem ante dapibus in viverra quis feugiat a turpis.</p>
+            </div>
+            <div class="banner-slide">
+              <h1><span class="ll">Modern, Clean</span> <span class="lb">and Intuitive</span></h1>
+              <p class="p">Phasellus viverra nulla ut metus varius laoreet quisque rutrum eget. Aenean imperdiet etiam ultricies nisi vel augue curabitur ullamcorper nec. Praesent venenatis metus at tortor pulvinar varius et fermentum sit. Donec sodales sagittis magna sed consequat leo eget bibendum.</p>
+            </div>
+          </div>
+        </div>
         <a class="button_one" href="">DOWNLOAD</a>
         <a class="button_two" href="">LEARN MORE</a>
         <div class="iconcontainer">
@@ -235,6 +249,9 @@
             <h1>
                 Testimonials
             </h1>
+            <div class="t-slider"><!-- testimonial slider window -->
+              <div class="t-track"><!-- flex row of testimonial cards; slider.js slides this -->
+                <div class="t-slide">
             <div class="cominfo">
                 <div class="avatar">
                     <div class="hex-prnt">
@@ -255,7 +272,36 @@
                 <p class="commenter-info">
                     <i>from some company</i>
                 </p>
-            </div>
+            </div><!-- /cominfo (testimonial 1) -->
+                </div><!-- /t-slide -->
+                <div class="t-slide">
+                  <div class="cominfo">
+                    <div class="avatar">
+                      <div class="hex-prnt"><div class="hexagon"><img class="hex-svg" src="img/base.svg" alt=""></div></div>
+                      <div class="photo-prnt"><img class="photo" src="img/icon.svg" alt=""></div>
+                    </div>
+                    <p class="comment">
+                      Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum donec ullamcorper nulla non metus.
+                    </p>
+                    <p class="commenter"><i>Jane Roe</i></p>
+                    <p class="commenter-info"><i>from another company</i></p>
+                  </div>
+                </div><!-- /t-slide -->
+                <div class="t-slide">
+                  <div class="cominfo">
+                    <div class="avatar">
+                      <div class="hex-prnt"><div class="hexagon"><img class="hex-svg" src="img/base.svg" alt=""></div></div>
+                      <div class="photo-prnt"><img class="photo" src="img/icon.svg" alt=""></div>
+                    </div>
+                    <p class="comment">
+                      Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum nullam quis risus eget urna mollis ornare vel eu leo a sem.
+                    </p>
+                    <p class="commenter"><i>Sam Poe</i></p>
+                    <p class="commenter-info"><i>from some startup</i></p>
+                  </div>
+                </div><!-- /t-slide -->
+              </div><!-- /t-track -->
+            </div><!-- /t-slider -->
             <div class="indicator-prnt">
                 <div class="indicator">
                     <ul>
@@ -312,5 +358,7 @@
     </div>
 </div>
 <!--footer end-->
+<script src="js/slider.js"></script>
+<script src="js/lightbox.js"></script>
 </body>
 </html>
