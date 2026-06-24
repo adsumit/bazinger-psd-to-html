@@ -1579,8 +1579,14 @@ a{
   /* ---- Footer: copyright (left) + terms (right) -> stacked & centred -------- */
   .footer { height: auto; padding: 22px 0; }
   .footer .center { text-align: center; }
-  .footer .center > a { display: block; line-height: 1.9; }
-  .footer .terms-privacy { float: none; line-height: 1.9; }
+  .footer .center > a { display: block; line-height: 1.4; }   /* copyright line — tight */
+  /* The Terms/Privacy <a> links still carry the desktop `line-height:105px` (which
+     vertically centres them in the 105px desktop bar). That 105px box is exactly
+     what floated them far below the copyright. Reset the wrapper AND the links to a
+     tight line-height so the two footer lines sit close together, like the
+     testimonial name/role pair. */
+  .footer .terms-privacy { float: none; line-height: 1.4; }
+  .footer .terms-privacy a { line-height: 1.4; }
   .footer .terms-privacy .terms { transform: none; }   /* drop the desktop +6px nudge */
   .footer .terms-privacy span { transform: none; }
 
