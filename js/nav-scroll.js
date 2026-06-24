@@ -93,17 +93,35 @@
     });
 
     // --- 2) Scroll-spy -> keep the active link in sync as you scroll ------------
+    const MIN_SPAN = 80;   // smallest active scroll-span we let any section keep near the page end
+
     function spy() {
         if (animating) return;        // don't fight a click's animation
-        const line = window.pageYOffset + NAV_OFFSET + 1;   // the seam just under the navbar
+        const scroll = window.pageYOffset;
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+        // Each section's natural "activation" scroll = where its top reaches the
+        // navbar seam (scroll = top - NAV_OFFSET).
+        const act = items.map(function (it) { return absTop(it.section) - NAV_OFFSET; });
+
+        // The page can't scroll far enough to give the LAST section(s) their seam
+        // turn — their top only reaches the seam at (or past) the very last pixel of
+        // scroll, so by the raw seam rule they'd flash active for ~1px and flip away
+        // the instant you scroll up from the bottom (the bug). Walk back from the end
+        // and pull each over-squeezed activation earlier so every trailing section
+        // keeps at least MIN_SPAN px of active range, sharing the final stretch of
+        // scroll. The moment a section already has room we stop — so the well-spaced
+        // sections above stay exactly on the seam (scrolling DOWN feels unchanged).
+        let cap = maxScroll;
+        for (let i = items.length - 1; i >= 0; i--) {
+            const limit = cap - MIN_SPAN;
+            if (act[i] > limit) { act[i] = limit; cap = act[i]; }
+            else break;
+        }
+
         let current = items[0];
         for (let i = 0; i < items.length; i++) {
-            if (absTop(items[i].section) <= line) current = items[i];
-        }
-        // hit the page bottom -> force the LAST link active (its short section may
-        // never reach the seam line on its own)
-        if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
-            current = items[items.length - 1];
+            if (scroll + 1 >= act[i]) current = items[i];
         }
         setActive(current.link);
     }
