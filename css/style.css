@@ -184,8 +184,16 @@
   margin-left: 3px;
 }
 
+.ml-\[463px\] {
+  margin-left: 463px;
+}
+
 .ml-\[66px\] {
   margin-left: 66px;
+}
+
+.mr-\[450px\] {
+  margin-right: 450px;
 }
 
 .mt-\[-19px\] {
@@ -234,6 +242,10 @@
 
 .h-\[190px\] {
   height: 190px;
+}
+
+.h-\[198px\] {
+  height: 198px;
 }
 
 .h-\[19px\] {
@@ -364,6 +376,10 @@
   border-radius: 5px;
 }
 
+.rounded-\[8px\] {
+  border-radius: 8px;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -378,6 +394,10 @@
 
 .border-\[5px\] {
   border-width: 5px;
+}
+
+.border-b-\[5px\] {
+  border-bottom-width: 5px;
 }
 
 .border-solid {
@@ -397,6 +417,11 @@
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.border-b-deepsky {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(39 118 151 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[rgba\(75\2c 202\2c 255\2c 0\.43\)\] {
@@ -499,6 +524,10 @@
   padding-bottom: 19px;
 }
 
+.pb-\[26px\] {
+  padding-bottom: 26px;
+}
+
 .pb-\[53px\] {
   padding-bottom: 53px;
 }
@@ -511,12 +540,20 @@
   padding-left: 0px;
 }
 
+.pl-\[30px\] {
+  padding-left: 30px;
+}
+
 .pl-\[48px\] {
   padding-left: 48px;
 }
 
 .pr-0 {
   padding-right: 0px;
+}
+
+.pr-\[31px\] {
+  padding-right: 31px;
 }
 
 .pr-\[48px\] {
@@ -529,6 +566,14 @@
 
 .pt-\[17px\] {
   padding-top: 17px;
+}
+
+.pt-\[20px\] {
+  padding-top: 20px;
+}
+
+.pt-\[21px\] {
+  padding-top: 21px;
 }
 
 .pt-\[37px\] {
@@ -615,6 +660,10 @@
   font-size: 46px;
 }
 
+.text-\[52px\] {
+  font-size: 52px;
+}
+
 .text-\[78px\] {
   font-size: 78px;
 }
@@ -669,6 +718,10 @@
 
 .tracking-\[-1\.6px\] {
   letter-spacing: -1.6px;
+}
+
+.tracking-\[-1px\] {
+  letter-spacing: -1px;
 }
 
 .tracking-\[-2\.3px\] {
@@ -731,6 +784,10 @@
 
 .\[transform\:scale\(1\.7\)\] {
   transform: scale(1.7);
+}
+
+.\[transform\:scaleX\(0\.93\)\] {
+  transform: scaleX(0.93);
 }
 
 .\[transform\:translate\(-50\%\2c calc\(-50\%_-_11px\)\)\] {
@@ -1518,57 +1575,6 @@ a{
 
 .testimonial .indicator ul .indi.active{
   opacity: 1;
-}
-
-/*===================================================download*/
-
-.download-bg{
-  background-color: #414042;
-}
-
-.download{
-  height: 198px;
-  /* eyeball-corrected to the PNG (was 220) */
-}
-
-.download h1{
-  text-align: center;
-  font-family: Lato-Bold;
-  font-size: 52px;
-  /* "Do you Like this app?": Lato-Bold 55 true -> 52 psd-px (was unset, h1 default 32) (BUILD-SPEC §14) */
-  color: white;
-  padding-top: 21px;
-  /* eyeball-corrected to the PNG (was 50) */
-  padding-bottom: 26px;
-  /* eyeball-corrected to the PNG (was 50) */
-  letter-spacing: -1px;
-  transform: scaleX(0.93);
-  /* paint-only horizontal squish to match the PNG glyphs; computed font-size stays 52px */
-}
-
-.download .a{
-  display: inline-block;
-  /* <a> is inline by default -> vertical padding can't position the text; inline-block gives it a real box so padding-top pushes the text down */
-  color: #414042;
-  background-color: #4bcaff;
-  font-size: 14px;
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* DOWNLOAD NOW is bold (Lato-Bold 700) */
-  border-bottom: 5px solid #277697;
-  border-radius: 8px;
-  text-transform: uppercase;
-  padding: 20px 31px 19px 30px;
-  /* asymmetric: seats the label to the PNG */
-  margin: 0px 450px 0px 463px;
-  /* eyeball-positioned in the 1110 container */
-  transition: 0.2s;
-}
-
-.download a:hover{
-  color: #fff;
-  background-color: #676767;
-  border-bottom: 5px solid #4b4b4b;
 }
 
 /*==============================================contactmap*/
@@ -2603,9 +2609,19 @@ a{
   }
 }
 
+.hover\:border-b-\[\#4b4b4b\]:hover {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(75 75 75 / var(--tw-border-opacity, 1));
+}
+
 .hover\:bg-\[\#3a98bf\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(58 152 191 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-\[\#676767\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(103 103 103 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-grassdk:hover {
@@ -2621,6 +2637,11 @@ a{
 .hover\:text-\[\#d1d1d1\]:hover {
   --tw-text-opacity: 1;
   color: rgb(209 209 209 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:\[text-shadow\:0\.1px_0\.1px_1px_white\]:hover {
