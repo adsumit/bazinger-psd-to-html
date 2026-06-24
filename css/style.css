@@ -143,6 +143,13 @@ a{
     background-size: cover;         /* hero_bg.png is natively 1404 wide (= PSD width); cover fills the full width (no contain letterbox = no side red), showing the top slice */
     background-position: center top;
     background-repeat: no-repeat;
+    background-color: #414042;      /* PSD base behind the photo. hero_bg.png fades to TRANSPARENT
+                                       along its bottom; wherever that strip is visible (any width
+                                       below ~1324px, where `cover` can't crop it off) it must read
+                                       as this dark base, NOT the page's white. A BASE rule (not a
+                                       breakpoint) so the banner bottom is the SAME grey at every
+                                       width — at >=1324 (incl. the 1404 PSD width) the strip is
+                                       cropped, so this is invisible there. */
     transform: translateY(0px);     /* fine-align knob — nudge the image vertically to kill the red below DOWNLOAD (tune via the navbar heatmap) */
     z-index: 0;                     /* sits behind the banner content */
 }
@@ -1295,14 +1302,10 @@ a{
      (min-height keeps it a proper hero band); a column flexbox vertically centres
      the text, padding-top clears the 94px fixed navbar. */
   .banner { height: auto; min-height: 640px; }
-  /* The hero photo (hero_bg.png) fades to TRANSPARENT along its bottom. At the
-     1404-wide desktop crop that transparent strip is cut off, but as the banner
-     narrows `cover` scales by height and reveals it — leaking white through. In the
-     PSD that PNG sits on a solid #414042 base, so paint #414042 behind the image:
-     the transparent bottom now reads as the dark base (matching the design) instead
-     of white. Scoped to <=1157 so the >=1158 desktop render stays byte-identical
-     (at desktop the strip is cropped away, so the colour would never show there). */
-  .banner_bg { background-color: #414042; }
+  /* (the #414042 base behind hero_bg's transparent bottom is now a BASE rule on
+     .banner_bg above — it applies at EVERY width, so the banner bottom is the same
+     grey whether you're at 990px or 1158px, since the transparent strip shows below
+     ~1324px regardless of the desktop/responsive split.) */
   /* hide the decorative iPhone PNG across ALL non-desktop widths: a centred text
      hero reads cleaner than a 644px phone half-clipped beneath it (the side-by-
      side only ever balanced at the exact 1110 design width). */
