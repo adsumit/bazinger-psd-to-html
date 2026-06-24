@@ -93,35 +93,29 @@
     });
 
     // --- 2) Scroll-spy -> keep the active link in sync as you scroll ------------
-    const MIN_SPAN = 80;   // smallest active scroll-span we let any section keep near the page end
-
     function spy() {
         if (animating) return;        // don't fight a click's animation
         const scroll = window.pageYOffset;
-        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const innerH = window.innerHeight;
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - innerH);
 
-        // Each section's natural "activation" scroll = where its top reaches the
-        // navbar seam (scroll = top - NAV_OFFSET).
-        const act = items.map(function (it) { return absTop(it.section) - NAV_OFFSET; });
-
-        // The page can't scroll far enough to give the LAST section(s) their seam
-        // turn — their top only reaches the seam at (or past) the very last pixel of
-        // scroll, so by the raw seam rule they'd flash active for ~1px and flip away
-        // the instant you scroll up from the bottom (the bug). Walk back from the end
-        // and pull each over-squeezed activation earlier so every trailing section
-        // keeps at least MIN_SPAN px of active range, sharing the final stretch of
-        // scroll. The moment a section already has room we stop — so the well-spaced
-        // sections above stay exactly on the seam (scrolling DOWN feels unchanged).
-        let cap = maxScroll;
-        for (let i = items.length - 1; i >= 0; i--) {
-            const limit = cap - MIN_SPAN;
-            if (act[i] > limit) { act[i] = limit; cap = act[i]; }
-            else break;
-        }
+        // Probe line. Normally it's the navbar seam (scroll + NAV_OFFSET): a section
+        // goes active as its top reaches just under the navbar — that's what makes
+        // scrolling DOWN the upper page feel right. BUT the trailing sections live in
+        // the final viewport-height of scroll, where the page runs out before their
+        // tops can climb to the seam; on the raw seam rule they'd collapse to a sliver
+        // and flip off the instant you scroll UP from the bottom (the bug). So across
+        // that final stretch we let the probe DESCEND from the seam toward the viewport
+        // bottom (f: 0 -> 1), giving each trailing section a fair active span in step
+        // with how much of the screen it fills — and at the very bottom the probe
+        // reaches the last section. Above the final stretch f is 0, so the probe is
+        // exactly the seam and the rest of the page behaves exactly as before.
+        const f = Math.max(0, Math.min(1, (scroll - (maxScroll - innerH)) / innerH));
+        const probe = scroll + NAV_OFFSET + f * (innerH - NAV_OFFSET);
 
         let current = items[0];
         for (let i = 0; i < items.length; i++) {
-            if (scroll + 1 >= act[i]) current = items[i];
+            if (absTop(items[i].section) <= probe) current = items[i];
         }
         setActive(current.link);
     }
