@@ -136,15 +136,22 @@
         setActive(items[cur].link);
     }
 
-    // --- 3) Translucent navbar -> more opaque once you scroll off the top ---------
-    // At the very top the fixed navbar is barely-there (30% black) so it rests lightly
-    // over the banner; once you've scrolled past the first 100px we deepen it to 85%
-    // so the links stay readable over the page content. The CSS rule .header.scrolled
-    // holds the actual colour (and fades it); here we just flip the class at 100px.
+    // --- 3) Navbar fill: alpha tied to scroll position ---------------------------
+    // The fixed navbar is translucent (30% black) at the very top so it rests lightly
+    // over the banner, and opaque (85%) once you're into the page so the links stay
+    // readable over content. Instead of snapping at a threshold, we LERP the alpha in
+    // step with how far you've scrolled through the first FADE_PX px — so the fill
+    // visibly deepens/lightens as you scroll, exactly tracking the scroll both ways.
+    // No CSS transition is used: the scroll position itself is the animation (a
+    // transition would lag behind the scroll).
     const header = document.querySelector('.header');
-    const SOLID_AFTER = 100;   // px of scroll before the navbar turns opaque
+    const FADE_PX = 100;                  // scroll distance over which the fade completes
+    const MIN_ALPHA = 0.30, MAX_ALPHA = 0.85;   // navbar alpha at the top vs fully scrolled
     function updateNavbar() {
-        if (header) header.classList.toggle('scrolled', window.pageYOffset > SOLID_AFTER);
+        if (!header) return;
+        const t = Math.max(0, Math.min(1, window.pageYOffset / FADE_PX));   // 0 at top -> 1 at FADE_PX+
+        const alpha = MIN_ALPHA + t * (MAX_ALPHA - MIN_ALPHA);
+        header.style.backgroundColor = 'rgba(7, 7, 7, ' + alpha.toFixed(3) + ')';
     }
 
     // rAF-throttle the scroll handler so it stays cheap (it drives both the active
