@@ -70,23 +70,37 @@ function initSlider(root, opts) {
     noTextSelect(nextBtn);
     for (let i = 0; i < dots.length; i++) noTextSelect(dots[i]);
 
-    // Autoplay — only if opts.autoplay (ms) was given. We keep the timer in one
-    // place so manual nav can reset it (restart), giving the reader a full beat
-    // on the slide they just chose instead of an immediate auto-advance.
+    // Autoplay — only if opts.autoplay (ms) was given, and (see the observer below)
+    // only WHILE the slider is scrolled into view. The timer lives in one place so
+    // manual nav can reset it (restart), giving the reader a full beat on the slide
+    // they just chose instead of an immediate auto-advance.
     let timer = null;
-    function restart() {
-        if (!opts.autoplay) return;
+    let inView = false;                  // is the slider currently displayed in the viewport?
+    function restart() {                 // (re)start the beat — but only while it's on-screen
         clearInterval(timer);
-        timer = setInterval(function () { go(index + 1); }, opts.autoplay);
+        if (opts.autoplay && inView) {
+            timer = setInterval(function () { go(index + 1); }, opts.autoplay);
+        }
+    }
+    function stop() { clearInterval(timer); }
+
+    // Run autoplay only while the slider is on-screen. An IntersectionObserver flips
+    // `inView` as the slider scrolls into / out of the viewport, and we start or stop
+    // the timer to match: visible (or hovered, since you can only hover what's on
+    // screen) -> advancing; scrolled away -> idle. This replaces the old pause-on-
+    // hover — the slider now keeps playing while you hover it, and only an off-screen
+    // slider sits paused (so it isn't silently cycling where no one can see it).
+    if (opts.autoplay && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            inView = entries[0].isIntersecting;
+            if (inView) restart(); else stop();
+        }, { threshold: 0 }).observe(root);   // threshold 0 = active the moment any part shows
+    } else if (opts.autoplay) {
+        inView = true;                   // no IntersectionObserver support -> just autoplay
+        restart();
     }
 
-    // Pause while the pointer is over the section, so a reader isn't yanked to
-    // the next slide mid-sentence; resume on leave.
-    root.addEventListener('mouseenter', function () { clearInterval(timer); });
-    root.addEventListener('mouseleave', restart);
-
-    go(0);        // paint the initial slide + dot
-    restart();    // start autoplay if enabled
+    go(0);        // paint the initial slide + dot (the observer kicks off autoplay)
 }
 
 // --- Wire up the two sliders on this page -----------------------------------
