@@ -928,8 +928,13 @@ a{
 }
 .testimonial .cominfo .commenter-info{
     float: right;
-    clear: left;
-    margin-top: -35px;        /* eyeball-corrected to the PNG (was -12) */
+    clear: right;             /* anchor BELOW .commenter (the line above), NOT the fixed-height
+                                 avatar — so the two name lines move as ONE unit and the quote's
+                                 line count can never open a gap between them again. (Was clear:left,
+                                 which pinned this to the avatar bottom while .commenter tracked the
+                                 variable-height quote, so a short quote like Sam Poe's left a gap.) */
+    margin-top: 14px;         /* gap measured from .commenter now; nets to the same ~-1px tight look
+                                 once the translateY(-15px) below applies (was -35px for the avatar anchor) */
     padding-left: 0px;
     font-family: Lato-Bold;
     font-size: 14px;          /* eyeball-corrected to the PNG (was 13) */
