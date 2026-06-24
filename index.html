@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Tell mobile browsers to use the DEVICE width as the layout viewport (and
+         no zoom-out). Without this, phones assume a ~980px page and shrink it to
+         fit, so our max-width media queries below 1110 would never fire on a real
+         device. This is the single switch that makes the whole responsive layer work. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bazinger</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,16 +17,22 @@
         <div class="logo">
             <img class="logoimg" src="img/logo.png" alt="">
         </div>             
+        <!-- Hamburger button: hidden at desktop (display:none), revealed at <=900px.
+             Three <span> bars are drawn/animated in CSS; nav.js toggles .open on the
+             menu and is-open on the button. -->
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <ul class="menu">
             <li><a class="active" href="#">HOME</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Gallery</a></li>
             <li><a href="#">Video</a></li>
             <li><a href="#">PriceS</a></li>
-            <li><a href="#">Testimonials</a></li>  
+            <li><a href="#">Testimonials</a></li>
             <li><a href="#">DOWNLOAD</a></li>
-            <li><a href="#">CONTACT</a></li>              
-        </ul>            
+            <li><a href="#">CONTACT</a></li>
+        </ul>
     </div>
 </div>
 <!--navbar end-->
@@ -360,5 +371,6 @@
 <!--footer end-->
 <script src="js/slider.js"></script>
 <script src="js/lightbox.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>
