@@ -4,12 +4,16 @@
   "private": true,
   "description": "PSD-fidelity verification toolkit shared across the Bazinger builds.",
   "scripts": {
+    "build:css": "tailwindcss -i css/input.css -o css/style.css",
+    "watch:css": "tailwindcss -i css/input.css -o css/style.css --watch",
     "audit": "node tools/style-audit.mjs checks.json",
-    "diff": "node tools/visual-diff.mjs index.html bazinger.png"
+    "diff": "node tools/visual-diff.mjs index.html bazinger.png",
+    "verify": "npm run build:css && node tools/style-audit.mjs checks.json"
   },
   "devDependencies": {
     "pixelmatch": "^7.2.0",
     "playwright": "^1.60.0",
-    "pngjs": "^7.0.0"
+    "pngjs": "^7.0.0",
+    "tailwindcss": "^3.4.19"
   }
 }
