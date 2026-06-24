@@ -81,10 +81,17 @@
         });
     }
 
+    // Index of the link active right now. The scroll-spy nudges it up/down as you
+    // scroll; a click sets it outright. It's kept as STATE (not recomputed from
+    // scratch each tick) so the up/down hysteresis in spy() can remember the current
+    // section and release it only at the right moment.
+    let cur = 0;
+
     // --- 1) Click -> scroll + activate + reflect in the URL ---------------------
-    items.forEach(function (it) {
+    items.forEach(function (it, idx) {
         it.link.addEventListener('click', function (e) {
             e.preventDefault();
+            cur = idx;                                // keep the spy's state in sync
             setActive(it.link);                       // light it up immediately
             scrollToY(Math.max(0, absTop(it.section) - NAV_OFFSET));
             // show #section in the address bar without a jump or history clutter
@@ -98,26 +105,35 @@
         const scroll = window.pageYOffset;
         const innerH = window.innerHeight;
         const maxScroll = Math.max(1, document.documentElement.scrollHeight - innerH);
+        const seam = scroll + NAV_OFFSET;        // ADVANCE line — just under the navbar
+        const mid = scroll + innerH * 0.5;       // RETREAT line — the viewport middle
 
-        // Probe line. Normally it's the navbar seam (scroll + NAV_OFFSET): a section
-        // goes active as its top reaches just under the navbar — that's what makes
-        // scrolling DOWN the upper page feel right. BUT the trailing sections live in
-        // the final viewport-height of scroll, where the page runs out before their
-        // tops can climb to the seam; on the raw seam rule they'd collapse to a sliver
-        // and flip off the instant you scroll UP from the bottom (the bug). So across
-        // that final stretch we let the probe DESCEND from the seam toward the viewport
-        // bottom (f: 0 -> 1), giving each trailing section a fair active span in step
-        // with how much of the screen it fills — and at the very bottom the probe
-        // reaches the last section. Above the final stretch f is 0, so the probe is
-        // exactly the seam and the rest of the page behaves exactly as before.
-        const f = Math.max(0, Math.min(1, (scroll - (maxScroll - innerH)) / innerH));
-        const probe = scroll + NAV_OFFSET + f * (innerH - NAV_OFFSET);
+        // Directional hysteresis. A plain "section whose top is under the navbar"
+        // rule reads right going DOWN (a section lights up as it fills the screen)
+        // but wrong going UP: it drops the current section the instant its top slips
+        // back under the navbar — while that section STILL fills the screen — so the
+        // active flips to the previous, still-hidden section far too early (the bug).
+        //
+        // So the active only moves in the direction you're scrolling, with two
+        // different trigger lines:
+        //   ADVANCE (down): step to the next section once its TOP reaches the navbar
+        //     seam — it has just filled the area below the navbar. (Scroll-DOWN feel
+        //     is exactly as before.)
+        //   RETREAT (up): step back only once the CURRENT section's TOP has fallen
+        //     past the viewport middle — i.e. the previous section now fills the upper
+        //     half of the screen. So the active stays "sticky" while you scroll up
+        //     through a section instead of releasing it the moment its top dips below
+        //     the navbar.
+        // ADVANCE's line sits above RETREAT's, so the two can never fire on the same
+        // tick — no flip-flop.
+        while (cur < items.length - 1 && absTop(items[cur + 1].section) <= seam) cur++;
+        while (cur > 0 && absTop(items[cur].section) > mid) cur--;
 
-        let current = items[0];
-        for (let i = 0; i < items.length; i++) {
-            if (absTop(items[i].section) <= probe) current = items[i];
-        }
-        setActive(current.link);
+        // The last section's top can't reach the seam (the page ends first), so
+        // ADVANCE can't land on it going down — force it once you're at the bottom.
+        if (scroll >= maxScroll - 1) cur = items.length - 1;
+
+        setActive(items[cur].link);
     }
 
     // rAF-throttle the scroll handler so it stays cheap.
