@@ -336,8 +336,11 @@ a{
     cursor: pointer;
 }
 .banner .center .slider-dots .dot.active{
-    width: 14.6px;           /* active dot (slide 1) — eyeball-corrected (was 17); solid #4BCAFF + 1px ring same colour */
-    height: 14.6px;
+    /* Grow the active dot ~33% (11 -> ~14.6) with a paint-only transform instead of a
+       width/height change. A bigger layout box shoves the neighbouring dots sideways
+       in the flex row — which drifted the MIDDLE dot ~3.6px from slide to slide.
+       scale() leaves every dot an 11px box, so the row never reflows and nothing moves. */
+    transform: scale(1.33);
     background: #4bcaff;
     border-color: #4bcaff;
 }
