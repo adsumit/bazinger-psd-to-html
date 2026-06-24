@@ -56,16 +56,9 @@ a{
     position: fixed;
     top: 0px;
     height: 94px;                                  /* dark fill 94px; box-shadow paints the 95th px (white line) -> 95px total visual */
-    background: rgba(7, 7, 7, 0.30);               /* was rgba(19,30,41,0.73); PSD Header/Menu/Base #070707 @30% */
+    background: rgba(7, 7, 7, 0.30);               /* base/fallback: PSD Header/Menu/Base #070707 @30%. nav-scroll.js raises this alpha 0.30 -> 0.85 LINEARLY across the first 100px of scroll (no CSS transition — the scroll position itself drives the fade, both ways). */
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); /* navbar bottom hairline (outset, adds no layout height); alpha eyeballed 0.20 -> 0.1 -> 0.06 */
     z-index: 2;                                    /* keep the fixed navbar above the banner stacking contexts (.banner .center is z-index 1) */
-    transition: background-color 0.25s ease;       /* fade the fill smoothly when .scrolled toggles (below); render-neutral at rest */
-}
-/* nav-scroll.js adds .scrolled once you pass 100px of scroll: deepen the SAME
-   #070707 fill from 30% -> 85% alpha so the links stay legible over page content
-   (at the very top it's left translucent over the banner). */
-.header.scrolled{
-    background-color: rgba(7, 7, 7, 0.85);
 }
 .header .logo{
     float: left;
