@@ -939,7 +939,9 @@ a{
 .testimonial .indicator-prnt{
     clear: both;
     width: 100%;
-    margin-top: 87px;        /* eyeball-corrected to the PNG (was 80) */
+    margin-top: 30px;        /* was 87 (tuned for the pre-slider float layout); the slider's .t-slide
+                                contains the avatar float, so 87 pushed the dots past the section bottom
+                                where the download <h1> covered them (unclickable). 30 keeps them inside. */
     text-align: center;      /* centre the inline-block dot bars */
 }
 .testimonial .indicator-prnt .indicator{
@@ -1157,3 +1159,62 @@ a{
     transform: translate(3px, 0px);   /* nudge the | separator right to the PNG */
     color: #707071;           /* eyeball-corrected to the PNG (was #d1d1d1) — matches the footer text */    
 }
+/*===================================================== JS SLIDERS + LIGHTBOX */
+/* Banner text slider: the window clips to ONE slide; the track is a flex row that
+   slides left/right (slider.js sets translateX, the transition below eases it).
+   Window width = .p's 680px, NOT the 638.4 block: .p is set to 680 to force the
+   PSD's 3-line wrap, so each flex slide's min-width grows to 680. If the window
+   stayed 638.4 the slides would still be 680 but the track would step by only
+   638.4 — a 42px-per-slide drift with text bleeding between slides. Matching both
+   to 680 keeps the steps aligned; slide 1 is unchanged (its .p already reached
+   680, and its 1-line heading is still 1 line at the wider width). */
+.banner_content .banner-slider { overflow: hidden; width: 680px; }
+.banner_content .banner-track  { display: flex; transition: transform 0.6s ease; }
+.banner_content .banner-slide  { flex: 0 0 100%; }   /* each slide fills the 680px window */
+
+/* Testimonial slider: same mechanism, sliding the whole cards. */
+.testimonial .t-slider { overflow: hidden; }
+.testimonial .t-track  { display: flex; transition: transform 0.6s ease; }
+.testimonial .t-slide  { flex: 0 0 100%; }
+
+/* Gallery lightbox (the overlay is built by lightbox.js). Fixed full-screen; the
+   backdrop fades and the image zooms (scale) — both animated by these transitions,
+   toggled on/off by the .open class. */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;                  /* removed from interaction while closed */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox .lb-img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 6px;
+    transform: scale(0.85);              /* zoom-in start point */
+    transition: transform 0.3s ease;
+}
+.lightbox.open .lb-img { transform: scale(1); }   /* ...zooms to full size when open */
+.lightbox button {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    padding: 10px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+.lightbox button:hover { opacity: 1; }
+.lightbox .lb-close { top: 16px; right: 26px; font-size: 46px; }
+.lightbox .lb-prev,
+.lightbox .lb-next  { top: 50%; transform: translateY(-50%); font-size: 56px; }
+.lightbox .lb-prev  { left: 24px; }
+.lightbox .lb-next  { right: 24px; }
