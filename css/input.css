@@ -143,91 +143,9 @@ a{
     width:638.4px;       /* eyeball-corrected (was 637) */
     height:760px ;      /* match the banner (was 800, master-space) */
 }
-.banner_content h1{
-    font-family: Lato-Light;  /* hero root text is light; the "and Amazing" .lb span overrides to bold below */
-    font-weight: 300;         /* PSD hero is Lato-Light 300 — UA gives <h1> 700 by default, so set it explicitly */
-    font-size: 45.55px;       /* eyeball-corrected (was 46; psd-spec true 45.5) */
-    line-height: 1;           /* PSD heading box ~43px; default ~1.2 (55px) sat the glyph ~4px low and padded the stack */
-    color: white;
-    text-shadow: 0 1px 3px rgba(25, 22, 24, 0.36);   /* PSD DropShadow 36% / dist 1 / size 3 / #191618 (BUILD-SPEC §6) */
-}
-.banner_content .ll{
-    font-family: Lato-Light;
-}
-
-.banner_content .lb{
-    font-family: Lato-Bold;   /* "and Amazing" is bold in the PSD */
-    font-weight: 700;         /* compute 700 + select the real bold face (no faux) */
-}
-.banner_content .p{
-    width: 680px;        /* widened so Chromium's slightly-wider Lato-Light still breaks in 3 lines like the PSD (overflows the 637 block to the right; ink ends ~PSD x1250) */
-    padding-top: 20px;   /* lands the paragraph text top at PSD y396 (and pulls the buttons below to PSD y489) */
-    color: white;
-    font-family:  Lato-Light;
-    font-size:  17px;         /* hero paragraph: Lato-Light 18 true -> 17 psd-px (BUILD-SPEC §8) */
-    line-height: 19px;        /* PSD paragraph = 3 lines in a 57px box (~1.12 leading); 3x19 ~= the old 4x14.25 so the buttons below don't move */
-}
-.banner_content .button_one{
-    margin-top: 44px;                /* eyeball-tuned paragraph->button vertical gap (was 36): seats the button row on the PSD line */
-    margin-left: 2.9px;              /* DevTools nudge vs the PNG: shifts the WHOLE inline button row ~3px right. On the LEADING button margin-left moves the row; the inter-button gap is button_two's margin-left, so it stays put */
-    display: inline-block;           /* an inline <a> ignores vertical padding -- inline-block gives the link a real box so the 20px top/bottom padding applies, and lets the two buttons sit side-by-side */
-    padding: 20px 47px 20px 48px;    /* the visible box = label + padding (top 20 / right 47 / bottom 20 / left 48); the 1px left/right difference is a DevTools eyeball tune to centre the label over the PNG button */
-    color: white;                    /* label colour */
-    border-style: solid;             /* solid outline -- the button is a stroke, not a fill */
-    border-color: white;             /* PSD DOWNLOAD has a white stroke */
-    border-width: 2px;               /* PSD stroke is 2px (was 3) */
-    border-radius: 7.6px;            /* corner radius read off the PNG corner in DevTools (hence the .6) */
-    background-color: transparent;   /* unfilled, so the hero shows through (hover paints rgba(0,0,0,.44)). Was `none`, which is INVALID for background-color -- it only rendered transparent by falling back to the initial value, so `transparent` is the correct, equivalent keyword */
-    font-family: Lato-Bold;          /* @font-face Lato-Bold */
-    font-weight: 700;                /* compute 700 AND select the real bold face (prevents faux-bold) */
-    font-size: 14.3px;               /* DevTools eyeball vs the PNG (~14 psd-px; Lato-Bold 15 true). Mirrored into checks.json so the audit's 0.1px tolerance still passes */
-    transition: 0.5s;                /* ease the hover colour/background fade over 0.5s */
-}
-.banner_content .button_one:hover{
-    color: #cbcbcb;
-    border-color: #4bcaff;
-    background-color: rgba(0, 0, 0, 0.44);
-}
-.banner_content .button_two{
-    margin-top: 44px;                       /* match button_one's eyeball-tuned paragraph->button gap */
-    margin-left: 33.5px;                    /* DevTools nudge: inter-button gap to DOWNLOAD (was 35; PSD ~844-809) -- on the SECOND button margin-left sets the gap, not the row position */
-    display: inline-block;                  /* gives the link a real box so the padding applies, and sits it inline beside button_one */
-    padding: 21px 48.1px 18.9px 47.55px;    /* eyeballed box vs the PNG: top 21 / right 48.1 / bottom 18.9 / left 47.55. padding-left is the only side that moves the (baseline-pinned) glyphs (the x-nudge); top/right/bottom just size the box */
-    color: white;                           /* label colour */
-    box-shadow: 0 4px 0 #277697;            /* PSD LEARN MORE = hard DropShadow #277697, distance 4, size 0 -- a solid offset block, not a blur and not a border-bottom (adds no layout height) */
-    border-radius: 7.6px;                   /* corner radius (matches button_one) */
-    background-color: #4bcaff;              /* PSD blue FILL (this button is filled, unlike the outlined DOWNLOAD) */
-    font-family: Lato-Bold;                 /* @font-face Lato-Bold */
-    font-weight: 700;                       /* compute 700 AND select the real bold face (prevents faux-bold) */
-    font-size: 14.18px;                     /* DevTools eyeball vs the PNG (~14 psd-px; Lato-Bold 15 true). Mirrored into checks.json so the audit's 0.1px tolerance still passes */
-    transform: translateY(-1.5px) scaleY(1.02);  /* paint-only (no reflow): translateY lifts the WHOLE button 1.5px up -- box + fill + shadow + text together (so it now sits ~1.5px above DOWNLOAD); scaleY(1.02) stretches it 2% taller from its centre. Eyeballed to the PNG. (scaleY also stretches the glyphs ~2%; getComputedStyle still reports font-size 14.18, so the audit is unaffected) */
-    transition: 0.5s;                       /* ease the hover colour/background fade over 0.5s */
-}
-.banner_content .button_two:hover{
-    color: white;
-    background-color: rgba(36, 36, 36, 0.58);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35);   /* darken the drop-shadow on hover (matches the old border-bottom behaviour) */
-}
 .banner_content .iconcontainer{
     width:483px;             /* shrink so the right-floated store circles land at PSD apple x743 (was 500 -> sat ~17px right) */
     height: 180px;
-}
-.banner_content .iconcontainer .ptwo{
-    float: left;              /* label sits left of the store circles on the same row */
-    width: 110px;             /* fixed label column width */
-    padding-top: 61px;        /* eyeball-corrected (was 59): seats the label on the PSD store-row */
-    padding-left: 0px;        /* was 2.5px; horizontal nudge now handled by translateX in the transform below */
-    color: white;             /* label text colour */
-    font-family: Lato-Light;  /* @font-face Lato-Light (matches the PSD) */
-    font-weight: 300;         /* "Aavailable on :" is Lato-Light 300 */
-    font-size: 18.1px;        /* near the true Lato 18; scaleX/Y(0.94) below brings the VISUAL size to ~17px (the audit reads this computed 18.1) */
-    /* Visual-only fine-tune to match the PNG glyphs (DevTools eyeball):
-       scaleX/Y(0.94) shrinks the painted text to ~94% -- matches the PNG's
-       lighter glyph rendering better than a plain smaller font-size; the
-       translate nudges it -0.4px x / +1.2px y. transform-origin is the box
-       centre by default, and transforms paint-only (no layout reflow), so the
-       floated store circles beside it do not shift. */
-    transform: scaleX(0.94) scaleY(0.94) translateX(-0.4px) translateY(1.2px);
 }
 .banner_content .iconcontainer .iconcontainerchild{
     padding-top: 45px;       /* store circles at PSD y597 (was 54.9), keeping ~14px offset from .ptwo baseline */
