@@ -1597,3 +1597,17 @@ a{
     object-fit: cover;
   }
 }
+
+/* ============================ 1158-1271px : keep the banner slider arrows on-screen
+   The arrows sit OUTSIDE the 1110 content (prev left:-78px, next right:-81px), so they only
+   clear the screen edge once the side margins reach ~81px (viewport >=1272). Between 1158 and
+   1271 the margins are smaller, so the arrows get clipped by the edge (half-visible ~1220).
+   Pin them 6px from the VIEWPORT edge instead — the same gap the <=1157 layer gives. The
+   margin is (100vw - 1110px)/2 = 50vw - 555px, so a 6px gap means an offset of 6 - margin =
+   calc(561px - 50vw)  (verified: -18px @1158, -49px @1220, -74.5px @1271 — each lands the
+   arrow exactly 6px in). At >=1272 the original outside position is restored, so 1280 / the
+   audit width stay byte-identical. */
+@media (min-width: 1158px) and (max-width: 1271px) {
+  .banner .center .slider-arrow.prev { left: calc(561px - 50vw); }
+  .banner .center .slider-arrow.next { right: calc(561px - 50vw); }
+}
