@@ -545,15 +545,6 @@ a{
 .cntmprnt .contact-map .contact:hover{
     background-color: rgb(75, 202, 255);
 }
-.cntmprnt .contact-map .contact h6{
-    text-align: center;
-    padding: 8px 0 0;         /* reference title spacing */
-    margin-bottom: 21px;      /* eyeball-corrected to the PNG (was 27) — title -> first field */
-    font-size: 34px;          /* KEEP psd-px (reference uses 36; PSD says 34) */
-    font-family: Lato-Bold;
-    color: white;
-    cursor: default;
-}
 
 ::-webkit-input-placeholder {
     text-align: center;
@@ -578,48 +569,6 @@ a{
 .cntmprnt .contact-map .contact ::placeholder{
     font-family: Arial, sans-serif;
     font-size: 13px;
-}
-.cntmprnt .contact-map .contact .textbox{
-    height: 31px;             /* eyeball-corrected to the PNG (was 38) */
-    border: 0;
-    border-radius: 4px;
-    margin: 0 auto 15px;      /* 15px between fields (reference) */
-    background: #fff;         /* white inputs (reference) */
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);   /* faint drop shadow (reference) */
-    width: 100%;    
-}
-.cntmprnt .contact-map .contact .message{
-    font-size: 13px;          /* KEEP psd-px (BUILD-SPEC §15); placeholder is Arial 13 above */
-    height: 28px;             /* eyeball-corrected to the PNG (was 148) */
-    margin: 0 0 19px 0;       /* eyeball-corrected to the PNG (was 0 auto 20px) */
-    border: 0;
-    border-radius: 4px;
-    width: 100%;
-    padding: 3px 0 107px 0;   /* eyeball-corrected: placeholder nudged down 3px (total still 110) */
-    background: #fff;         /* white input (reference) */
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
-}
-.cntmprnt .contact-map .contact .send-button{
-    padding: 0px 0px 4px 1px;   /* seats the "Send" label inside the button */
-    margin: 0px 0 0 7px;        /* nudge the button right to the PNG */
-    width: 181px;             /* eyeball-corrected to the PNG (was 179) */
-    height: 47px;             /* eyeball-corrected to the PNG (was 48) */
-    font-size: 14px;          /* KEEP psd-px (reference uses 15; PSD says 14) (BUILD-SPEC §15) */
-    font-family: Lato-Bold;
-    font-weight: 700;         /* Send is bold (Lato-Bold 700) */
-    color: #72b3cc;           /* KEEP: PSD muted blue (sampled), not the vivid #4bcaff */
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.40);   /* reference */
-    background-color: #414042;
-    border: 1px solid #313032;   /* full 1px stroke (reference; was border-bottom only) */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);   /* reference */
-    cursor: pointer;
-    transition: 0.25s;
-}
-.cntmprnt .contact-map .contact .send-button:hover{
-    background-color: #ffffff;
-    color: #3e3e3e;
-    border-color: #c1c1c1;
 }
 /*===================================================== JS SLIDERS + LIGHTBOX */
 /* Banner text slider: the window clips to ONE slide; the track is a flex row that

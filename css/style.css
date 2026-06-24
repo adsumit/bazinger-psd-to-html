@@ -168,6 +168,18 @@
   margin-right: auto;
 }
 
+.mb-\[15px\] {
+  margin-bottom: 15px;
+}
+
+.mb-\[19px\] {
+  margin-bottom: 19px;
+}
+
+.mb-\[21px\] {
+  margin-bottom: 21px;
+}
+
 .mb-\[26px\] {
   margin-bottom: 26px;
 }
@@ -190,6 +202,10 @@
 
 .ml-\[66px\] {
   margin-left: 66px;
+}
+
+.ml-\[7px\] {
+  margin-left: 7px;
 }
 
 .mr-\[450px\] {
@@ -252,6 +268,14 @@
   height: 19px;
 }
 
+.h-\[28px\] {
+  height: 28px;
+}
+
+.h-\[31px\] {
+  height: 31px;
+}
+
 .h-\[38px\] {
   height: 38px;
 }
@@ -262,6 +286,10 @@
 
 .h-\[433px\] {
   height: 433px;
+}
+
+.h-\[47px\] {
+  height: 47px;
 }
 
 .h-\[514px\] {
@@ -308,6 +336,10 @@
   width: 155px;
 }
 
+.w-\[181px\] {
+  width: 181px;
+}
+
 .w-\[19px\] {
   width: 19px;
 }
@@ -348,6 +380,10 @@
   flex-shrink: 1;
 }
 
+.cursor-default {
+  cursor: default;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -372,6 +408,10 @@
   border-radius: 3px;
 }
 
+.rounded-\[4px\] {
+  border-radius: 4px;
+}
+
 .rounded-\[5px\] {
   border-radius: 5px;
 }
@@ -388,6 +428,10 @@
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -402,6 +446,11 @@
 
 .border-solid {
   border-style: solid;
+}
+
+.border-\[\#313032\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(49 48 50 / var(--tw-border-opacity, 1));
 }
 
 .border-cardbdr {
@@ -462,6 +511,11 @@
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .px-\[15px\] {
   padding-left: 15px;
   padding-right: 15px;
@@ -516,6 +570,10 @@
   padding-bottom: 0px;
 }
 
+.pb-\[107px\] {
+  padding-bottom: 107px;
+}
+
 .pb-\[11px\] {
   padding-bottom: 11px;
 }
@@ -528,6 +586,10 @@
   padding-bottom: 26px;
 }
 
+.pb-\[4px\] {
+  padding-bottom: 4px;
+}
+
 .pb-\[53px\] {
   padding-bottom: 53px;
 }
@@ -538,6 +600,10 @@
 
 .pl-0 {
   padding-left: 0px;
+}
+
+.pl-\[1px\] {
+  padding-left: 1px;
 }
 
 .pl-\[30px\] {
@@ -560,6 +626,10 @@
   padding-right: 48px;
 }
 
+.pt-0 {
+  padding-top: 0px;
+}
+
 .pt-\[16px\] {
   padding-top: 16px;
 }
@@ -580,8 +650,16 @@
   padding-top: 37px;
 }
 
+.pt-\[3px\] {
+  padding-top: 3px;
+}
+
 .pt-\[43px\] {
   padding-top: 43px;
+}
+
+.pt-\[8px\] {
+  padding-top: 8px;
 }
 
 .text-center {
@@ -752,6 +830,11 @@
   color: rgb(65 64 66 / var(--tw-text-opacity, 1));
 }
 
+.text-muted {
+  --tw-text-opacity: 1;
+  color: rgb(114 179 204 / var(--tw-text-opacity, 1));
+}
+
 .text-sky {
   --tw-text-opacity: 1;
   color: rgb(75 202 255 / var(--tw-text-opacity, 1));
@@ -770,8 +853,20 @@
   opacity: 0.6;
 }
 
+.\[box-shadow\:0_1px_1px_rgba\(0\2c 0\2c 0\2c 0\.06\)\] {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+}
+
+.\[box-shadow\:0_2px_4px_rgba\(0\2c 0\2c 0\2c 0\.25\)\] {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
 .\[filter\:drop-shadow\(0px_0px_1\.5px_rgba\(0\2c 0\2c 0\2c 0\.5\)\)\] {
   filter: drop-shadow(0px 0px 1.5px rgba(0,0,0,0.5));
+}
+
+.\[text-shadow\:0_1px_0_rgba\(0\2c 0\2c 0\2c 0\.40\)\] {
+  text-shadow: 0 1px 0 rgba(0,0,0,0.40);
 }
 
 .\[text-shadow\:0_1px_3px_rgba\(25\2c 22\2c 24\2c 0\.36\)\] {
@@ -1626,19 +1721,6 @@ a{
   background-color: rgb(75, 202, 255);
 }
 
-.cntmprnt .contact-map .contact h6{
-  text-align: center;
-  padding: 8px 0 0;
-  /* reference title spacing */
-  margin-bottom: 21px;
-  /* eyeball-corrected to the PNG (was 27) — title -> first field */
-  font-size: 34px;
-  /* KEEP psd-px (reference uses 36; PSD says 34) */
-  font-family: Lato-Bold;
-  color: white;
-  cursor: default;
-}
-
 ::-webkit-input-placeholder {
   text-align: center;
   color: #d3d3d3;
@@ -1669,71 +1751,6 @@ a{
 .cntmprnt .contact-map .contact ::placeholder{
   font-family: Arial, sans-serif;
   font-size: 13px;
-}
-
-.cntmprnt .contact-map .contact .textbox{
-  height: 31px;
-  /* eyeball-corrected to the PNG (was 38) */
-  border: 0;
-  border-radius: 4px;
-  margin: 0 auto 15px;
-  /* 15px between fields (reference) */
-  background: #fff;
-  /* white inputs (reference) */
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
-  /* faint drop shadow (reference) */
-  width: 100%;
-}
-
-.cntmprnt .contact-map .contact .message{
-  font-size: 13px;
-  /* KEEP psd-px (BUILD-SPEC §15); placeholder is Arial 13 above */
-  height: 28px;
-  /* eyeball-corrected to the PNG (was 148) */
-  margin: 0 0 19px 0;
-  /* eyeball-corrected to the PNG (was 0 auto 20px) */
-  border: 0;
-  border-radius: 4px;
-  width: 100%;
-  padding: 3px 0 107px 0;
-  /* eyeball-corrected: placeholder nudged down 3px (total still 110) */
-  background: #fff;
-  /* white input (reference) */
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
-}
-
-.cntmprnt .contact-map .contact .send-button{
-  padding: 0px 0px 4px 1px;
-  /* seats the "Send" label inside the button */
-  margin: 0px 0 0 7px;
-  /* nudge the button right to the PNG */
-  width: 181px;
-  /* eyeball-corrected to the PNG (was 179) */
-  height: 47px;
-  /* eyeball-corrected to the PNG (was 48) */
-  font-size: 14px;
-  /* KEEP psd-px (reference uses 15; PSD says 14) (BUILD-SPEC §15) */
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* Send is bold (Lato-Bold 700) */
-  color: #72b3cc;
-  /* KEEP: PSD muted blue (sampled), not the vivid #4bcaff */
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.40);
-  /* reference */
-  background-color: #414042;
-  border: 1px solid #313032;
-  /* full 1px stroke (reference; was border-bottom only) */
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  /* reference */
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.cntmprnt .contact-map .contact .send-button:hover{
-  background-color: #ffffff;
-  color: #3e3e3e;
-  border-color: #c1c1c1;
 }
 
 /*===================================================== JS SLIDERS + LIGHTBOX */
@@ -2609,6 +2626,11 @@ a{
   }
 }
 
+.hover\:border-\[\#c1c1c1\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(193 193 193 / var(--tw-border-opacity, 1));
+}
+
 .hover\:border-b-\[\#4b4b4b\]:hover {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(75 75 75 / var(--tw-border-opacity, 1));
@@ -2632,6 +2654,16 @@ a{
 .hover\:bg-tangdk:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(191 94 0 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:text-\[\#3e3e3e\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(62 62 62 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-\[\#d1d1d1\]:hover {
