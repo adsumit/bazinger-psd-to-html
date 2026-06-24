@@ -1282,6 +1282,14 @@ a{
      (min-height keeps it a proper hero band); a column flexbox vertically centres
      the text, padding-top clears the 94px fixed navbar. */
   .banner { height: auto; min-height: 640px; }
+  /* The hero photo (hero_bg.png) fades to TRANSPARENT along its bottom. At the
+     1404-wide desktop crop that transparent strip is cut off, but as the banner
+     narrows `cover` scales by height and reveals it — leaking white through. In the
+     PSD that PNG sits on a solid #414042 base, so paint #414042 behind the image:
+     the transparent bottom now reads as the dark base (matching the design) instead
+     of white. Scoped to <=1109 so the >=1110 desktop render stays byte-identical
+     (at desktop the strip is cropped away, so the colour would never show there). */
+  .banner_bg { background-color: #414042; }
   /* hide the decorative iPhone PNG across ALL non-desktop widths: a centred text
      hero reads cleaner than a 644px phone half-clipped beneath it (the side-by-
      side only ever balanced at the exact 1110 design width). */
