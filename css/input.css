@@ -264,24 +264,6 @@ a{
 .gallery .gallery-box:last-of-type{ padding-right: 0; }
 
 /*=======================================testimonial*/
-.testimonial-bg{
-    height: 360px;
-    background-color: #f9f9f9;
-}
-.testimonial{
-    width: 100%;
-}
-.testimonial h1{
-    padding-top: 28px;
-    font-size: 34px;
-    text-align: center;
-    color: #414042;
-    font-family: Lato-Black;
-}
-.testimonial .cominfo{
-    margin: 1% 29%;
-    padding: 2% 0;
-}
 .testimonial .cominfo .avatar{
     position: relative;
     width: 147px;            /* eyeball-corrected to the PNG (was 143) */
@@ -320,66 +302,6 @@ a{
     transform: translate(-50%, -50%);
     width: 85px;             /* eyeball-corrected to the PNG (was 94) */
     height: 85px;            /* eyeball-corrected to the PNG (was 93) */
-}
-.testimonial .cominfo .comment{
-    margin-top: 29px;         /* eyeball-corrected to the PNG (was 35) */
-    margin-left: 160px;
-    font-size: 13px;
-    font-family: Lato-Bold;
-    color: #4bcaff;
-    line-height: 17.08px;
-    width: 318px;             /* constrain the comment width to the PNG so it wraps like the design */
-}
-.testimonial .cominfo .commenter{
-    float: right;
-    font-family: Lato-Bold;
-    font-size: 13px;
-    color: #4bcaff;
-    transform: scaleX(0.95) translateX(4px);   /* paint-only glyph-match to the PNG; no reflow */
-}
-.testimonial .cominfo .commenter-info{
-    float: right;
-    clear: right;             /* anchor BELOW .commenter (the line above), NOT the fixed-height
-                                 avatar — so the two name lines move as ONE unit and the quote's
-                                 line count can never open a gap between them again. (Was clear:left,
-                                 which pinned this to the avatar bottom while .commenter tracked the
-                                 variable-height quote, so a short quote like Sam Poe's left a gap.) */
-    margin-top: 14px;         /* gap measured from .commenter now; nets to the same ~-1px tight look
-                                 once the translateY(-15px) below applies (was -35px for the avatar anchor) */
-    padding-left: 0px;
-    font-family: Lato-Bold;
-    font-size: 14px;          /* eyeball-corrected to the PNG (was 13) */
-    color: #4bcaff;
-    transform: scaleX(0.85) translateX(17.4px) translateY(-15px);   /* paint-only glyph-match; no reflow */
-}
-.testimonial .indicator-prnt{
-    clear: both;
-    width: 100%;
-    margin-top: 44px;        /* was 87 (pre-slider float layout) then 30; the slider's .t-slide contains
-                                the avatar float, so 87 pushed the dots past the section bottom where the
-                                download <h1> covered them (unclickable). 44 keeps them inside. */
-    text-align: center;      /* centre the inline-block dot bars */
-}
-.testimonial .indicator-prnt .indicator{
-    margin: 0 auto;
-}
-.testimonial .indicator ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-/* Three dots = 53x9 #4BCAFF bars (scaffold from the reference — eyeball vs the PNG).
-   The .active dot is full opacity; the others are dimmed to 0.32. */
-.testimonial .indicator ul .indi{
-    display: inline-block;
-    width: 48px;             /* eyeball-corrected to the PNG (was 53) */
-    height: 7px;             /* eyeball-corrected to the PNG (was 9) */
-    margin: 0 1px;           /* eyeball-corrected to the PNG (was 4px) */
-    padding: 0;
-    background-color: #4bcaff;
-    border-radius: 1px;
-    opacity: 0.32;
-    cursor: pointer;
 }
 .testimonial .indicator ul .indi.active{
     opacity: 1;
