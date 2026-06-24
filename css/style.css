@@ -138,6 +138,18 @@
   top: 50%;
 }
 
+.top-\[-62\%\] {
+  top: -62%;
+}
+
+.isolate {
+  isolation: isolate;
+}
+
+.z-\[-1\] {
+  z-index: -1;
+}
+
 .float-right {
   float: right;
 }
@@ -149,6 +161,23 @@
 .mx-\[10\%\] {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-\[26px\] {
+  margin-bottom: 26px;
+}
+
+.ml-\[3px\] {
+  margin-left: 3px;
+}
+
+.mt-\[152px\] {
+  margin-top: 152px;
 }
 
 .inline-block {
@@ -179,12 +208,24 @@
   height: 19px;
 }
 
+.h-\[38px\] {
+  height: 38px;
+}
+
 .h-\[514px\] {
   height: 514px;
 }
 
+.h-\[522px\] {
+  height: 522px;
+}
+
 .h-\[544px\] {
   height: 544px;
+}
+
+.h-\[66px\] {
+  height: 66px;
 }
 
 .h-\[70px\] {
@@ -203,6 +244,10 @@
   height: 100%;
 }
 
+.w-\[105px\] {
+  width: 105px;
+}
+
 .w-\[155px\] {
   width: 155px;
 }
@@ -217,6 +262,10 @@
 
 .w-\[255px\] {
   width: 255px;
+}
+
+.w-\[34px\] {
+  width: 34px;
 }
 
 .w-\[50px\] {
@@ -259,6 +308,10 @@
   border-radius: 9999px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-\[5px\] {
   border-width: 5px;
 }
@@ -270,6 +323,11 @@
 .border-ring {
   --tw-border-opacity: 1;
   border-color: rgb(239 239 239 / var(--tw-border-opacity, 1));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[rgba\(75\2c 202\2c 255\2c 0\.43\)\] {
@@ -310,9 +368,19 @@
   padding-right: 17px;
 }
 
+.px-\[20\.9\%\] {
+  padding-left: 20.9%;
+  padding-right: 20.9%;
+}
+
 .px-\[48px\] {
   padding-left: 48px;
   padding-right: 48px;
+}
+
+.py-\[1\.7\%\] {
+  padding-top: 1.7%;
+  padding-bottom: 1.7%;
 }
 
 .py-\[11px\] {
@@ -409,6 +477,10 @@
   font-size: 14px;
 }
 
+.text-\[16\.8px\] {
+  font-size: 16.8px;
+}
+
 .text-\[19px\] {
   font-size: 19px;
 }
@@ -417,8 +489,16 @@
   font-size: 34px;
 }
 
+.text-\[46px\] {
+  font-size: 46px;
+}
+
 .font-black {
   font-weight: 900;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .font-light {
@@ -475,8 +555,16 @@
   opacity: 0;
 }
 
+.opacity-60 {
+  opacity: 0.6;
+}
+
 .\[filter\:drop-shadow\(0px_0px_1\.5px_rgba\(0\2c 0\2c 0\2c 0\.5\)\)\] {
   filter: drop-shadow(0px 0px 1.5px rgba(0,0,0,0.5));
+}
+
+.\[text-shadow\:0_1px_3px_rgba\(25\2c 22\2c 24\2c 0\.36\)\] {
+  text-shadow: 0 1px 3px rgba(25,22,24,0.36);
 }
 
 .\[transform\:scale\(1\.7\)\] {
@@ -501,6 +589,14 @@
 
 .\[transition\:0\.2s\] {
   transition: 0.2s;
+}
+
+.\[transition\:0\.8s\] {
+  transition: 0.8s;
+}
+
+.\[transition\:filter_0\.25s\] {
+  transition: filter 0.25s;
 }
 
 /* ============================================================================
@@ -1095,106 +1191,6 @@ a{
 
 .gallery .gallery-box:last-of-type{
   padding-right: 0;
-}
-
-/*==================================================WATCH*/
-
-.watch {
-  overflow: hidden;
-  height: 522px;
-  /* eyeball-corrected to the PNG (was 520); removed a duplicate height decl */
-  position: relative;
-  transition: 0.8s;
-  background-color: #4bcaff;
-  /* solid blue base; the video image sits over it at 60% (normal blend) */
-  isolation: isolate;
-  /* make .watch a stacking context so the z-index:-1 image paints OVER this bg, not behind it */
-  width: 100%;
-}
-
-.watch img{
-  position: absolute;
-  left: 0;
-  top: -62%;
-  /* eyeball-corrected to the PNG (was -10%) — shifts the bg image up */
-  z-index: -1;
-  /* with .watch isolated, -1 paints above the #4bcaff base but below the content */
-  width: 100%;
-  opacity: 0.6;
-  /* image at 60% blends (normal) over the solid #4bcaff */
-}
-
-/* section-wide hover removed — hover lives on the play icon only (per request).
-   Add `.watch:hover img { opacity: ... }` here if you later want hover to reveal more video. */
-
-.watch .center{
-}
-
-.watch .center .play{
-  cursor: pointer;
-  /* flex centers the play triangle inside the 120x80 button (replaces the
-       old line-height hack used to vertically center the font glyph) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  height: 66px;
-  /* eyeball-corrected to the PNG (was 80) */
-  width: 105px;
-  /* eyeball-corrected to the PNG (was 120) */
-  margin: 152px auto;
-  /* top offset to the PNG (was 100); bottom overridden below */
-  color: #fff;
-  transition: 0.25s;
-  margin-bottom: 26px;
-  /* eyeball-corrected to the PNG (was 50) */
-}
-
-.watch .center .play:hover .icon{
-  /* the play glyph is an SVG, so text-shadow can't shadow it — use an SVG drop-shadow filter (white glow) */
-  filter: drop-shadow(0 0 8px #fff);
-}
-
-.watch .center .play .icon{
-  /* 34x38 white triangle; nudge right 3px so the triangle looks optically
-       centered (a right-pointing shape reads as off-center when geometrically
-       centered) */
-  width: 34px;
-  height: 38px;
-  margin-left: 3px;
-  transition: filter 0.25s;
-  /* fade the hover glow in/out smoothly */
-}
-
-.watch h1{
-  text-align: center;
-  font-family: Lato-Light;
-  font-size: 46px;
-  color: #fff;
-  font-weight: 300;
-  /* was 100 (too light, wrong file) — PSD "Watch the best..." is Lato-Light 300 */
-  text-shadow: 0 1px 3px rgba(25, 22, 24, 0.36);
-  /* soft drop shadow on the heading (PNG) */
-}
-
-.watch h1 span{
-  /* the emphasised word "Action" */
-  font-family: Lato-Bold;
-  font-weight: 700;
-  /* "Action" is bold (Lato-Bold 700) — mirrors the hero .lb span; was inheriting 300 */
-}
-
-.watch p{
-  font-family: Lato-Light;
-  font-weight: 300;
-  /* body copy is Lato-Light 300 */
-  color: white;
-  text-align: center;
-  padding: 1.7% 20.9%;
-  /* eyeball-corrected to the PNG (was 4% 22%) */
-  font-size: 16.8px;
-  /* eyeball-corrected to the PNG (was 17) — mirrored in checks.json */
 }
 
 /*==================================================PRICE*/
@@ -2807,4 +2803,8 @@ a{
 
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
+}
+
+.group:hover .group-hover\:\[filter\:drop-shadow\(0_0_8px_\#fff\)\] {
+  filter: drop-shadow(0 0 8px #fff);
 }
