@@ -65,48 +65,6 @@ a{
     margin: 0 auto;
 }
 /*===============================================================NAVBAR*/
-.header{
-    position: fixed;
-    top: 0px;
-    height: 94px;                                  /* dark fill 94px; box-shadow paints the 95th px (white line) -> 95px total visual */
-    background: rgba(7, 7, 7, 0.30);               /* base/fallback: PSD Header/Menu/Base #070707 @30%. nav-scroll.js raises this alpha 0.30 -> 0.85 LINEARLY across the first 100px of scroll (no CSS transition — the scroll position itself drives the fade, both ways). */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); /* navbar bottom hairline (outset, adds no layout height); alpha eyeballed 0.20 -> 0.1 -> 0.06 */
-    z-index: 2;                                    /* keep the fixed navbar above the banner stacking contexts (.banner .center is z-index 1) */
-}
-.header .logo{
-    float: left;
-    padding-top: 14px;        /* PSD Logo group top y=14; puts wordmark mid ~46.5 vs navbar mid 47 (centred) */
-    display: inline-block;
-}
-.header .logoimg{
-    height: 48.5px;           /* hand-tuned; measured spec is 50px — PSD Logo group 130x50 rendered psd-px (was 137x52 true-px) */
-    transform: scale(1.01);   /* hand-tuned, off-spec: enlarge logo 1% on both axes (scaled from its centre) */
-}
-.header .menu{
-    float: right;
-    display: inline-block;
-}
-.header .menu li{
-    padding-left: 17px;       /* 34px gap between links ÷ 2 (rendered psd-px) */
-    padding-right: 17px;
-    float: left;
-    list-style: none;
-}
-.header .menu li a{
-    /* Nav-link hand-tune (deliberate, OFF the measured spec):
-       - scaleY(0.9): vertically squash each link to 90% of its height for a condensed look.
-       - translateY(-2px): lift it 2px to re-centre vertically after the squash. */
-    transform: scaleY(0.9) translateY(-2px);
-    font-family: DroidSans;
-    font-size: 12.4px;              /* hand-tuned; measured spec is 12px */
-    color: #ffffff;
-    text-transform: uppercase;      /* PSD nav renders all-caps (verified on PNG) */
-    display: block;                 /* each <a> fills the navbar dark-fill height */
-    height: 94px;
-    line-height: 94px;              /* = dark-fill height; centres the single line (PSD 41/45 split is font-metric, within tolerance) */
-    position: relative;             /* anchor for the active/hover bar */
-    transition: color 300ms ease;   /* paired with the bar's opacity transition */
-}
 .header .menu li a::after{          /* 2px active/hover bar at the navbar's top edge */
     content: "";
     position: absolute;
