@@ -1456,9 +1456,15 @@ a{
   }
   .testimonial .cominfo .commenter,
   .testimonial .cominfo .commenter-info {
-    float: none; clear: none; margin: 10px 0 0;
+    float: none; clear: none;
     text-align: center; transform: none;
   }
+  .testimonial .cominfo .commenter { margin: 10px 0 0; }        /* gap below the quote */
+  /* name -> sub-line gap: match the desktop float layout EXACTLY so the
+     "Name / role" spacing is identical at EVERY resolution. Desktop renders a -1px
+     gap (clear:right + the tuned margins), and it must stay -1px to keep the 1280
+     render byte-identical, so the responsive layer mirrors that -1px here. */
+  .testimonial .cominfo .commenter-info { margin: -1px 0 0; }
 
   /* ---- Download CTA: button centred by huge side margins -> text-align ------
      The button is centred at desktop with margin 0 450px 0 463px — those margins
