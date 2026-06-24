@@ -1218,3 +1218,333 @@ a{
 .lightbox .lb-next  { top: 50%; transform: translateY(-50%); font-size: 56px; }
 .lightbox .lb-prev  { left: 24px; }
 .lightbox .lb-next  { right: 24px; }
+
+/* The hamburger is a responsive-only control. Declared hidden HERE (outside any
+   media query) because a <button> renders visible by default — without this it
+   would show a stray box in the DESKTOP navbar. The <=900px layer flips it back
+   to display:block. This is the only base-level rule the responsive work adds,
+   and it only governs a brand-new element, so the measured desktop design is
+   still untouched (the 1280 audit stays 102/3). */
+.nav-toggle { display: none; }
+
+/* ============================================================================
+   RESPONSIVE LAYER  —  raw-responsive build
+   ----------------------------------------------------------------------------
+   Everything below lives inside max-width media queries, so it ONLY affects
+   viewports NARROWER than the 1110px desktop design. At >=1110px none of these
+   rules match, so the finished desktop build renders byte-for-byte as before:
+   the computed-style audit at 1280 stays green and the measured pixel work is
+   never touched.
+
+   Why DESKTOP-FIRST (max-width), not mobile-first (min-width)? The CSS above is
+   the finished, measured design built for one width (1110). We only ever need to
+   REFLOW *down* from it as the screen shrinks — so layering max-width overrides
+   leaves that desktop CSS literally untouched (the safest possible regression
+   story). Each override repeats the FULL desktop selector chain (e.g.
+   `.banner .center .slider-arrow`, not `.slider-arrow`) so it's specific enough
+   to win the cascade over the rule it's replacing — a shorter selector would
+   silently lose to the deeper desktop one and do nothing.
+
+   The ladder is CONTENT-driven, not device-driven — each breakpoint is the width
+   where a specific row can no longer hold its desktop shape:
+     <=1109px  The fixed 1110 container can't fit the viewport, so it goes fluid —
+               and because the design is tuned to exactly 1110, almost everything
+               built at fixed px (the 4-up feature row = 1108px, the 3 price cards,
+               the banner's 680px slider, the testimonial's 29% margins) overflows
+               the instant the container shrinks. So this is where the big reflow
+               happens: banner -> centred column, grids -> 2-up, price -> wrap,
+               testimonial -> stacked.
+     <=900px   The 8-link navbar + logo (~780px) would start to crowd, so it folds
+               into a hamburger; the decorative hero phone is dropped (a 644px PNG
+               stacked over the bg image only fights it).
+     <=560px   Phone territory: every grid drops to a single column and the big
+               display type (hero 45px, video 46px, CTA 52px) scales down to fit.
+   ========================================================================== */
+
+/* ============================ <= 1109px : container goes fluid + first reflow */
+@media (max-width: 1109px) {
+
+  /* ---- Foundation: the centred container -----------------------------------
+     .center is a fixed 1110px box at desktop — exactly what pokes past a narrow
+     screen. Let it be fluid (full width) with side padding for breathing room.
+     box-sizing:border-box keeps that 24px padding INSIDE the 100% width, so the
+     box is never wider than the viewport (the classic overflow cause). */
+  .center {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px;
+  }
+
+  /* ---- Banner: side-by-side -> single centred column -----------------------
+     Desktop floats the iPhone PNG left and the text block right with a 680px
+     slider. None of that survives a narrow screen, so we stack into one centred
+     column. The banner stops being a fixed 758px and grows to fit its content
+     (min-height keeps it a proper hero band); a column flexbox vertically centres
+     the text, padding-top clears the 94px fixed navbar. */
+  .banner { height: auto; min-height: 640px; }
+  /* hide the decorative iPhone PNG across ALL non-desktop widths: a centred text
+     hero reads cleaner than a 644px phone half-clipped beneath it (the side-by-
+     side only ever balanced at the exact 1110 design width). */
+  .banner .center .hero-phone { display: none; }
+  .banner .center {
+    position: relative;            /* still the anchor for the absolute dots/arrows */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;       /* vertically centre the text in the band */
+    min-height: 640px;
+    padding-top: 120px;            /* clear the fixed navbar (94px) + air */
+    padding-bottom: 70px;          /* room for the dots at the bottom */
+  }
+  /* un-float the text block and centre it as a fluid column */
+  .banner .center .banner_content {
+    float: none;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 0;                /* the column flexbox handles vertical position now */
+    text-align: center;            /* centres the heading, paragraph and inline buttons */
+  }
+  /* the slider window was pinned to 680px purely to force the desktop 3-line wrap;
+     make it fluid so the text never clips, and centre it */
+  .banner_content .banner-slider { width: 100%; max-width: 560px; margin: 0 auto; }
+  .banner_content .banner-slide  { box-sizing: border-box; padding: 0 4px; }
+  .banner_content .p { width: auto; }                /* drop the 680px that forced the wrap */
+  /* buttons: drop the desktop sub-pixel nudges so they centre cleanly as a pair */
+  .banner_content .button_one { margin-left: 0; }
+  .banner_content .button_two { margin-left: 16px; }
+  /* store badges: two floated columns (label | circles) -> one centred flex row */
+  .banner_content .iconcontainer {
+    width: auto; height: auto;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: center;
+    gap: 14px; margin-top: 26px;
+  }
+  .banner_content .iconcontainer .ptwo { float: none; width: auto; padding-top: 0; }
+  .banner_content .iconcontainer .iconcontainerchild {
+    float: none; width: auto; height: auto; padding-top: 0;
+    display: flex; gap: 14px;
+  }
+  .banner_content .iconcontainer .iconcontainerchild .appleicon { float: none; margin: 0; }
+  .banner_content .iconcontainer .iconcontainerchild .androidicon { float: none; margin: 0; }
+  /* the arrows live at left:-78/right:-81 (outside the 1110 box) — off a small
+     screen. Pull them just inside the padded container for the tablet band. */
+  .banner .center .slider-arrow.prev { left: 6px; }
+  .banner .center .slider-arrow.next { right: 6px; }
+  .banner .center .slider-dots { bottom: 28px; }
+
+  /* ---- Features: 4-up -> 2-up ----------------------------------------------
+     The four 205px cards + padding sum to ~1108px, so they overflow the moment
+     the container is fluid. Turn the row into a wrapping flex grid; the heading
+     and subtitle are forced onto their own full-width rows so the cards wrap
+     beneath them. The fixed 514px section height (one row) must grow for two. */
+  .features { height: auto; padding-bottom: 50px; }
+  .features .center { display: flex; flex-wrap: wrap; justify-content: center; }
+  .features .center .mainheading,
+  .features .center .top_para { flex: 0 0 100%; }
+  .features .feat-box {
+    float: none;
+    flex: 0 0 50%;                 /* 2-up */
+    width: auto;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0 24px;
+    margin-bottom: 44px;
+  }
+  /* the desktop zeroes the outer padding on the end cards to reach the 1110 edges;
+     in a centred 2-up grid we want symmetric padding, so restore it (selector
+     mirrors the desktop :first/:last-of-type so it actually wins) */
+  .features .feat-box:first-of-type { padding-left: 24px; }
+  .features .feat-box:last-of-type  { padding-right: 24px; }
+  /* keep each card a centred vertical stack (icon on top, text below) even though
+     the wider 50% column could now fit them side-by-side */
+  .features .feat-box .icons { float: none; margin: 0 auto; }
+  .features .feat-box .feat-info { float: none; }
+
+  /* ---- Gallery: 4-up -> 2-up (same approach as features) -------------------- */
+  .gallery { height: auto; padding-bottom: 50px; }
+  .gallery .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
+  .gallery .gallery .mainheading,
+  .gallery .gallery .top-para { flex: 0 0 100%; }
+  .gallery .gallery-box {
+    float: none;
+    flex: 0 0 50%;
+    width: auto;
+    box-sizing: border-box;
+    padding: 0 15px;
+    margin-bottom: 34px;
+  }
+  .gallery .gallery-box:first-of-type { padding-left: 15px; }
+  .gallery .gallery-box:last-of-type  { padding-right: 15px; }
+  /* the 255px screenshot tile -> fluid + centred so it fills the wider column */
+  .gallery .gallery-box .photo-box { width: 100%; max-width: 320px; margin: 0 auto; }
+
+  /* ---- Video band: keep the photo COVERING the band at every width ----------
+     Desktop sizes the background <img> by width:100% and shifts it up (top:-62%).
+     watch.png is 1404x1018, so at the 1404-wide desktop band the image is 1018px
+     tall and blankets the 522px band even when nudged up. But as the band narrows,
+     width:100% scales the image SHORTER (it keeps its 1.38 aspect) while the -62%
+     shift stays fixed — so the image slides clean out the TOP, exposing the flat
+     #4bcaff base. That's the blue seam the QA caught, and worse: the white heading
+     + paragraph lose the photo's darkening and wash out to ~1.9:1 contrast.
+     Fix: let the band grow to its content and make the image behave like
+     background-size:cover (fill the box, crop the overflow) so the darkened photo
+     always sits behind the text — matching the desktop look at any width. */
+  .watch { height: auto; padding: 56px 0; }
+  .watch img {
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;        /* fill + crop instead of scaling away and leaving blue */
+  }
+  .watch .center .play { margin: 0 auto 24px; }   /* the band padding sets the top gap now */
+
+  /* ---- Price: 3 fixed cards -> centred wrapping row ------------------------
+     The cards are floated with bespoke margins (66 | 25 | 25) that only sum
+     inside 1110. Make .price a centred flex row: the cards keep their measured
+     sizes but wrap cleanly with even gaps, and the PRO card's -19px lift is reset
+     (align-items:center re-creates that "centred middle card" look without it). */
+  .price {
+    height: auto; padding-bottom: 50px;
+    display: flex; flex-wrap: wrap;
+    justify-content: center; align-items: center;
+  }
+  .price h1, .price .p { flex: 0 0 100%; }
+  .price .packone,
+  .price .packtwo,
+  .price .packthree { float: none; margin: 14px 8px; }   /* tighter gap so 3-up still fits ~1024 */
+
+  /* ---- Testimonials: avatar | comment -> stacked & centred -----------------
+     Desktop floats the avatar left and runs the comment beside it (margin-left
+     160, width 318) inside a block with 29% side margins — all of which overflow
+     once the row narrows. Stack them: avatar centred on top, comment centred
+     below, and drop the per-glyph paint transforms used to match the PSD. */
+  .testimonial-bg { height: auto; padding-bottom: 30px; }
+  .testimonial .cominfo { margin: 1% auto; padding: 24px 16px; max-width: 520px; }
+  .testimonial .cominfo .avatar { float: none; margin: 0 auto 18px; transform: none; }
+  .testimonial .cominfo .comment {
+    float: none; margin: 0 auto; width: auto;
+    text-align: center; line-height: 1.5;
+  }
+  .testimonial .cominfo .commenter,
+  .testimonial .cominfo .commenter-info {
+    float: none; clear: none; margin: 10px 0 0;
+    text-align: center; transform: none;
+  }
+
+  /* ---- Download CTA: button centred by huge side margins -> text-align ------
+     The button is centred at desktop with margin 0 450px 0 463px — those margins
+     overflow a fluid container. Centre it the robust way: an inline-block under a
+     text-align:center parent. */
+  .download { height: auto; padding: 44px 0; text-align: center; }
+  .download .a { margin: 0; }
+}
+
+/* ============================ <= 900px : hamburger nav + drop the hero phone */
+@media (max-width: 900px) {
+
+  /* ---- Navbar -> hamburger -------------------------------------------------
+     Reveal the burger (parked opposite the logo) and turn the inline <ul> into an
+     absolute slide-down panel under the 94px bar. We animate max-height (height
+     can't transition from/to auto) toggled by nav.js's .open class. */
+  .header .nav-toggle {
+    display: block; float: right;
+    margin-top: 30px;              /* vertically centre the ~33px burger in the 94px bar */
+    width: 34px; height: 26px; padding: 0;
+    background: transparent; border: 0; cursor: pointer;
+  }
+  .header .nav-toggle span {
+    display: block; height: 3px; margin: 5px 0;
+    background: #fff; border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* burger -> X when open */
+  .header .nav-toggle.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .header .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .header .nav-toggle.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .header .menu {
+    float: none;
+    position: absolute; top: 94px; left: 0; right: 0;
+    display: block;
+    background: rgba(7, 7, 7, 0.92);   /* near-opaque so links read over the bright hero */
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .header .menu.open { max-height: 460px; }   /* > the stacked links' total height */
+  .header .menu li { float: none; display: block; padding: 0; }
+  .header .menu li a {
+    transform: none;               /* drop the desktop scaleY squash */
+    display: block; height: auto; line-height: 1;
+    padding: 15px 24px; font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .header .menu li a::after { display: none; }   /* the top active-bar is meaningless stacked */
+
+  /* ---- Banner: drop the slider arrows (the dots remain) -------------------- */
+  .banner .center .slider-arrow { display: none; }   /* navigate via the dots on small screens */
+
+  /* ---- Price: 3-up wrap -> single stacked column ---------------------------
+     The 3 fixed cards only sit 3-up above ~1008px wide; below that they'd wrap to
+     an uneven 2+1 (a narrow BASIC beside the wide PRO). So on tablet-portrait and
+     down, stack them one-per-row, centred, capped to a comfortable width.
+     NB: we drop .price back to a plain BLOCK (not flex) for this. A flex row with
+     `flex:0 0 100%; max-width:340` does NOT stack — flexbox wraps on the RESOLVED
+     size (capped to 340), so two 340px cards happily share a 720px row (the 2+1
+     bug). As blocks, each card simply takes its own line; max-width caps it and
+     margin:auto centres it. */
+  .price { display: block; }
+  .price .packone,
+  .price .packtwo,
+  .price .packthree {
+    display: block;
+    float: none;
+    width: auto;
+    max-width: 340px;
+    margin: 16px auto;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================ <= 560px : single column + type scale-down */
+@media (max-width: 560px) {
+
+  /* tighten the fluid container's side padding on the smallest screens */
+  .center { padding: 0 16px; }
+
+  /* ---- Hero type: 45px heading is too big for a phone ----------------------- */
+  .banner_content h1 { font-size: 32px; }
+  .banner_content .p { font-size: 15px; line-height: 1.5; }
+  /* hero CTAs: stack them as two centred blocks. width:fit-content + auto side
+     margins centres each by its own box, so they never sit off-centre the way an
+     inline pair + leftover margin-left does when the second button wraps. */
+  .banner_content .button_one,
+  .banner_content .button_two { display: block; width: fit-content; margin-left: auto; margin-right: auto; }
+  .banner_content .button_two { margin-top: 14px; }
+
+  /* ---- Grids: 2-up -> 1-up -------------------------------------------------- */
+  .features .feat-box { flex: 0 0 100%; }
+  .gallery .gallery-box { flex: 0 0 100%; }
+  .gallery .gallery-box .photo-box { max-width: 360px; }
+
+  /* ---- Video: scale the 46px heading + paragraph on a phone ----------------- */
+  .watch h1 { font-size: 28px; }
+  .watch p { font-size: 15px; padding: 1.7% 7%; }   /* widen the text column on a narrow screen */
+
+  /* ---- Download: 52px headline is too big for a phone ----------------------- */
+  .download h1 { font-size: 30px; letter-spacing: -0.5px; }
+
+  /* ---- Footer: copyright (left) + terms (right) -> stacked & centred -------- */
+  .footer { height: auto; padding: 22px 0; }
+  .footer .center { text-align: center; }
+  .footer .center > a { display: block; line-height: 1.9; }
+  .footer .terms-privacy { float: none; line-height: 1.9; }
+  .footer .terms-privacy .terms { transform: none; }   /* drop the desktop +6px nudge */
+  .footer .terms-privacy span { transform: none; }
+
+  /* ---- Lightbox: use more of a small screen, keep controls reachable -------- */
+  .lightbox .lb-img { max-width: 92%; max-height: 76%; }
+  .lightbox .lb-close { top: 8px; right: 12px; font-size: 40px; }
+  .lightbox .lb-prev, .lightbox .lb-next { font-size: 40px; padding: 6px; }
+  .lightbox .lb-prev { left: 6px; }
+  .lightbox .lb-next { right: 6px; }
+}
