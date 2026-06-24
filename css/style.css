@@ -1411,7 +1411,7 @@ a{
   .price h1, .price .p { flex: 0 0 100%; }
   .price .packone,
   .price .packtwo,
-  .price .packthree { float: none; margin: 14px 8px; }   /* tighter gap so 3-up still fits ~1024 */
+  .price .packthree { float: none; margin: 14px 6px; }   /* 12px gaps: 3-up fits comfortably 1024-1109, then stacks 1-up below 1024 (the <=1023 block) so it NEVER wraps to an ugly 2+1 */
 
   /* ---- Testimonials: avatar | comment -> stacked & centred -----------------
      Desktop floats the avatar left and runs the comment beside it (margin-left
@@ -1437,6 +1437,31 @@ a{
      text-align:center parent. */
   .download { height: auto; padding: 44px 0; text-align: center; }
   .download .a { margin: 0; }
+}
+
+/* ============================ <= 1023px : price cards stack (3 fixed cards stop fitting) */
+@media (max-width: 1023px) {
+  /* The three fixed-width cards (287 + 354 + 287 ≈ 964px incl. gaps) only sit 3-up
+     ABOVE ~1024px. The instant the container drops below that, the flex row wraps to
+     an unbalanced 2+1 — BASIC beside the wider PRO on top, ADVANCED stranded below —
+     which looks broken. So from 1023 down we stack them one-per-row instead.
+     Dropping .price back to a plain BLOCK is what forces a TRUE 1-up stack: a flex
+     row with `flex:0 0 100%; max-width:340` does NOT stack (flexbox wraps on the
+     *resolved* 340px size, so two cards still share a row). As blocks each card takes
+     its own line; max-width caps it and margin:auto centres it. This is a price-only
+     breakpoint (the nav/phone breakpoint stays at 900) because the cards have their
+     own natural "stops fitting" width. */
+  .price { display: block; }
+  .price .packone,
+  .price .packtwo,
+  .price .packthree {
+    display: block;
+    float: none;
+    width: auto;
+    max-width: 340px;
+    margin: 16px auto;
+    box-sizing: border-box;
+  }
 }
 
 /* ============================ <= 900px : hamburger nav + drop the hero phone */
@@ -1482,27 +1507,7 @@ a{
 
   /* ---- Banner: drop the slider arrows (the dots remain) -------------------- */
   .banner .center .slider-arrow { display: none; }   /* navigate via the dots on small screens */
-
-  /* ---- Price: 3-up wrap -> single stacked column ---------------------------
-     The 3 fixed cards only sit 3-up above ~1008px wide; below that they'd wrap to
-     an uneven 2+1 (a narrow BASIC beside the wide PRO). So on tablet-portrait and
-     down, stack them one-per-row, centred, capped to a comfortable width.
-     NB: we drop .price back to a plain BLOCK (not flex) for this. A flex row with
-     `flex:0 0 100%; max-width:340` does NOT stack — flexbox wraps on the RESOLVED
-     size (capped to 340), so two 340px cards happily share a 720px row (the 2+1
-     bug). As blocks, each card simply takes its own line; max-width caps it and
-     margin:auto centres it. */
-  .price { display: block; }
-  .price .packone,
-  .price .packtwo,
-  .price .packthree {
-    display: block;
-    float: none;
-    width: auto;
-    max-width: 340px;
-    margin: 16px auto;
-    box-sizing: border-box;
-  }
+  /* (price-card stacking moved UP to its own <=1023px breakpoint above) */
 }
 
 /* ============================ <= 560px : single column + type scale-down */
