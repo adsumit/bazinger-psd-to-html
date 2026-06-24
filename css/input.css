@@ -1145,48 +1145,6 @@ a{
     color: #3e3e3e;
     border-color: #c1c1c1;
 }
-/*------------------------------------------------footer*/
-.footer{
-    background-color: #414042;
-    height: 105px;
-    display: inline-block;
-}
-.footer .terms-privacy{
-    float: right;
-    font-family: Lato-Regular;
-    font-size: 11px;
-    line-height: 105px;
-}
-.footer a{
-    /* PSD footer text is white (#FEFEFE/#FFFFFF) BUT on a layer at 25% opacity, so it
-       RENDERS as white@25% over the #414042 footer = rgb(112,112,113) = #707071. The PNG
-       (authority) shows that grey, not white — so we paint the pre-blended #707071 opaque
-       (was #808081, a too-bright earlier guess). See BUILD-SPEC footer note. */
-    color: #707071;
-    font-family: Lato-Regular;
-    font-size: 11.3px;        /* eyeball-corrected to the PNG (was 11) — mirrored in checks.json */
-    line-height: 105px;
-    transition: 0.25s;
-    display: inline-block;
-}
-.footer a:hover{
-    color: #d1d1d1;    
-    font-family: Lato-Regular;
-    font-size: 11.3px;        /* match the base so text doesn't resize on hover */
-    line-height: 105px;
-}
-.footer .terms-privacy{
-    float: right;
-}
-.footer .terms-privacy .terms{
-    transform: translate(6px, 0px);   /* nudge "Terms of Service" right (already inline-block via .footer a) */
-}
-.footer .terms-privacy span{
-    font-size: 11px;
-    display: inline-block;    /* transform is ignored on inline elements; inline-block lets the nudge apply */
-    transform: translate(3px, 0px);   /* nudge the | separator right to the PNG */
-    color: #707071;           /* eyeball-corrected to the PNG (was #d1d1d1) — matches the footer text */    
-}
 /*===================================================== JS SLIDERS + LIGHTBOX */
 /* Banner text slider: the window clips to ONE slide; the track is a flex row that
    slides left/right (slider.js sets translateX, the transition below eases it).
