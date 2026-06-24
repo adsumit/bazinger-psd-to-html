@@ -547,10 +547,6 @@
   border-width: 5px;
 }
 
-.border-b-\[5px\] {
-  border-bottom-width: 5px;
-}
-
 .border-solid {
   border-style: solid;
 }
@@ -573,11 +569,6 @@
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
-.border-b-deepsky {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(39 118 151 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[rgba\(7\2c 7\2c 7\2c 0\.30\)\] {
@@ -1053,6 +1044,10 @@
   opacity: 0.32;
 }
 
+.\[border-bottom\:5px_solid_\#277697\] {
+  border-bottom: 5px solid #277697;
+}
+
 .\[box-shadow\:0_1px_0_rgba\(255\2c 255\2c 255\2c 0\.06\)\] {
   box-shadow: 0 1px 0 rgba(255,255,255,0.06);
 }
@@ -1154,12 +1149,24 @@
 }
 
 /* ============================================================================
-   RAW DESIGN CSS  — the original raw-responsive build's hand-written styles.
-   Being migrated to Tailwind utilities (in index.html) SECTION-BY-SECTION:
-   each migrated rule is DELETED from here as its utilities land in the markup.
-   What stays here permanently (by design): the responsive @media layer, the two
-   min/max bands, and irreducible components (lightbox, slider track, ::placeholder).
-   Edit styles HERE or in the markup — NEVER the generated css/style.css.
+   input.css — Tailwind v3 SOURCE (compiled to css/style.css; NEVER edit that file).
+     Build:  npm run build:css        Verify:  npm run verify   (build + style audit)
+
+   All section TYPOGRAPHY / COLOUR / SPACING / LAYOUT now lives as Tailwind utility
+   classes in index.html. What remains below is the raw CSS deliberately NOT migrated:
+
+     • Responsive layer — desktop-first @media (max-width 1157/1023/900/560) + the two
+       min/max video/arrow bands. Eye-verified; it OVERRIDES the desktop utilities at
+       each breakpoint via source order (raw rules sit after @tailwind utilities).
+     • Stateful / runtime-class rules (can't be static utilities): nav .active +
+       ::after bar + :hover, the :first/:last/:nth-of-type end-paddings, .dot.active,
+       .indi.active.
+     • Positioned / component blocks: .banner_bg + .hero-phone + store circles +
+       slider dots/arrows, the testimonial hexagon avatar, the contact panel + map,
+       the JS slider tracks + lightbox overlay, ::placeholder, .nav-toggle, and the
+       foundational reset + .fullwidth/.center container.
+
+   PREFLIGHT IS OFF (tailwind.config.js) — the build's content-box reset is below.
    ============================================================================ */
 
 /*============================================================FONTS*/
@@ -2571,11 +2578,6 @@ a{
   border-color: rgb(193 193 193 / var(--tw-border-opacity, 1));
 }
 
-.hover\:border-b-\[\#4b4b4b\]:hover {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(75 75 75 / var(--tw-border-opacity, 1));
-}
-
 .hover\:bg-\[\#3a98bf\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(58 152 191 / var(--tw-bg-opacity, 1));
@@ -2627,6 +2629,10 @@ a{
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:\[border-bottom\:5px_solid_\#4b4b4b\]:hover {
+  border-bottom: 5px solid #4b4b4b;
 }
 
 .hover\:\[box-shadow\:0_4px_0_rgba\(0\2c 0\2c 0\2c 0\.35\)\]:hover {

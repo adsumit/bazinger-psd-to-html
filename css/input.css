@@ -3,12 +3,24 @@
 @tailwind utilities;
 
 /* ============================================================================
-   RAW DESIGN CSS  — the original raw-responsive build's hand-written styles.
-   Being migrated to Tailwind utilities (in index.html) SECTION-BY-SECTION:
-   each migrated rule is DELETED from here as its utilities land in the markup.
-   What stays here permanently (by design): the responsive @media layer, the two
-   min/max bands, and irreducible components (lightbox, slider track, ::placeholder).
-   Edit styles HERE or in the markup — NEVER the generated css/style.css.
+   input.css — Tailwind v3 SOURCE (compiled to css/style.css; NEVER edit that file).
+     Build:  npm run build:css        Verify:  npm run verify   (build + style audit)
+
+   All section TYPOGRAPHY / COLOUR / SPACING / LAYOUT now lives as Tailwind utility
+   classes in index.html. What remains below is the raw CSS deliberately NOT migrated:
+
+     • Responsive layer — desktop-first @media (max-width 1157/1023/900/560) + the two
+       min/max video/arrow bands. Eye-verified; it OVERRIDES the desktop utilities at
+       each breakpoint via source order (raw rules sit after @tailwind utilities).
+     • Stateful / runtime-class rules (can't be static utilities): nav .active +
+       ::after bar + :hover, the :first/:last/:nth-of-type end-paddings, .dot.active,
+       .indi.active.
+     • Positioned / component blocks: .banner_bg + .hero-phone + store circles +
+       slider dots/arrows, the testimonial hexagon avatar, the contact panel + map,
+       the JS slider tracks + lightbox overlay, ::placeholder, .nav-toggle, and the
+       foundational reset + .fullwidth/.center container.
+
+   PREFLIGHT IS OFF (tailwind.config.js) — the build's content-box reset is below.
    ============================================================================ */
 
 /*============================================================FONTS*/
