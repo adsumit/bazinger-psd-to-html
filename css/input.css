@@ -383,95 +383,10 @@ a{
     width: 10px;             /* PSD icon bbox 10x15 */
     height: 15px;
 }
-/*===========================================================GALLERY*/
-.gallery{
-    text-align: center;
-    height: 544px;            /* eyeball-corrected to the PNG (was 545) */
-    background-color: #fff;
-}
-.gallery .mainheading{
-    font-family: Lato-Black;
-    font-weight: 900;         /* section title is Lato-Black 900 (UA <h1> default 700 -> set explicitly) */
-    font-size: 34px;          /* section title: Lato-Black 36 true -> 34 psd-px (BUILD-SPEC §9) */
-    color: #414042;           /* was unset -> defaulted to black; PSD title is #414042 */
-    padding-top: 37px;        /* eyeball-corrected to the PNG (was 45) */
-}
-.gallery .top-para{
-    font-size: 19px;          /* subtitle: Lato-Light 20 true -> 19 psd-px (was wrongly 13) (BUILD-SPEC §10) */
-    font-family: Lato-Light;
-    font-weight: 300;         /* subtitle is Lato-Light 300 */
-    color: #414042;           /* was unset -> defaulted to black; PSD subtitle is #414042 */
-    padding-bottom: 53px;     /* eyeball-corrected to the PNG (was 60) — tightens the subtitle→thumbnails gap */
-}
-.gallery .gallery-box{
-    width:255px;
-    float: left;
-    padding: 0px 15px;        /* with the 2 end paddings zeroed: 4×255 + 6×15 = 1110, flush both edges, even 30px gaps */
-}
-/* Same end-card treatment as .feat-box: zero the OUTER padding so the row reaches
-   the container edges. :first-/:last-of-type (NOT child) — the inner .gallery's
-   first children are the <h1> + <p>; the gallery-boxes are the only <div>s. */
+/* Gallery end-card flush padding — kept raw (Tailwind has no :first/:last-of-type variant) */
 .gallery .gallery-box:first-of-type{ padding-left: 0; }
 .gallery .gallery-box:last-of-type{ padding-right: 0; }
-.gallery .gallery-box .photo-box{
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    height: 190px;
-    width: 255px;    
-    border-radius: 10px;
-}
-.gallery .gallery-box .photo-box img{
-    transform: scale(1.7);
-    height: 100%;
-    width: 100%;
-}
-.gallery .gallery-box .photo-box .blue-overlay{
-    cursor:pointer;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(75, 202, 255, 0.43);
-    opacity: 0;
-    transition: 0.2s;
-}
-.gallery .gallery-box .photo-box:hover .blue-overlay{
-    opacity: 1;
-}
-.gallery .gallery-box .photo-box .blue-overlay .icon{
-    /* 19x19 white plus (measured from PSD). The overlay is position:absolute,
-       so it's the containing block: center the plus in it, then shift ~11px up
-       so it keeps its PSD spot slightly above the box center. */
-    position: absolute;
-    width: 19px;
-    height: 19px;
-    color: #d7d7d7;           /* eyeball-corrected to the PNG (was #fff) — light-grey plus */
-    filter: drop-shadow(0px 0px 1.5px rgba(0, 0, 0, 0.5));   /* soft black halo, eyeballed PSD-accurate */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, calc(-50% - 11px));
-    cursor: pointer;
-}
-.gallery .gallery-box .photo-box .photo-name{
-    position: absolute;
-    bottom: 0;
-    font-size: 14.5px;        /* eyeball-corrected to the PNG (was 14) — mirrored in checks.json */
-    color: #4bcaff;
-    font-family: Lato-Bold;
-    padding: 11px 0 11px 0;   /* eyeball-corrected to the PNG (was 4% 0) */
-    background-color: rgba(83, 83, 83, 0.61);
-    width: 100%;
-}
-.gallery .gallery-box p{
-    padding: 17px 17px 0px 17px;   /* eyeball-corrected to the PNG (was 20px 10%) */
-    font-size: 13px;          /* eyeball-corrected to the PNG (was 12) — mirrored in checks.json */
-    line-height: 20.88px;
-    font-family: Lato-Light;
-    color: #838383;           /* was unset -> defaulted to black; PSD body copy is #838383 (matches features) */
-}
+
 /*==================================================WATCH*/
 .watch {
     overflow: hidden;
