@@ -1231,10 +1231,11 @@ a{
    RESPONSIVE LAYER  —  raw-responsive build
    ----------------------------------------------------------------------------
    Everything below lives inside max-width media queries, so it ONLY affects
-   viewports NARROWER than the 1110px desktop design. At >=1110px none of these
-   rules match, so the finished desktop build renders byte-for-byte as before:
-   the computed-style audit at 1280 stays green and the measured pixel work is
-   never touched.
+   viewports below the desktop boundary. That boundary is 1158px (not 1110): the
+   design's content is exactly 1110px wide, so the fixed container only has room for
+   side gutters once the viewport clears 1110 + 2*24. At >=1158px none of these rules
+   match, so the finished desktop build renders byte-for-byte as before — the
+   computed-style audit at 1280 stays green and the measured pixel work is untouched.
 
    Why DESKTOP-FIRST (max-width), not mobile-first (min-width)? The CSS above is
    the finished, measured design built for one width (1110). We only ever need to
@@ -1247,11 +1248,15 @@ a{
 
    The ladder is CONTENT-driven, not device-driven — each breakpoint is the width
    where a specific row can no longer hold its desktop shape:
-     <=1109px  The fixed 1110 container can't fit the viewport, so it goes fluid —
-               and because the design is tuned to exactly 1110, almost everything
-               built at fixed px (the 4-up feature row = 1108px, the 3 price cards,
-               the banner's 680px slider, the testimonial's 29% margins) overflows
-               the instant the container shrinks. So this is where the big reflow
+     <=1157px  The design's content is EXACTLY 1110px wide, so the fixed .center only
+               has room for side gutters once the viewport exceeds 1110 + 2*24. Below
+               ~1158 those gutters vanish — at a 1110 viewport the nav, gallery and
+               footer sit FLUSH against the screen edge (ugly) — and everything built
+               at fixed px (the 4-up feature row = 1108px, the 3 price cards, the
+               banner's 680px slider, the testimonial's 29% margins) overflows the
+               instant the container shrinks. So the fluid+padded layer starts at 1157:
+               desktop keeps its 4-up look at >=1158 (with >=24px gutters, a seamless
+               24px container edge across the boundary). This is where the big reflow
                happens: banner -> centred column, grids -> 2-up, price -> wrap,
                testimonial -> stacked.
      <=900px   The 8-link navbar + logo (~780px) would start to crowd, so it folds
@@ -1261,8 +1266,11 @@ a{
                display type (hero 45px, video 46px, CTA 52px) scales down to fit.
    ========================================================================== */
 
-/* ============================ <= 1109px : container goes fluid + first reflow */
-@media (max-width: 1109px) {
+/* ============================ <= 1157px : container goes fluid + first reflow
+   (1157, not 1109: the 1110px content needs the viewport above 1110 + 2*24 = 1158 before
+   the fixed container has room for 24px side gutters; below that the content sits flush
+   to the screen edge — the nav/gallery/footer "no padding at 1110px" problem). */
+@media (max-width: 1157px) {
 
   /* ---- Foundation: the centred container -----------------------------------
      .center is a fixed 1110px box at desktop — exactly what pokes past a narrow
@@ -1287,7 +1295,7 @@ a{
      narrows `cover` scales by height and reveals it — leaking white through. In the
      PSD that PNG sits on a solid #414042 base, so paint #414042 behind the image:
      the transparent bottom now reads as the dark base (matching the design) instead
-     of white. Scoped to <=1109 so the >=1110 desktop render stays byte-identical
+     of white. Scoped to <=1157 so the >=1158 desktop render stays byte-identical
      (at desktop the strip is cropped away, so the colour would never show there). */
   .banner_bg { background-color: #414042; }
   /* hide the decorative iPhone PNG across ALL non-desktop widths: a centred text
@@ -1427,7 +1435,7 @@ a{
   .price h1, .price .p { flex: 0 0 100%; }
   .price .packone,
   .price .packtwo,
-  .price .packthree { float: none; margin: 14px 6px; }   /* 12px gaps: 3-up fits comfortably 1024-1109, then stacks 1-up below 1024 (the <=1023 block) so it NEVER wraps to an ugly 2+1 */
+  .price .packthree { float: none; margin: 14px 6px; }   /* 12px gaps: 3-up fits comfortably 1024-1157, then stacks 1-up below 1024 (the <=1023 block) so it NEVER wraps to an ugly 2+1 */
 
   /* ---- Testimonials: avatar | comment -> stacked & centred -----------------
      Desktop floats the avatar left and runs the comment beside it (margin-left
@@ -1570,18 +1578,19 @@ a{
   .lightbox .lb-next { right: 6px; }
 }
 
-/* ============================ 1110-1240px : crop the video band's transparent strip
+/* ============================ 1158-1240px : crop the video band's transparent strip
    At desktop the video bg <img> is positioned top:-62% (tuned for the 1404px PSD width).
-   Between ~1110 and ~1263px that positioning no longer reaches the band bottom, so the
-   bottom 0-60px exposes watch.png's transparent strip as bright #4bcaff (measured: fully
-   #4bcaff at 1110, fading to none by ~1240). Switch the image to object-fit:cover here so
-   it scales to EXACTLY fill the 522px band — cover crops the over-tall image's top/bottom
-   (~141px each at 1110), far more than the 78px transparent strip, so the strip is removed
-   with no guesswork. The band stays blue (#4bcaff base + photo @60%), just uniform.
-   NB: this intentionally adjusts the >=1110 render in THIS narrow band only (the strip is a
-   pre-existing fidelity bug at non-1404 desktop widths); 1280 is OUTSIDE the range, so the
-   audit width stays byte-identical. */
-@media (min-width: 1110px) and (max-width: 1240px) {
+   Between ~1158 and ~1263px that positioning no longer reaches the band bottom, so the
+   bottom exposes watch.png's transparent strip as bright #4bcaff (fading to none by ~1240).
+   Switch the image to object-fit:cover here so it scales to EXACTLY fill the 522px band —
+   cover crops the over-tall image's top/bottom (~180px each), far more than the 78px
+   transparent strip, so the strip is removed with no guesswork. The band stays blue
+   (#4bcaff base + photo @60%), just uniform.
+   Range starts at 1158 (not 1110) because <=1157 is now the fluid layer above, which already
+   covers the video via its own object-fit:cover rule. NB: this intentionally adjusts the
+   desktop render in THIS narrow band only (the strip is a pre-existing fidelity bug at
+   non-1404 desktop widths); 1280 is OUTSIDE the range, so the audit width stays byte-identical. */
+@media (min-width: 1158px) and (max-width: 1240px) {
   .watch img {
     top: 0; left: 0;
     width: 100%; height: 100%;
