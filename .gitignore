@@ -1,4 +1,11 @@
 node_modules/
+
+# Local tool / editor settings — not part of the build
+.claude/
+.vscode/
+.idea/
+*.local
+
 diff.png
 diff*.png
 *diff.png
