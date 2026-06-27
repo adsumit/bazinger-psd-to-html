@@ -7,7 +7,8 @@
          fit, so our max-width media queries below 1110 would never fire on a real
          device. This is the single switch that makes the whole responsive layer work. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bazinger</title>
+    <title>Bazinger — Personal Budgeting App</title>
+    <meta name="description" content="Bazinger is a calm personal budgeting app for iPhone, Android, and web that helps you track spending, set budgets, get bill reminders, and save toward your goals.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,7 +16,7 @@
 <div class="fullwidth header fixed top-0 h-[94px] bg-[rgba(7,7,7,0.30)] z-[2] [box-shadow:0_1px_0_rgba(255,255,255,0.06)]">
     <div class="center">
         <div class="logo float-left pt-[14px] inline-block">
-            <img class="logoimg h-[48.5px] [transform:scale(1.01)]" src="img/logo.png" alt="">
+            <img class="logoimg h-[48.5px] [transform:scale(1.01)]" src="img/logo.png" alt="Bazinger">
         </div>             
         <!-- Hamburger button: hidden at desktop (display:none), revealed at <=900px.
              Three <span> bars are drawn/animated in CSS; nav.js toggles .open on the
@@ -45,24 +46,24 @@
         <div class="banner-slider"><!-- text slider window: clips to one slide -->
           <div class="banner-track"><!-- flex row of slides; slider.js translateX-es this -->
             <div class="banner-slide">
-              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Simple, Beautiful</span> <span class="lb font-lato-bold font-bold">and Amazing</span></h1>
-              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget nunc vitae tellus luctus ullamcorper. Nam porttitor ullamcorper felis at convallis. Aenean ornare vestibulum nisi fringilla lacinia. Nullam pulvinar sollicitudin velit id laoreet. Quisque non rhoncus sem.</p>
+              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Money made simple</span> <span class="lb font-lato-bold font-bold">and clear</span></h1>
+              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Bazinger gives you one calm place to see exactly where your money goes. No spreadsheets, no jargon, and no guilt — just a clear picture of your day-to-day spending and the budgets you set, so you always know where you stand and that you're doing okay.</p>
             </div>
             <div class="banner-slide">
-              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Powerful, Fast</span> <span class="lb font-lato-bold font-bold">and Reliable</span></h1>
-              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Curabitur ac felis arcu sadipscing elitr sed diam nonumy eirmod. Vivamus elementum semper nisi aenean vulputate eleifend tellus enim. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim sed. Aliquam lorem ante dapibus in viverra quis feugiat a turpis.</p>
+              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Set it once</span> <span class="lb font-lato-bold font-bold">and let it run</span></h1>
+              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Connect your accounts once and Bazinger quietly sorts every purchase into the right category for you. Your budgets update on their own and stay accurate, so keeping a close eye on your money takes a few minutes a week instead of long, tedious hours.</p>
             </div>
             <div class="banner-slide">
-              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Modern, Clean</span> <span class="lb font-lato-bold font-bold">and Intuitive</span></h1>
-              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Phasellus viverra nulla ut metus varius laoreet quisque rutrum eget. Aenean imperdiet etiam ultricies nisi vel augue curabitur ullamcorper nec. Praesent venenatis metus at tortor pulvinar varius et fermentum sit. Donec sodales sagittis magna sed consequat leo eget bibendum.</p>
+              <h1 class="font-lato-light font-light text-[45.55px] leading-none text-white [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]"><span class="ll font-lato-light">Reach your goals</span> <span class="lb font-lato-bold font-bold">and grow</span></h1>
+              <p class="p w-[680px] pt-[20px] text-white font-lato-light text-[17px] leading-[19px]">Set a goal for a summer holiday, a rainy-day fund, or finally paying off that credit card, then watch it grow a little at a time. Bazinger keeps the pressure low and your progress easy to see, so putting money aside finally feels simple and doable.</p>
             </div>
           </div>
         </div>
-        <a class="button_one mt-[44px] ml-[2.9px] inline-block pt-[20px] pr-[47px] pb-[20px] pl-[48px] text-white border-solid border-white border-2 rounded-[7.6px] bg-transparent font-lato-bold font-bold text-[14.3px] [transition:0.5s] hover:text-[#cbcbcb] hover:border-[#4bcaff] hover:bg-[rgba(0,0,0,0.44)]" href="">DOWNLOAD</a>
-        <a class="button_two mt-[44px] ml-[33.5px] inline-block pt-[21px] pr-[48.1px] pb-[18.9px] pl-[47.55px] text-white [box-shadow:0_4px_0_#277697] rounded-[7.6px] bg-sky font-lato-bold font-bold text-[14.18px] [transform:translateY(-1.5px)_scaleY(1.02)] [transition:0.5s] hover:text-white hover:bg-[rgba(36,36,36,0.58)] hover:[box-shadow:0_4px_0_rgba(0,0,0,0.35)]" href="">LEARN MORE</a>
+        <a class="button_one mt-[44px] ml-[2.9px] inline-block pt-[20px] pr-[47px] pb-[20px] pl-[48px] text-white border-solid border-white border-2 rounded-[7.6px] bg-transparent font-lato-bold font-bold text-[14.3px] [transition:0.5s] hover:text-[#cbcbcb] hover:border-[#4bcaff] hover:bg-[rgba(0,0,0,0.44)]" href="#download">DOWNLOAD</a>
+        <a class="button_two mt-[44px] ml-[33.5px] inline-block pt-[21px] pr-[48.1px] pb-[18.9px] pl-[47.55px] text-white [box-shadow:0_4px_0_#277697] rounded-[7.6px] bg-sky font-lato-bold font-bold text-[14.18px] [transform:translateY(-1.5px)_scaleY(1.02)] [transition:0.5s] hover:text-white hover:bg-[rgba(36,36,36,0.58)] hover:[box-shadow:0_4px_0_rgba(0,0,0,0.35)]" href="#features">LEARN MORE</a>
         <div class="iconcontainer">
             <div class="ptwo float-left w-[110px] pt-[61px] pl-0 text-white font-lato-light font-light text-[18.1px] [transform:scaleX(0.94)_scaleY(0.94)_translateX(-0.4px)_translateY(1.2px)]">
-               <p class="store-label">Aavailable on :</p>
+               <p class="store-label">Available on :</p>
             </div>
             <div class="iconcontainerchild">
               <div class="appleicon"><svg class="icon icon-apple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 27" fill="currentColor"><path fill-rule="evenodd" d="M18.85,14.34C18.82,11.37 21.26,9.95 21.37,9.88C20.00,7.87 17.86,7.60 17.09,7.56C15.27,7.38 13.54,8.64 12.61,8.64C11.69,8.64 10.26,7.59 8.75,7.62C6.77,7.65 4.94,8.77 3.91,10.55C1.85,14.13 3.39,19.44 5.40,22.34C6.38,23.76 7.55,25.36 9.09,25.30C10.57,25.24 11.13,24.34 12.92,24.34C14.71,24.34 15.22,25.30 16.79,25.27C18.38,25.24 19.39,23.82 20.37,22.40C21.49,20.75 21.96,19.15 21.99,19.07C21.95,19.05 18.88,17.88 18.85,14.34ZM15.90,5.64C16.72,4.65 17.27,3.28 17.12,1.91C15.94,1.95 14.52,2.69 13.67,3.68C12.91,4.55 12.25,5.95 12.43,7.30C13.74,7.40 15.08,6.63 15.90,5.64Z"/></svg></div>
@@ -80,15 +81,15 @@
 <!--feature start-->
 <div class="fullwidth features text-center bg-mist h-[514px] pt-[43px]" id="features">
     <div class="center">
-        <h1 class="mainheading font-lato-black font-black text-[34px] text-ink">summarise the features</h1>
-        <p class="top_para pb-[59px] font-lato-light font-light text-[19px] text-ink">summarise what your product is all about </p>
+        <h1 class="mainheading font-lato-black font-black text-[34px] text-ink">All your money, one place</h1>
+        <p class="top_para pb-[59px] font-lato-light font-light text-[19px] text-ink">Smart tools that do the heavy lifting for you</p>
         <div class="feat-box group w-[205px] float-left pl-0 pr-[48px] cursor-pointer">
             <div class="icons h-[155px] w-[155px] rounded-full float-left mx-[10%] flex items-center justify-center bg-sky group-hover:bg-ink border-[5px] border-ring border-solid [transition:0.25s]">
                 <svg class="icon icon-layers text-white w-[74px] h-[74px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" fill="currentColor"><path fill-rule="evenodd" d="M1.89,34.89C1.89,34.89 14.60,30.74 14.60,30.74C14.60,30.74 35.10,40.98 35.10,40.98C35.10,40.98 56.63,30.48 56.63,30.48C56.63,30.48 68.30,34.89 68.30,34.89C68.30,34.89 35.10,51.49 35.10,51.49C35.10,51.49 1.89,34.89 1.89,34.89ZM1.89,18.28C1.89,18.28 35.10,1.68 35.10,1.68C35.10,1.68 68.30,18.28 68.30,18.28C68.30,18.28 35.10,34.89 35.10,34.89C35.10,34.89 1.89,18.28 1.89,18.28ZM35.10,57.58C35.10,57.58 56.63,47.08 56.63,47.08C56.63,47.08 68.30,51.49 68.30,51.49C68.30,51.49 35.10,68.09 35.10,68.09C35.10,68.09 1.89,51.49 1.89,51.49C1.89,51.49 14.60,47.34 14.60,47.34C14.60,47.34 35.10,57.58 35.10,57.58Z"/></svg>
             </div>
             <div class="feat-info float-left font-lato-light">
-                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">Attractive Layout</h2>
-                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">Auto-categories</h2>
+                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Every purchase lands in the right category on its own, so your spending stays neatly organized without you touching a single spreadsheet.</p>
             </div>
         </div>
         <div class="feat-box group w-[205px] float-left px-[48px] cursor-pointer">
@@ -96,8 +97,8 @@
                 <svg class="icon icon-mobile text-white w-[50px] h-[73px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 69" fill="currentColor"><path fill-rule="evenodd" d="M39.76,67.09C39.76,67.09 7.31,67.09 7.31,67.09C3.96,67.09 1.23,64.33 1.23,60.95C1.23,60.95 1.23,7.77 1.23,7.77C1.23,4.38 3.96,1.63 7.31,1.63C7.31,1.63 39.76,1.63 39.76,1.63C43.12,1.63 45.85,4.38 45.85,7.77C45.85,7.77 45.85,60.95 45.85,60.95C45.85,64.33 43.12,67.09 39.76,67.09ZM41.79,7.77C41.79,6.64 40.88,5.72 39.76,5.72C39.76,5.72 7.31,5.72 7.31,5.72C6.19,5.72 5.28,6.64 5.28,7.77C5.28,7.77 5.28,60.95 5.28,60.95C5.28,62.08 6.19,63.00 7.31,63.00C7.31,63.00 39.76,63.00 39.76,63.00C40.88,63.00 41.79,62.08 41.79,60.95C41.79,60.95 41.79,7.77 41.79,7.77ZM9.34,9.81C9.34,9.81 37.74,9.81 37.74,9.81C37.74,9.81 37.74,54.82 37.74,54.82C37.74,54.82 9.34,54.82 9.34,54.82C9.34,54.82 9.34,9.81 9.34,9.81ZM23.54,56.86C24.65,56.86 25.57,57.78 25.57,58.91C25.57,60.03 24.65,60.95 23.54,60.95C22.42,60.95 21.51,60.03 21.51,58.91C21.51,57.78 22.42,56.86 23.54,56.86Z"/></svg>
             </div>
             <div class="feat-info float-left font-lato-light">
-                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">Fresh Design</h2>
-                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">On every device</h2>
+                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Budget on your phone, tablet, or laptop. Everything syncs instantly, so your numbers are always up to date wherever you check in.</p>
             </div>
         </div>
         <div class="feat-box group w-[205px] float-left px-[48px] cursor-pointer">
@@ -105,8 +106,8 @@
                 <svg class="icon icon-chat text-white w-[74px] h-[74px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" fill="currentColor"><path fill-rule="evenodd" d="M59.88,55.64C59.88,55.64 59.88,68.09 59.88,68.09C59.88,68.09 47.43,55.64 47.43,55.64C47.43,55.64 26.68,55.64 26.68,55.64C22.53,55.64 18.38,51.49 18.38,47.34C18.38,47.34 18.38,44.90 18.38,44.90C18.38,44.90 24.25,39.04 24.25,39.04C24.25,39.04 43.28,39.04 43.28,39.04C49.68,39.04 55.73,32.98 55.73,26.58C55.73,26.58 55.73,22.43 55.73,22.43C55.73,22.43 59.88,22.43 59.88,22.43C64.03,22.43 68.18,26.58 68.18,30.73C68.18,30.73 68.18,47.34 68.18,47.34C68.18,51.49 64.03,55.64 59.88,55.64ZM43.28,34.89C43.28,34.89 22.53,34.89 22.53,34.89C22.53,34.89 10.08,47.34 10.08,47.34C10.08,47.34 10.08,34.89 10.08,34.89C5.93,34.89 1.78,30.73 1.78,26.58C1.78,26.58 1.78,9.98 1.78,9.98C1.78,5.83 5.93,1.68 10.08,1.68C10.08,1.68 43.28,1.68 43.28,1.68C47.43,1.68 51.58,5.83 51.58,9.98C51.58,9.98 51.58,26.58 51.58,26.58C51.58,30.73 47.43,34.89 43.28,34.89Z"/></svg>
             </div>
             <div class="feat-info float-left font-lato-light">
-                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-sky">multipurpose</h2>
-                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-sky">Gentle reminders</h2>
+                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Friendly nudges warn you before bills are due and when a budget is running low, so nothing important slips through the cracks.</p>
             </div>
         </div>
         <div class="feat-box group w-[205px] float-left pl-[48px] pr-0 cursor-pointer">
@@ -114,8 +115,8 @@
                 <svg class="icon icon-screen text-white w-[74px] h-[70px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 66" fill="currentColor"><path fill-rule="evenodd" d="M63.95,1.57C63.95,1.57 5.84,1.57 5.84,1.57C3.56,1.57 1.69,3.45 1.69,5.75C1.69,5.75 1.69,47.50 1.69,47.50C1.69,49.79 3.56,51.67 5.84,51.67C5.84,51.67 18.29,51.67 18.29,51.67C18.29,51.67 18.29,64.20 18.29,64.20C18.29,64.20 35.41,51.67 35.41,51.67C35.41,51.67 63.95,51.67 63.95,51.67C66.23,51.67 68.10,49.79 68.10,47.50C68.10,47.50 68.10,5.75 68.10,5.75C68.10,3.45 66.23,1.57 63.95,1.57ZM59.80,43.32C59.80,43.32 9.99,43.32 9.99,43.32C9.99,43.32 9.99,9.92 9.99,9.92C9.99,9.92 59.80,9.92 59.80,9.92C59.80,9.92 59.80,43.32 59.80,43.32Z"/></svg>
             </div>
             <div class="feat-info float-left font-lato-light">
-                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">Easy to customize</h2>
-                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <h2 class="font-lato-bold text-[14px] uppercase py-[21px] text-ink group-hover:text-sky">Clear reports</h2>
+                <p class="font-lato font-normal text-[12px] leading-[20.88px] text-body">Clean charts show where your money went this week and month, turning your spending into plain insights anyone can read at a glance.</p>
             </div>            
         </div>
     </div>
@@ -125,55 +126,55 @@
 <div class="fullwidth gallery text-center h-[544px] bg-white" id="gallery">
     <div class="center">
         <div class="gallery text-center h-[544px] bg-white">
-            <h1 class="mainheading font-lato-black font-black text-[34px] text-ink pt-[37px]">show the gallery</h1>
-            <p class="top-para text-[19px] font-lato-light font-light text-ink pb-[53px]">summarise what your product is all about </p>
+            <h1 class="mainheading font-lato-black font-black text-[34px] text-ink pt-[37px]">A look inside Bazinger</h1>
+            <p class="top-para text-[19px] font-lato-light font-light text-ink pb-[53px]">The features that keep your money on track</p>
             <div class="gallery-box w-[255px] float-left px-[15px]">
                 <div class="photo-box group text-center relative overflow-hidden h-[190px] w-[255px] rounded-[10px]">
-                    <img class="[transform:scale(1.7)] h-full w-full" src="img/image.jpg">                    
+                    <img class="[transform:scale(1.7)] h-full w-full" src="img/gallery-link.jpg" alt="Linking a bank card to Bazinger">                    
                     <div class="blue-overlay cursor-pointer absolute left-0 top-0 rounded-[10px] h-full w-full bg-[rgba(75,202,255,0.43)] opacity-0 group-hover:opacity-100 [transition:0.2s]">
                         <svg class="icon icon-plus absolute w-[19px] h-[19px] text-faint left-1/2 top-1/2 cursor-pointer [filter:drop-shadow(0px_0px_1.5px_rgba(0,0,0,0.5))] [transform:translate(-50%,calc(-50%_-_11px))]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" fill="currentColor"><path d="M8.3,0.5 L10.7,0.5 Q11.9,0.5 11.9,1.7 L11.9,7.1 L17.3,7.1 Q18.5,7.1 18.5,8.3 L18.5,10.7 Q18.5,11.9 17.3,11.9 L11.9,11.9 L11.9,17.3 Q11.9,18.5 10.7,18.5 L8.3,18.5 Q7.1,18.5 7.1,17.3 L7.1,11.9 L1.7,11.9 Q0.5,11.9 0.5,10.7 L0.5,8.3 Q0.5,7.1 1.7,7.1 L7.1,7.1 L7.1,1.7 Q7.1,0.5 8.3,0.5 Z"/></svg>
                     </div>
                     <div class="photo-name absolute bottom-0 w-full py-[11px] bg-[rgba(83,83,83,0.61)] text-[14.5px] text-sky font-lato-bold">
-                        <h4>SCREEN SHOT #1</h4>
+                        <h4>LINK YOUR ACCOUNTS</h4>
                     </div>
                 </div>
-                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Securely connect your bank and cards once, and every new purchase flows straight into Bazinger, sorted and ready to review.</p>
             </div>
             <div class="gallery-box w-[255px] float-left px-[15px]">
                 <div class="photo-box group text-center relative overflow-hidden h-[190px] w-[255px] rounded-[10px]">
-                    <img class="[transform:scale(1.7)] h-full w-full" src="img/image.jpg">
+                    <img class="[transform:scale(1.7)] h-full w-full" src="img/gallery-track.jpg" alt="Tracking everyday spending in Bazinger">
                     <div class="blue-overlay cursor-pointer absolute left-0 top-0 rounded-[10px] h-full w-full bg-[rgba(75,202,255,0.43)] opacity-0 group-hover:opacity-100 [transition:0.2s]">
                         <svg class="icon icon-plus absolute w-[19px] h-[19px] text-faint left-1/2 top-1/2 cursor-pointer [filter:drop-shadow(0px_0px_1.5px_rgba(0,0,0,0.5))] [transform:translate(-50%,calc(-50%_-_11px))]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" fill="currentColor"><path d="M8.3,0.5 L10.7,0.5 Q11.9,0.5 11.9,1.7 L11.9,7.1 L17.3,7.1 Q18.5,7.1 18.5,8.3 L18.5,10.7 Q18.5,11.9 17.3,11.9 L11.9,11.9 L11.9,17.3 Q11.9,18.5 10.7,18.5 L8.3,18.5 Q7.1,18.5 7.1,17.3 L7.1,11.9 L1.7,11.9 Q0.5,11.9 0.5,10.7 L0.5,8.3 Q0.5,7.1 1.7,7.1 L7.1,7.1 L7.1,1.7 Q7.1,0.5 8.3,0.5 Z"/></svg>
                     </div>
                     <div class="photo-name absolute bottom-0 w-full py-[11px] bg-[rgba(83,83,83,0.61)] text-[14.5px] text-sky font-lato-bold">
-                        <h4>SCREEN SHOT #2</h4>
+                        <h4>BUDGET PLANNER</h4>
                     </div>
                 </div>
-                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Set a monthly limit for each category and Bazinger tracks the rest, showing exactly how much you have left to spend.</p>
             </div>
             <div class="gallery-box w-[255px] float-left px-[15px]">
                 <div class="photo-box group text-center relative overflow-hidden h-[190px] w-[255px] rounded-[10px]">
-                    <img class="[transform:scale(1.7)] h-full w-full" src="img/image.jpg">
+                    <img class="[transform:scale(1.7)] h-full w-full" src="img/gallery-dashboard.jpg" alt="The Bazinger spending dashboard">
                     <div class="blue-overlay cursor-pointer absolute left-0 top-0 rounded-[10px] h-full w-full bg-[rgba(75,202,255,0.43)] opacity-0 group-hover:opacity-100 [transition:0.2s]">
                         <svg class="icon icon-plus absolute w-[19px] h-[19px] text-faint left-1/2 top-1/2 cursor-pointer [filter:drop-shadow(0px_0px_1.5px_rgba(0,0,0,0.5))] [transform:translate(-50%,calc(-50%_-_11px))]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" fill="currentColor"><path d="M8.3,0.5 L10.7,0.5 Q11.9,0.5 11.9,1.7 L11.9,7.1 L17.3,7.1 Q18.5,7.1 18.5,8.3 L18.5,10.7 Q18.5,11.9 17.3,11.9 L11.9,11.9 L11.9,17.3 Q11.9,18.5 10.7,18.5 L8.3,18.5 Q7.1,18.5 7.1,17.3 L7.1,11.9 L1.7,11.9 Q0.5,11.9 0.5,10.7 L0.5,8.3 Q0.5,7.1 1.7,7.1 L7.1,7.1 L7.1,1.7 Q7.1,0.5 8.3,0.5 Z"/></svg>
                     </div>
                     <div class="photo-name absolute bottom-0 w-full py-[11px] bg-[rgba(83,83,83,0.61)] text-[14.5px] text-sky font-lato-bold">
-                        <h4>SCREEN SHOT #3</h4>
+                        <h4>SPENDING DASHBOARD</h4>
                     </div>
                 </div>
-                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">One simple home screen shows your balances, your recent spending, and how every budget is doing — all in a glance you can trust.</p>
             </div>
             <div class="gallery-box w-[255px] float-left px-[15px]">
                 <div class="photo-box group text-center relative overflow-hidden h-[190px] w-[255px] rounded-[10px]">
-                    <img class="[transform:scale(1.7)] h-full w-full" src="img/image.jpg">
+                    <img class="[transform:scale(1.7)] h-full w-full" src="img/gallery-goals.jpg" alt="A savings goal growing in Bazinger">
                     <div class="blue-overlay cursor-pointer absolute left-0 top-0 rounded-[10px] h-full w-full bg-[rgba(75,202,255,0.43)] opacity-0 group-hover:opacity-100 [transition:0.2s]">
                         <svg class="icon icon-plus absolute w-[19px] h-[19px] text-faint left-1/2 top-1/2 cursor-pointer [filter:drop-shadow(0px_0px_1.5px_rgba(0,0,0,0.5))] [transform:translate(-50%,calc(-50%_-_11px))]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" fill="currentColor"><path d="M8.3,0.5 L10.7,0.5 Q11.9,0.5 11.9,1.7 L11.9,7.1 L17.3,7.1 Q18.5,7.1 18.5,8.3 L18.5,10.7 Q18.5,11.9 17.3,11.9 L11.9,11.9 L11.9,17.3 Q11.9,18.5 10.7,18.5 L8.3,18.5 Q7.1,18.5 7.1,17.3 L7.1,11.9 L1.7,11.9 Q0.5,11.9 0.5,10.7 L0.5,8.3 Q0.5,7.1 1.7,7.1 L7.1,7.1 L7.1,1.7 Q7.1,0.5 8.3,0.5 Z"/></svg>
                     </div>
                     <div class="photo-name absolute bottom-0 w-full py-[11px] bg-[rgba(83,83,83,0.61)] text-[14.5px] text-sky font-lato-bold">
-                        <h4>SCREEN SHOT #4</h4>
+                        <h4>SAVINGS GOALS</h4>
                     </div>
                 </div>
-                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+                <p class="px-[17px] pt-[17px] pb-0 text-[13px] leading-[20.88px] font-lato-light text-body">Create savings goals for the things you really care about, then watch each one slowly fill up as you set a little aside every week.</p>
             </div>
         </div>
     </div>
@@ -189,10 +190,10 @@
             <svg class="icon icon-play w-[34px] h-[38px] ml-[3px] [transition:filter_0.25s] group-hover:[filter:drop-shadow(0_0_8px_#fff)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 36" fill="currentColor"><path fill-rule="evenodd" d="M28.85,16.00C28.85,16.00 20.62,11.13 20.62,11.13C18.78,10.05 15.77,8.27 13.93,7.18C13.93,7.18 5.39,2.32 5.39,2.32C3.55,1.23 1.75,2.10 1.75,4.26C1.75,4.26 1.75,31.69 1.75,31.69C1.75,33.84 3.55,34.72 5.39,33.63C5.39,33.63 13.78,28.76 13.78,28.76C15.62,27.68 18.71,25.90 20.54,24.81C20.54,24.81 28.82,19.95 28.82,19.95C30.65,18.86 30.69,17.09 28.85,16.00Z"/></svg>
         </div>
         <h1 class="text-center font-lato-light text-[46px] text-white font-light [text-shadow:0_1px_3px_rgba(25,22,24,0.36)]">
-            Watch the best Technology in <span class="font-lato-bold font-bold">Action</span>
+            Take a quick tour of <span class="font-lato-bold font-bold">Bazinger</span>
         </h1>
         <p class="font-lato-light font-light text-white text-center px-[20.9%] py-[1.7%] text-[16.8px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget nunc vitae tellus luctus ullamcorper. Nam porttitor ullamcorper felis at convallis. Aenean ornare vestibulum nisi fringilla lacinia. Nullam pulvinar sollicitudin velit id laoreet. Quisque non rhoncus sem.
+            In about ninety seconds, see how Bazinger turns a messy money picture into something clear and simple. Watch budgets update themselves, bills get flagged early, and goals quietly grow — no spreadsheets, no stress, just a plan you can keep.
         </p>
     </div>
 </div>
@@ -201,10 +202,8 @@
 <div class="fullwidth" id="prices">
     <div class="center">
         <div class="price text-center h-[615px]">
-            <h1 class="mt-[59px] font-lato-black font-black text-[34px] text-ink">choose your price</h1>
-            <p class="p font-lato-light font-light text-[19px] text-ink mb-[66px]">
-                summarise what your product is all about
-            </p>
+            <h1 class="mt-[59px] font-lato-black font-black text-[34px] text-ink">Plans that fit your life</h1>
+            <p class="p font-lato-light font-light text-[19px] text-ink mb-[66px]">Pick a plan and change it anytime</p>
             <div class="packone group h-[395px] w-[285px] float-left bg-mist border border-cardbdr border-solid rounded-[5px] ml-[66px] [transition:0.5s] hover:[transform:translateY(-6px)]">
                 <div class="packname">
                     <h4 class="h-[70px] leading-[70px] uppercase text-[16px] font-lato-bold font-bold text-faint [transition:0.5s] group-hover:text-grass">basic package</h4>
@@ -214,10 +213,10 @@
                 </div>
                 <div class="packinfo">
                     <!-- PSD layer breaks each phrase onto its own line (\r in the PSD text); CSS uppercases the label, body stays as-is -->
-                    <p class="h-[114px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[17px] pb-[19px] text-faint [transition:0.5s] group-hover:text-grass">Nullam suscipit vitae<br>Etiam faucibus<br>Vivamus viverra</p>
+                    <p class="h-[114px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[17px] pb-[19px] text-faint [transition:0.5s] group-hover:text-grass">Track up to 5 budgets<br>Bill reminders<br>Spending dashboard</p>
                 </div>
                 <div class="button uppercase">
-                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-grass px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-grassdk hover:[text-shadow:0.1px_0.1px_1px_white]" href="#">purchase</a>
+                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-grass px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-grassdk hover:[text-shadow:0.1px_0.1px_1px_white]" href="#download">Get started</a>
                 </div>
             </div>
             <div class="packtwo group h-[433px] w-[352px] float-left bg-mist border border-cardbdr border-solid rounded-[5px] mt-[-19px] ml-[25px] [transition:0.5s] hover:[transform:translateY(-6px)]">
@@ -229,10 +228,10 @@
                 </div>
                 <div class="packinfo">
                     <!-- PRO card has a 4th line "Praesent pharetra" the others lack (PSD: Prices / Item 2) -->
-                    <p class="h-[157px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[16px] pb-[11px] text-sky [transition:0.5s] group-hover:text-sky">Nullam suscipit vitae<br>Etiam faucibus<br>Vivamus viverra<br>Praesent pharetra</p>
+                    <p class="h-[157px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[16px] pb-[11px] text-sky [transition:0.5s] group-hover:text-sky">Unlimited budgets<br>Goals and savings tracking<br>Sync across all devices<br>Custom spending reports</p>
                 </div>
                 <div class="button uppercase">
-                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-sky px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-[#3a98bf] hover:[text-shadow:0.1px_0.1px_1px_white]" href="#">purchase</a>
+                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-sky px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-[#3a98bf] hover:[text-shadow:0.1px_0.1px_1px_white]" href="#download">Get started</a>
                 </div>
             </div>
             <div class="packthree group h-[395px] w-[285px] float-left bg-mist border border-cardbdr border-solid rounded-[5px] ml-[25px] [transition:0.5s] hover:[transform:translateY(-6px)]">
@@ -243,10 +242,10 @@
                     <span class="inline-block tracking-[-1.6px]">30$</span>
                 </div>
                 <div class="packinfo">
-                    <p class="h-[114px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[17px] pb-[19px] text-faint [transition:0.5s] group-hover:text-tang">Nullam suscipit vitae<br>Etiam faucibus<br>Vivamus viverra</p>
+                    <p class="h-[114px] leading-[37.96px] font-lato-bold font-bold text-[17px] px-[50px] pt-[17px] pb-[19px] text-faint [transition:0.5s] group-hover:text-tang">Everything in Pro<br>Shared family budgets<br>Priority support</p>
                 </div>
                 <div class="button uppercase">
-                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-tang px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-tangdk hover:[text-shadow:0.1px_0.1px_1px_white]" href="#">purchase</a>
+                    <a class="inline-block font-lato-bold font-bold text-[14px] text-white bg-tang px-[46px] py-[16px] rounded-[3px] [transition:0.5s] hover:bg-tangdk hover:[text-shadow:0.1px_0.1px_1px_white]" href="#download">Get started</a>
                 </div>
             </div>
         </div>
@@ -271,17 +270,17 @@
                         </div>
                     </div>
                     <div class="photo-prnt">
-                        <img class="photo" src="img/icon.svg" alt="">                
+                        <img class="photo" src="img/testimonial-1.svg" alt="Maya Thompson">                
                     </div>
                 </div>
                 <p class="comment mt-[29px] ml-[160px] text-[13px] font-lato-bold text-sky leading-[17.08px] w-[318px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis lectus eget libero blandit venenatis. In blandit tortor vel congue malesuada. Suspendisse molestie lobortis lorem dignissim pretium.
+                    I used to dread checking my bank app. Bazinger sorts everything for me, so now I open it without that familiar little knot of stress in my stomach.
                 </p>
                 <p class="commenter float-right font-lato-bold text-[13px] text-sky [transform:scaleX(0.95)_translateX(4px)]">
-                    <i>John Doe</i>
+                    <i>Maya Thompson</i>
                 </p>
                 <p class="commenter-info float-right clear-right mt-[14px] pl-0 font-lato-bold text-[14px] text-sky [transform:scaleX(0.85)_translateX(17.4px)_translateY(-15px)]">
-                    <i>from some company</i>
+                    <i>Freelance designer</i>
                 </p>
             </div><!-- /cominfo (testimonial 1) -->
                 </div><!-- /t-slide -->
@@ -289,26 +288,26 @@
                   <div class="cominfo my-[1%] mx-[29%] py-[2%] px-0">
                     <div class="avatar">
                       <div class="hex-prnt"><div class="hexagon"><img class="hex-svg" src="img/base.svg" alt=""></div></div>
-                      <div class="photo-prnt"><img class="photo" src="img/icon.svg" alt=""></div>
+                      <div class="photo-prnt"><img class="photo" src="img/testimonial-2.svg" alt="David Okafor"></div>
                     </div>
                     <p class="comment mt-[29px] ml-[160px] text-[13px] font-lato-bold text-sky leading-[17.08px] w-[318px]">
-                      Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum donec ullamcorper nulla non metus.
+                      With two kids, money got chaotic fast. The bill reminders alone have saved us from late fees, and we finally feel in control of the whole month.
                     </p>
-                    <p class="commenter float-right font-lato-bold text-[13px] text-sky [transform:scaleX(0.95)_translateX(4px)]"><i>Jane Roe</i></p>
-                    <p class="commenter-info float-right clear-right mt-[14px] pl-0 font-lato-bold text-[14px] text-sky [transform:scaleX(0.85)_translateX(17.4px)_translateY(-15px)]"><i>from another company</i></p>
+                    <p class="commenter float-right font-lato-bold text-[13px] text-sky [transform:scaleX(0.95)_translateX(4px)]"><i>David Okafor</i></p>
+                    <p class="commenter-info float-right clear-right mt-[14px] pl-0 font-lato-bold text-[14px] text-sky [transform:scaleX(0.85)_translateX(17.4px)_translateY(-15px)]"><i>Dad of two</i></p>
                   </div>
                 </div><!-- /t-slide -->
                 <div class="t-slide">
                   <div class="cominfo my-[1%] mx-[29%] py-[2%] px-0">
                     <div class="avatar">
                       <div class="hex-prnt"><div class="hexagon"><img class="hex-svg" src="img/base.svg" alt=""></div></div>
-                      <div class="photo-prnt"><img class="photo" src="img/icon.svg" alt=""></div>
+                      <div class="photo-prnt"><img class="photo" src="img/testimonial-3.svg" alt="Priya Patel"></div>
                     </div>
                     <p class="comment mt-[29px] ml-[160px] text-[13px] font-lato-bold text-sky leading-[17.08px] w-[318px]">
-                      Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum nullam quis risus eget urna mollis ornare vel eu leo a sem.
+                      I set a savings goal for a trip and barely noticed the money leaving. Watching it slowly fill up has made saving feel easy instead of scary.
                     </p>
-                    <p class="commenter float-right font-lato-bold text-[13px] text-sky [transform:scaleX(0.95)_translateX(4px)]"><i>Sam Poe</i></p>
-                    <p class="commenter-info float-right clear-right mt-[14px] pl-0 font-lato-bold text-[14px] text-sky [transform:scaleX(0.85)_translateX(17.4px)_translateY(-15px)]"><i>from some startup</i></p>
+                    <p class="commenter float-right font-lato-bold text-[13px] text-sky [transform:scaleX(0.95)_translateX(4px)]"><i>Priya Patel</i></p>
+                    <p class="commenter-info float-right clear-right mt-[14px] pl-0 font-lato-bold text-[14px] text-sky [transform:scaleX(0.85)_translateX(17.4px)_translateY(-15px)]"><i>Night-shift nurse</i></p>
                   </div>
                 </div><!-- /t-slide -->
               </div><!-- /t-track -->
@@ -331,9 +330,9 @@
     <div class="center">
         <div class="download h-[198px]">
             <h1 class="text-center font-lato-bold font-bold text-[52px] text-white pt-[21px] pb-[26px] tracking-[-1px] [transform:scaleX(0.93)]">
-                Do you Like this app?
+                Calm money starts here
             </h1>
-            <a class="a inline-block text-ink bg-sky text-[14px] font-lato-bold font-bold [border-bottom:5px_solid_#277697] rounded-[8px] uppercase pt-[20px] pr-[31px] pb-[19px] pl-[30px] mr-[450px] ml-[463px] [transition:0.2s] hover:text-white hover:bg-[#676767] hover:[border-bottom:5px_solid_#4b4b4b]" href="#">download now</a>
+            <a class="a inline-block text-ink bg-sky text-[14px] font-lato-bold font-bold [border-bottom:5px_solid_#277697] rounded-[8px] uppercase pt-[20px] pr-[31px] pb-[19px] pl-[30px] mr-[450px] ml-[463px] [transition:0.2s] hover:text-white hover:bg-[#676767] hover:[border-bottom:5px_solid_#4b4b4b]" href="#prices">download now</a>
         </div>
     </div>
 </div>
@@ -360,7 +359,7 @@
 <!--footer start-->
 <div class="fullwidth footer bg-ink h-[105px] inline-block">
     <div class="center">
-        <a href="#" class="text-footer font-lato font-normal text-[11.3px] leading-[105px] inline-block [transition:0.25s] hover:text-[#d1d1d1]">Copyright © 2013 | BAZINGER | All Rights Reserved</a>
+        <a href="#home" class="text-footer font-lato font-normal text-[11.3px] leading-[105px] inline-block [transition:0.25s] hover:text-[#d1d1d1]">Copyright © 2026 | BAZINGER | All Rights Reserved</a>
         <div class="terms-privacy float-right font-lato text-[11px] leading-[105px]">
             <a class="terms text-footer font-lato font-normal text-[11.3px] leading-[105px] inline-block [transition:0.25s] hover:text-[#d1d1d1] [transform:translate(6px,0px)]" href="#">Terms of Service</a>
                 <span class="text-[11px] inline-block text-footer [transform:translate(3px,0px)]">｜</span>
