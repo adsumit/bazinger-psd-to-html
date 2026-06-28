@@ -1601,10 +1601,34 @@ a{
   width: 100%;
 }
 
-/* icon.svg = white avatar, centred over the hexagon */
+/* White circle FRAME, restored from the original PSD avatar (icon.svg = a white
+   disc with a person-shaped cutout). It sits BEHIND the photo so the disc's
+   outer edge reads as a white ring around each circular picture. The photo
+   (85px) fully covers the central person-cutout, so only the clean white ring
+   shows — no blue hexagon leaks through the cutout. The 94px disc vs the 85px
+   photo gives a ~4.5px ring on each side. We grow the disc rather than shrink
+   the photo so the pictures the user placed stay their intended size. */
+
+.testimonial .cominfo .avatar .photo-prnt::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 94px;
+  /* photo is 85px → ~4.5px white ring all round */
+  height: 94px;
+  background: url(../img/icon.svg) center / contain no-repeat;
+  z-index: 0;
+  /* behind .photo (z-index:1) within this layer */
+}
+
+/* the circular profile photo, centred over the white-circle frame */
 
 .testimonial .cominfo .avatar .photo-prnt .photo{
   position: absolute;
+  z-index: 1;
+  /* paint above the ::before white circle */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
